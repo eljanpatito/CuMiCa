@@ -50,12 +50,6 @@ void __fastcall Tfrmmaestrodetalleventa::btnimprimirClick(TObject *Sender)
    frmproforma->Query1->Open();
  frmproforma->QRLabel6->Caption=DBEdit2->Text;
  frmproforma->QRLabel7->Caption=DBEdit3->Text;
-// frmproforma->QRLabel2->Caption=DBEdit1->Text;
-// frmproforma->QRLabel8->Caption=DBEdit4->Text;
-   DecodeDate(Query1->FieldByName("Fecha")->AsDateTime, aa, mm, dd);
-   frmproforma->qrlDia->Caption = IntToStr(dd);
-   frmproforma->qrlMes->Caption = IntToStr(mm);
-   frmproforma->qrlAnio->Caption = IntToStr(aa);
    frmproforma->Query2->Close();
  frmproforma->Query2->SQL->Clear();
    frmproforma->Query2->SQL->Add("SELECT * FROM VENTA");

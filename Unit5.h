@@ -54,6 +54,18 @@ __published:
    TLabel *Label6;
    TDBEdit *DBEdit4;
    TDataSource *DataSource2;
+   TLabel *Label7;
+   TDBEdit *dbeCliCelular;
+   TLabel *Label8;
+   TDBEdit *dbeCliCiudad;
+   TStringField *Table1CELULAR;
+   TStringField *Table1DIRECCION;
+   TStringField *Table1CIUDAD;
+   TStringField *Query1CELULAR;
+   TStringField *Query1DIRECCION;
+   TStringField *Query1CIUDAD;
+   TLabel *Label9;
+   TDBEdit *DBEdit5;
 	void __fastcall FormCreate(TObject *Sender);
         void __fastcall btncerrarClick(TObject *Sender);
         void __fastcall btnnuevoclienteClick(TObject *Sender);

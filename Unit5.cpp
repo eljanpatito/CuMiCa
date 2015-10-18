@@ -11,6 +11,8 @@
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmgestioncliente *frmgestioncliente;
+int _fClientHeightEdit=585;
+int _fClientHeightSearch=535;
 //----------------------------------------------------------------------------
 __fastcall Tfrmgestioncliente::Tfrmgestioncliente(TComponent *Owner)
 	: TForm(Owner)
@@ -28,19 +30,18 @@ btncancelar->Click();
 Close();
 }
 //---------------------------------------------------------------------------
-void Tfrmgestioncliente::iniciar_ingreso_de_datos()
-{
-DataSource1->DataSet=Table1;
-Panel2->Enabled=True;
-Panel1->Enabled=False;
-DBEdit1->SetFocus();
-DBGrid1->Enabled=False;
-frmgestioncliente->Height=435;
+void Tfrmgestioncliente::iniciar_ingreso_de_datos() {
+   DataSource1->DataSet=Table1;
+   Panel2->Enabled=True;
+   Panel1->Enabled=False;
+   DBEdit1->SetFocus();
+   DBGrid1->Enabled=False;
+   frmgestioncliente->Height=_fClientHeightEdit;
 }
 void __fastcall Tfrmgestioncliente::btnnuevoclienteClick(TObject *Sender)
 {
- iniciar_ingreso_de_datos();
-Table1->Insert();
+   iniciar_ingreso_de_datos();
+   Table1->Insert();
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrmgestioncliente::DBEdit1Enter(TObject *Sender)
@@ -55,7 +56,7 @@ void __fastcall Tfrmgestioncliente::DBEdit1Exit(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall Tfrmgestioncliente::btncancelarClick(TObject *Sender)
 {
-   frmgestioncliente->Height=312;
+   frmgestioncliente->Height=_fClientHeightSearch;
    Panel2->Enabled=False;
    Panel1->Enabled=True;
    Table1->Cancel();
@@ -69,7 +70,7 @@ try{
 Table1->Post();
 Panel2->Enabled=False;
 Panel1->Enabled=True;
-frmgestioncliente->Height=312;
+frmgestioncliente->Height=_fClientHeightSearch;
 DBGrid1->Enabled=True;
 DataSource1->DataSet=Query1;
 /*Query1->SQL->Clear();
@@ -87,7 +88,7 @@ Application->MessageBox("Debe ingresar todos los campos correctamente","Error",M
 void __fastcall Tfrmgestioncliente::txtbuscarChange(TObject *Sender)
 {
 Query1->SQL->Clear();
-Query1->SQL->Add("Select  `CLIENTE`.`NIT`,  `CLIENTE`.`NOMBRE`,  `CLIENTE`.`APELLIDO`, CLIENTE.TELEFONO From `CLIENTE` WHERE NIT LIKE '%"+txtbuscar->Text+"%' OR APELLIDO LIKE '%"+txtbuscar->Text+"%'");
+Query1->SQL->Add("Select  * From `CLIENTE` WHERE NIT LIKE '%"+txtbuscar->Text+"%' OR APELLIDO LIKE '%"+txtbuscar->Text+"%'");
 Query1->Open();
 }
 //---------------------------------------------------------------------------
@@ -98,15 +99,14 @@ btncerrar->Click();
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrmgestioncliente::btnmodificarclienteClick(
-      TObject *Sender)
-{
-AnsiString nit;
-nit=DBEdit1->Text;
-iniciar_ingreso_de_datos();
-TLocateOptions op;
-op<<loPartialKey;
-Table1->Locate("NIT",nit,op);
-Table1->Edit();
+      TObject *Sender) {
+   AnsiString nit;
+   nit=DBEdit1->Text;
+   iniciar_ingreso_de_datos();
+   TLocateOptions op;
+   op<<loPartialKey;
+   Table1->Locate("NIT",nit,op);
+   Table1->Edit();
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrmgestioncliente::btneliminarclienteClick(
@@ -132,13 +132,19 @@ void __fastcall Tfrmgestioncliente::btnseleccionarClick(TObject *Sender)
 {
 btnseleccionar->Visible=False;
 frmventas->DBEdit1->Text=DBEdit3->Text+" "+DBEdit2->Text;
+   // Asign values from actual client to ventas table
+   frmventas->Table1CLI_TEL->Value = DBEdit4->Text;
+   frmventas->Table1CLI_CEL->Value = dbeCliCelular->Text;
+   frmventas->Table1CLI_CIUDAD->Value = dbeCliCiudad->Text;
+   frmventas->Table1CLI_NIT->Value = DBEdit1->Text;
 Close();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall Tfrmgestioncliente::FormActivate(TObject *Sender)
 {
-txtbuscar->Text="";
+   txtbuscar->Text="";
+   Height = _fClientHeightSearch;
 }
 //---------------------------------------------------------------------------
 

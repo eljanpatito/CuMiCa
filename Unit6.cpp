@@ -97,13 +97,18 @@ if(DBEdit1->Text=="")
        Application->MessageBox("Debe Seleccionar un cliente","OK",MB_OK | MB_ICONINFORMATION);
        return;
  }
-//btnbuscar->Enabled=False;
-Table1->Post();
-Table1->Refresh();
-Table1->Edit();
-frmgestionproductos->Panel1->Visible=False;
-frmgestionproductos->Panel2->Visible=True;
-frmgestionproductos->ShowModal();
+   if (Table2->RecordCount<25) {
+      //btnbuscar->Enabled=False;
+      Table1->Post();
+      Table1->Refresh();
+      Table1->Edit();
+      frmgestionproductos->Panel1->Visible=False;
+      frmgestionproductos->Panel2->Visible=True;
+      frmgestionproductos->ShowModal();
+   } else {
+      Application->MessageBox("Ya no puede agregar mas items a esta nota,\nle recomendamos crear una nueva nota.","OK",MB_OK | MB_ICONERROR);
+      return;
+   }
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrmventas::EditTOTAL_BSChange(TObject *Sender)
@@ -151,13 +156,6 @@ void __fastcall Tfrmventas::btnvenderClick(TObject *Sender)
    frmproforma->Query1->Open();
    frmproforma->QRLabel6->Caption=EditTOTAL->Text;
    frmproforma->QRLabel7->Caption=EditTOTAL_BS->Text;
-//   frmproforma->QRLabel2->Caption=EditIDNOTA->Text;
-// frmproforma->QRLabel8->Caption=DBEdit1->Text;
-   WORD aa, mm, dd;
-   DecodeDate(DateTimePicker1->Date, aa, mm, dd);
-   frmproforma->qrlDia->Caption = IntToStr(dd);
-   frmproforma->qrlMes->Caption = IntToStr(mm);
-   frmproforma->qrlAnio->Caption = IntToStr(aa);
    frmproforma->Query2->SQL->Clear();
    frmproforma->Query2->SQL->Add("SELECT * FROM VENTA");
    frmproforma->Query2->SQL->Add("WHERE IDNOTA ="+DBEdit5->Text+"");

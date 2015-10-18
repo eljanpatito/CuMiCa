@@ -71,6 +71,10 @@ __published:
    TDBEdit *DBEdit5;
    TTable *Table3;
    TDataSource *DataSource3;
+   TStringField *Table1CLI_TEL;
+   TStringField *Table1CLI_CEL;
+   TStringField *Table1CLI_CIUDAD;
+   TStringField *Table1CLI_NIT;
         void __fastcall btnbuscarClick(TObject *Sender);
         void __fastcall btnnuevaventaClick(TObject *Sender);
         void __fastcall btncancelarClick(TObject *Sender);
