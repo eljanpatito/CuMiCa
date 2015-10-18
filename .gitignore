@@ -1,5 +1,7 @@
 # IDE files
 *.~*~
+*.~*
+*.~cpp
 *.local
 *.identcache
 __history
