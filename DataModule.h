@@ -20,6 +20,10 @@ __published:	// IDE-managed Components
    TDataSource *dsSeguimiento;
    TQuery *qSumCajas;
    TDataSource *dsSumCajas;
+   TDataSource *dsVentasFecha;
+   TQuery *qVentasFecha;
+   TDateTimeField *qVentasFechaFECHA;
+   TFloatField *qVentasFechaTOTAL;
 private:	// User declarations
 public:		// User declarations
    __fastcall TDM(TComponent* Owner);

@@ -6,6 +6,9 @@
 *.identcache
 __history
 
+#Backup of MS Access DataBase
+*.ldb
+
 # Delphi Compiler output files
 *.drc
 *.map

@@ -7,7 +7,8 @@
     <OBJFILES value="CuMiCa.obj Unit1.obj Unit2.obj Unit3.obj Unit4.obj Unit5.obj Unit6.obj 
       Unit7.obj Unit8.obj Unit9.obj Unit10.obj Unit11.obj Unit12.obj Unit13.obj 
       Unit14.obj Unit15.obj Unit16.obj Unit17.obj Unit18.obj Unit19.obj 
-      Unit20.obj Unit21.obj DataModule.obj SegProductos.obj SegProductosForm.obj"/>
+      Unit20.obj Unit21.obj DataModule.obj SegProductos.obj SegProductosForm.obj 
+      RepVentasFecha.obj"/>
     <RESFILES value="CuMiCa.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
@@ -15,10 +16,13 @@
     <RESDEPEN value="$(RESFILES) Unit1.dfm Unit2.dfm Unit3.dfm Unit4.dfm Unit5.dfm Unit6.dfm 
       Unit7.dfm Unit8.dfm Unit9.dfm Unit10.dfm Unit11.dfm Unit12.dfm Unit13.dfm 
       Unit14.dfm Unit15.dfm Unit16.dfm Unit17.dfm Unit18.dfm Unit19.dfm 
-      Unit20.dfm Unit21.dfm DataModule.dfm SegProductos.dfm SegProductosForm.dfm"/>
+      Unit20.dfm Unit21.dfm DataModule.dfm SegProductos.dfm SegProductosForm.dfm 
+      RepVentasFecha.dfm"/>
     <LIBFILES value=""/>
-    <LIBRARIES value="vclx.lib qrpt.lib bdertl.lib vcldb.lib dbrtl.lib rtl.lib vcl.lib"/>
-    <SPARELIBS value="vcl.lib rtl.lib dbrtl.lib vcldb.lib bdertl.lib qrpt.lib vclx.lib"/>
+    <LIBRARIES value="tee.lib teedb.lib vclx.lib qrpt.lib bdertl.lib vcldb.lib dbrtl.lib rtl.lib 
+      vcl.lib"/>
+    <SPARELIBS value="vcl.lib rtl.lib dbrtl.lib vcldb.lib bdertl.lib qrpt.lib vclx.lib teedb.lib 
+      tee.lib"/>
     <PACKAGES value="vcl.bpi rtl.bpi dbrtl.bpi adortl.bpi vcldb.bpi vclx.bpi bdertl.bpi 
       vcldbx.bpi ibxpress.bpi dsnap.bpi cds.bpi bdecds.bpi qrpt.bpi teeui.bpi 
       teedb.bpi tee.bpi dss.bpi teeqr.bpi visualclx.bpi visualdbclx.bpi 
@@ -87,6 +91,7 @@
       <FILE FILENAME="DataModule.cpp" FORMNAME="DM" UNITNAME="DataModule" CONTAINERID="CCompiler" DESIGNCLASS="TDataModule" LOCALCOMMAND=""/>
       <FILE FILENAME="SegProductos.cpp" FORMNAME="fRepSeguimiento" UNITNAME="SegProductos" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="SegProductosForm.cpp" FORMNAME="fSeguimiento" UNITNAME="SegProductosForm" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="RepVentasFecha.cpp" FORMNAME="frmrepventasfecha" UNITNAME="RepVentasFecha" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>

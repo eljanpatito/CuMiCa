@@ -4,13 +4,13 @@ object frmreportes: Tfrmreportes
   BorderStyle = bsDialog
   Caption = 'REPORTES'
   ClientHeight = 316
-  ClientWidth = 492
+  ClientWidth = 441
   Color = clActiveCaption
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
-  Font.Style = []
+  Font.Style = [fsBold]
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
@@ -30,10 +30,10 @@ object frmreportes: Tfrmreportes
     ParentFont = False
   end
   object Image1: TImage
-    Left = 176
-    Top = 8
-    Width = 297
-    Height = 249
+    Left = 8
+    Top = 32
+    Width = 185
+    Height = 137
     Picture.Data = {
       0A544A504547496D6167659F770000FFD8FFE000104A46494600010200006400
       640000FFEC00114475636B7900010004000000410000FFEE000E41646F626500
@@ -995,41 +995,9 @@ object frmreportes: Tfrmreportes
       06080C1018203041D4020107FFD9}
     Stretch = True
   end
-  object btnimprimir: TButton
-    Left = 10
-    Top = 44
-    Width = 159
-    Height = 25
-    Cursor = crHandPoint
-    Caption = 'IMPRIMIR INVENTARIO'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 0
-    OnClick = btnimprimirClick
-  end
-  object Button1: TButton
-    Left = 10
-    Top = 76
-    Width = 159
-    Height = 25
-    Cursor = crHandPoint
-    Caption = 'VENTA DEL DIA'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 1
-    OnClick = Button1Click
-  end
   object btnsalir: TButton
-    Left = 10
-    Top = 268
+    Left = 234
+    Top = 276
     Width = 159
     Height = 25
     Cursor = crHandPoint
@@ -1040,97 +1008,154 @@ object frmreportes: Tfrmreportes
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 2
+    TabOrder = 0
     OnClick = btnsalirClick
   end
-  object btnproformas: TButton
-    Left = 10
-    Top = 108
-    Width = 159
-    Height = 25
-    Cursor = crHandPoint
-    Caption = 'PROFORMAS POR FECHA'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 3
-    OnClick = btnproformasClick
-  end
   object btncolor: TButton
-    Left = 476
-    Top = 0
+    Left = 420
+    Top = 8
     Width = 9
     Height = 9
     Cursor = crHandPoint
-    TabOrder = 4
+    TabOrder = 1
     OnClick = btncolorClick
   end
-  object btnempleados: TButton
-    Left = 10
-    Top = 140
-    Width = 159
-    Height = 25
-    Cursor = crHandPoint
-    Caption = 'LISTA DE EMPLEADOS'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 5
-    OnClick = btnempleadosClick
+  object GroupBox1: TGroupBox
+    Left = 8
+    Top = 176
+    Width = 185
+    Height = 129
+    Caption = 'IMPRESION DE LISTAS'
+    TabOrder = 2
+    object btnimprimir: TButton
+      Left = 10
+      Top = 60
+      Width = 159
+      Height = 25
+      Cursor = crHandPoint
+      Caption = 'IMPRIMIR INVENTARIO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      OnClick = btnimprimirClick
+    end
+    object btnempleados: TButton
+      Left = 10
+      Top = 96
+      Width = 159
+      Height = 25
+      Cursor = crHandPoint
+      Caption = 'LISTA DE EMPLEADOS'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+      OnClick = btnempleadosClick
+    end
+    object btnclientes: TButton
+      Left = 10
+      Top = 24
+      Width = 159
+      Height = 25
+      Cursor = crHandPoint
+      Caption = 'LISTA DE CLIENTES'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 2
+      OnClick = btnclientesClick
+    end
   end
-  object btnclientes: TButton
-    Left = 10
-    Top = 172
-    Width = 159
-    Height = 25
-    Cursor = crHandPoint
-    Caption = 'LISTA DE CLIENTES'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 6
-    OnClick = btnclientesClick
-  end
-  object btnventaemp: TButton
-    Left = 10
-    Top = 204
-    Width = 159
-    Height = 25
-    Cursor = crHandPoint
-    Caption = 'VENTAS POR EMPLEADO'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 7
-    OnClick = btnventaempClick
-  end
-  object Button2: TButton
-    Left = 10
-    Top = 236
-    Width = 159
-    Height = 25
-    Cursor = crHandPoint
-    Caption = 'SEG. PRODUCTOS'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 8
-    OnClick = Button2Click
+  object GroupBox2: TGroupBox
+    Left = 208
+    Top = 16
+    Width = 201
+    Height = 249
+    Caption = 'IMPRESION DE REPORTES'
+    TabOrder = 3
+    object Button1: TButton
+      Left = 18
+      Top = 28
+      Width = 159
+      Height = 25
+      Cursor = crHandPoint
+      Caption = 'VENTA DEL DIA'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      OnClick = Button1Click
+    end
+    object btnproformas: TButton
+      Left = 18
+      Top = 60
+      Width = 159
+      Height = 25
+      Cursor = crHandPoint
+      Caption = 'PROFORMAS POR FECHA'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+      OnClick = btnproformasClick
+    end
+    object btnventaemp: TButton
+      Left = 18
+      Top = 92
+      Width = 159
+      Height = 25
+      Cursor = crHandPoint
+      Caption = 'VENTAS POR EMPLEADO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 2
+      OnClick = btnventaempClick
+    end
+    object Button2: TButton
+      Left = 18
+      Top = 124
+      Width = 159
+      Height = 25
+      Cursor = crHandPoint
+      Caption = 'SEG. PRODUCTOS'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 3
+      OnClick = Button2Click
+    end
+    object Button3: TButton
+      Left = 16
+      Top = 160
+      Width = 161
+      Height = 25
+      Caption = 'VENTAS POR FECHAS'
+      TabOrder = 4
+      OnClick = Button3Click
+    end
   end
   object ColorDialog1: TColorDialog
     Ctl3D = True

@@ -14,18 +14,21 @@
 class Tfrmreportes : public TForm
 {
 __published:	// IDE-managed Components
-        TButton *btnimprimir;
         TLabel *Label7;
-        TButton *Button1;
         TImage *Image1;
         TButton *btnsalir;
-        TButton *btnproformas;
    TColorDialog *ColorDialog1;
    TButton *btncolor;
-        TButton *btnempleados;
-        TButton *btnclientes;
-        TButton *btnventaemp;
+   TGroupBox *GroupBox1;
+   TButton *btnimprimir;
+   TButton *btnempleados;
+   TButton *btnclientes;
+   TGroupBox *GroupBox2;
+   TButton *Button1;
+   TButton *btnproformas;
+   TButton *btnventaemp;
    TButton *Button2;
+   TButton *Button3;
         void __fastcall btnimprimirClick(TObject *Sender);
         void __fastcall Button1Click(TObject *Sender);
         void __fastcall btnsalirClick(TObject *Sender);
@@ -36,6 +39,7 @@ __published:	// IDE-managed Components
         void __fastcall btnclientesClick(TObject *Sender);
         void __fastcall btnventaempClick(TObject *Sender);
    void __fastcall Button2Click(TObject *Sender);
+   void __fastcall Button3Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall Tfrmreportes(TComponent* Owner);

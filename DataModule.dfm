@@ -1,7 +1,7 @@
 object DM: TDM
   OldCreateOrder = False
-  Left = 485
-  Top = 204
+  Left = 647
+  Top = 157
   Height = 431
   Width = 512
   object BdD: TDatabase
@@ -80,5 +80,29 @@ object DM: TDM
     DataSet = qSumCajas
     Left = 96
     Top = 192
+  end
+  object dsVentasFecha: TDataSource
+    DataSet = qVentasFecha
+    Left = 368
+    Top = 16
+  end
+  object qVentasFecha: TQuery
+    Active = True
+    DatabaseName = 'CuMiCaAlias'
+    SQL.Strings = (
+      'SELECT VENTA.FECHA, Sum(VENTA.TOTAL_BS) AS TOTAL'
+      'FROM VENTA'
+      'WHERE VENTA.FECHA>=#09/11/2012# AND VENTA.FECHA<=#13/11/2015#'
+      'GROUP BY VENTA.FECHA'
+      'ORDER BY VENTA.FECHA DESC;')
+    Left = 304
+    Top = 16
+    object qVentasFechaFECHA: TDateTimeField
+      FieldName = 'FECHA'
+    end
+    object qVentasFechaTOTAL: TFloatField
+      FieldName = 'TOTAL'
+      DisplayFormat = '#,##0.00'
+    end
   end
 end

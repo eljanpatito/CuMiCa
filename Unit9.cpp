@@ -19,6 +19,7 @@
 #include "Unit19.h"
 #include "Unit21.h"
 #include "SegProductosForm.h"
+#include "RepVentasFecha.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -88,6 +89,12 @@ void __fastcall Tfrmreportes::btnventaempClick(TObject *Sender)
 void __fastcall Tfrmreportes::Button2Click(TObject *Sender)
 {
    fSeguimiento->ShowModal();   
+}
+//---------------------------------------------------------------------------
+
+void __fastcall Tfrmreportes::Button3Click(TObject *Sender)
+{
+   frmrepventasfecha->ShowModal();   
 }
 //---------------------------------------------------------------------------
 
