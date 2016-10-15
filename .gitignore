@@ -29,6 +29,7 @@ __history
 *.il?
 *.#??
 *.pbi
+*.ddp
 
 # 64bit Delphi/C++Builder files
 *.[ao]

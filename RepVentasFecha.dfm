@@ -51,7 +51,7 @@ object frmrepventasfecha: Tfrmrepventasfecha
     Date = 42301.5787774769
     Format = 'ddMMMMyyyy'
     Time = 42301.5787774769
-    DateFormat = dfShort
+    DateFormat = dfLong
     DateMode = dmComboBox
     Kind = dtkDate
     ParseInput = False

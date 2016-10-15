@@ -17,6 +17,7 @@ __fastcall Tfrmrepventasfecha::Tfrmrepventasfecha(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall Tfrmrepventasfecha::BitBtn1Click(TObject *Sender)
 {
+   ShortDateFormat = "dd/MM/yyyy";
    AnsiString dateFrom = dtpFrom->Date;
    AnsiString dateTo = dtpTo->Date;
    dateFrom = dateFrom.SubString(1,10);
@@ -34,3 +35,4 @@ void __fastcall Tfrmrepventasfecha::BitBtn1Click(TObject *Sender)
    DM->qVentasFecha->Open();
 }
 //---------------------------------------------------------------------------
+
