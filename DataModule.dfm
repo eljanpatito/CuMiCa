@@ -1,7 +1,7 @@
 object DM: TDM
   OldCreateOrder = False
-  Left = 647
-  Top = 157
+  Left = 252
+  Top = 304
   Height = 431
   Width = 512
   object BdD: TDatabase
@@ -19,7 +19,6 @@ object DM: TDM
     Top = 59
   end
   object Query1: TQuery
-    Active = True
     DatabaseName = 'CuMiCaBdD'
     SQL.Strings = (
       'Select *'
@@ -28,7 +27,6 @@ object DM: TDM
     Top = 56
   end
   object qSeguimiento: TQuery
-    Active = True
     DatabaseName = 'CuMiCaBdD'
     SQL.Strings = (
       
@@ -59,7 +57,6 @@ object DM: TDM
     Top = 136
   end
   object qSumCajas: TQuery
-    Active = True
     DatabaseName = 'CuMiCaBdD'
     SQL.Strings = (
       'SELECT Sum([DETALLE_VENTA.CANTIDAD]) AS TOTAL_CAJAS'
@@ -87,7 +84,6 @@ object DM: TDM
     Top = 16
   end
   object qVentasFecha: TQuery
-    Active = True
     DatabaseName = 'CuMiCaAlias'
     SQL.Strings = (
       'SELECT VENTA.FECHA, Sum(VENTA.TOTAL_BS) AS TOTAL'
@@ -104,5 +100,25 @@ object DM: TDM
       FieldName = 'TOTAL'
       DisplayFormat = '#,##0.00'
     end
+  end
+  object tConfiguration: TTable
+    Active = True
+    DatabaseName = 'CuMiCaBdD'
+    TableName = 'configuration'
+    Left = 296
+    Top = 72
+    object tConfigurationproperty: TStringField
+      FieldName = 'property'
+      Size = 25
+    end
+    object tConfigurationvalue: TStringField
+      FieldName = 'value'
+      Size = 200
+    end
+  end
+  object dsConfiguration: TDataSource
+    DataSet = tConfiguration
+    Left = 360
+    Top = 72
   end
 end

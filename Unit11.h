@@ -63,11 +63,7 @@ __published:	// IDE-managed Components
    TFloatField *Query1PRECIO;
    TFloatField *Query1PARCIAL;
    TIntegerField *Query1ID_NOTA;
-   TSmallintField *Query1CANTIDAD_CAJAS;
    TSmallintField *Query1CANTIDAS_POR_CAJA;
-   TFloatField *Query1PRECIO_DE_COMPRA;
-   TFloatField *Query1PRECIO_UNIDAD;
-   TFloatField *Query1PRECIO_CAJA;
    TQRLabel *QRLabel3;
    TQRDBText *QRDBText2;
    TQRLabel *QRLabel10;
@@ -93,9 +89,15 @@ __published:	// IDE-managed Components
    TQRLabel *QRLabel5;
    TQRLabel *QRLabel8;
    TQRShape *QRShape11;
+   TQRShape *QRShape12;
+   TQRLabel *QRLabel9;
+   TQRDBText *QRDBText3;
+   TQRLabel *qrlAddress;
+   TQRLabel *qrlPhone;
 private:	// User declarations
 public:		// User declarations
     __fastcall Tfrmproforma(TComponent* Owner);
+    void Tfrmproforma::setValues();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE Tfrmproforma *frmproforma;

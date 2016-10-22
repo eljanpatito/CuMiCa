@@ -75,6 +75,7 @@ __published:
    TStringField *Table1CLI_CEL;
    TStringField *Table1CLI_CIUDAD;
    TStringField *Table1CLI_NIT;
+        TButton *btnQuitar;
         void __fastcall btnbuscarClick(TObject *Sender);
         void __fastcall btnnuevaventaClick(TObject *Sender);
         void __fastcall btncancelarClick(TObject *Sender);
@@ -89,6 +90,7 @@ __published:
    void __fastcall FormActivate(TObject *Sender);
         void __fastcall btnempleadoClick(TObject *Sender);
         void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
+   void __fastcall btnQuitarClick(TObject *Sender);
 private:
 	// private declarations
 public:

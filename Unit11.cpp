@@ -5,6 +5,7 @@
 #include "Unit11.h"
 #include "Unit6.h"
 #include "Unit14.h"
+#include "Configuration.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -16,6 +17,14 @@ __fastcall Tfrmproforma::Tfrmproforma(TComponent* Owner)
 }
 //---------------------------------------------------------------------------
 
-
-
+void Tfrmproforma::setValues()
+{
+   qrlAddress->Caption = frmConfiguration->getValueFromProperty("address");
+   qrlPhone->Caption = frmConfiguration->getValueFromProperty("phone");
+   qrlAddress->Font->Name = frmConfiguration->getValueFromProperty("fontName");
+   qrlAddress->Font->Size = StrToInt(frmConfiguration->getValueFromProperty("fontSize"));
+   qrlAddress->Font->Color = StringToColor(frmConfiguration->getValueFromProperty("fontColor"));
+   qrlPhone->Font = qrlAddress->Font;
+}
+//---------------------------------------------------------------------------
 

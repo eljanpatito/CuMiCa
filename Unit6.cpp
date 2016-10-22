@@ -13,6 +13,7 @@
 #include "Unit14.h"
 #include "Unit15.h"
 #include "Unit16.h"
+#include "Configuration.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmventas *frmventas;
@@ -89,15 +90,18 @@ void __fastcall Tfrmventas::FormClose(TObject *Sender,
    }
 }
 //---------------------------------------------------------------------------
-void __fastcall Tfrmventas::btningresarClick(TObject *Sender)
-{
-
-if(DBEdit1->Text=="")
- {
+void __fastcall Tfrmventas::btningresarClick(TObject *Sender) {
+   if(DBEdit1->Text=="") {
        Application->MessageBox("Debe Seleccionar un cliente","OK",MB_OK | MB_ICONINFORMATION);
        return;
- }
-   if (Table2->RecordCount<25) {
+   }
+   int maxRecords = 25;
+   try {
+      maxRecords = frmConfiguration->getValueFromProperty("maxRecords").ToInt();
+   } catch (...) {
+      ShowMessage("Ocurrio un error al recuperar el maximo de registros permitido, se usara 25 como valor predeterminado");
+   }
+   if (Table2->RecordCount < maxRecords) {
       //btnbuscar->Enabled=False;
       Table1->Post();
       Table1->Refresh();
@@ -160,6 +164,7 @@ void __fastcall Tfrmventas::btnvenderClick(TObject *Sender)
    frmproforma->Query2->SQL->Add("SELECT * FROM VENTA");
    frmproforma->Query2->SQL->Add("WHERE IDNOTA ="+DBEdit5->Text+"");
    frmproforma->Query2->Open();
+   frmproforma->setValues();
    frmproforma->QuickRep1->PreviewModal();
    txtnombre->Text="";
    Table1->Close();
@@ -219,8 +224,36 @@ void __fastcall Tfrmventas::FormCloseQuery(TObject *Sender, bool &CanClose)
 if(Panel2->Enabled)
 {
    Application->MessageBox("DEBE 'GUARDAR VENTA' O 'CANCELAR VENTA'","OK",MB_OK | MB_ICONINFORMATION);
-   CanClose=False;     
+   CanClose=False;
 }
+}
+//---------------------------------------------------------------------------
+
+
+
+
+void __fastcall Tfrmventas::btnQuitarClick(TObject *Sender)
+{
+   AnsiString code = Table2->FieldByName("CODIGO")->AsString;
+   if (!code.IsEmpty()) {
+      if (Application->MessageBox(("¿Esta seguro de quitar:\n"
+            + Table2->FieldByName("DESCRIPCION")->AsString
+            + "\ndel carrito?").c_str(), "Quitar producto del carrito",
+            MB_YESNO | MB_ICONQUESTION) == ID_YES) {
+         frmgestionproductos->locateTableByField(frmdatosproducto->Table1, "CODIGO", code);
+         AnsiString id = frmdatosproducto->Table1->FieldByName("ID")->AsString;
+         double price = frmdatosproducto->Table1->FieldByName("PRECIO_CAJA")->AsString.ToDouble();
+         int amount = DBEdit3->Text.ToInt();
+         frmgestionproductos->addAmountByID(amount, id);
+         frmgestionproductos->actualizar_consulta();
+         Table2->Delete();
+         Table2->Refresh();
+         frmventas->EditTOTAL_CAJAS->Text=frmventas->EditTOTAL_CAJAS->Text.ToInt() - amount;
+         frmventas->EditTOTAL_BS->Text=frmventas->EditTOTAL_BS->Text.ToDouble()-(amount*price);
+      }
+   } else {
+      ShowMessage("No existen productos para quitar del carrito.");
+   }
 }
 //---------------------------------------------------------------------------
 

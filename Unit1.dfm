@@ -492,6 +492,7 @@ object frmmenuprincipal: Tfrmmenuprincipal
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
     ParentFont = False
+    PopupMenu = PopupMenu1
   end
   object Image2: TImage
     Left = 352
@@ -3307,7 +3308,7 @@ object frmmenuprincipal: Tfrmmenuprincipal
   end
   object Table1: TTable
     Active = True
-    DatabaseName = 'CuMiCaAlias'
+    DatabaseName = 'CumicaAlias'
     TableName = 'FORMULARIO'
     Left = 312
     Top = 8
@@ -3316,5 +3317,13 @@ object frmmenuprincipal: Tfrmmenuprincipal
     DataSet = Table1
     Left = 344
     Top = 8
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 216
+    Top = 8
+    object Configuration1: TMenuItem
+      Caption = 'Configuracion'
+      OnClick = Configuration1Click
+    end
   end
 end

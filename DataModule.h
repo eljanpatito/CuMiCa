@@ -24,6 +24,10 @@ __published:	// IDE-managed Components
    TQuery *qVentasFecha;
    TDateTimeField *qVentasFechaFECHA;
    TFloatField *qVentasFechaTOTAL;
+   TTable *tConfiguration;
+   TDataSource *dsConfiguration;
+   TStringField *tConfigurationproperty;
+   TStringField *tConfigurationvalue;
 private:	// User declarations
 public:		// User declarations
    __fastcall TDM(TComponent* Owner);

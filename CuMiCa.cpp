@@ -28,6 +28,7 @@ USEFORM("DataModule.cpp", DM); /* TDataModule: File Type */
 USEFORM("SegProductos.cpp", fRepSeguimiento);
 USEFORM("SegProductosForm.cpp", fSeguimiento);
 USEFORM("RepVentasFecha.cpp", frmrepventasfecha);
+USEFORM("Configuration.cpp", frmConfiguration);
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
@@ -59,6 +60,7 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
        Application->CreateForm(__classid(TfRepSeguimiento), &fRepSeguimiento);
        Application->CreateForm(__classid(TfSeguimiento), &fSeguimiento);
        Application->CreateForm(__classid(Tfrmrepventasfecha), &frmrepventasfecha);
+       Application->CreateForm(__classid(TfrmConfiguration), &frmConfiguration);
        Application->Run();
         }
         catch (Exception &exception)

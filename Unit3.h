@@ -45,6 +45,7 @@ __published:
         TDBEdit *DBEdit5;
    TButton *btncolor;
    TColorDialog *ColorDialog1;
+   TDBEdit *dbeAmountByBox;
 	void __fastcall FormCreate(TObject *Sender);
         void __fastcall txtbuscarChange(TObject *Sender);
         void __fastcall btncerrarClick(TObject *Sender);
@@ -63,7 +64,9 @@ private:
 public:
 	// public declarations
 	__fastcall Tfrmgestionproductos(TComponent *Owner);
-        void Tfrmgestionproductos::actualizar_consulta();
+   void Tfrmgestionproductos::actualizar_consulta();
+   void Tfrmgestionproductos::addAmountByID(int amount, AnsiString id);
+   void Tfrmgestionproductos::locateTableByField(TTable *table, AnsiString field, AnsiString value);
 };
 //----------------------------------------------------------------------------
 extern Tfrmgestionproductos *frmgestionproductos;

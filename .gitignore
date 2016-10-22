@@ -55,3 +55,8 @@ jcl/source/include/jclwin32.inc
 thirdparty/InnoSetup/setupbuild/*
 thirdparty/InnoSetup/Settings.iss
 /thirdparty/makedist/*.log
+
+# IDEA
+.idea/*
+*.idea
+.idea

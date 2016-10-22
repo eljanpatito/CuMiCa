@@ -9,6 +9,7 @@
 #include "Unit6.h"
 #include "Unit9.h"
 #include "Unit16.h"
+#include "Configuration.h"
 
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -93,6 +94,12 @@ int Tfrmmenuprincipal::cargar_color_ventana(AnsiString formulario)
 void __fastcall Tfrmmenuprincipal::btnempleadoClick(TObject *Sender)
 {
 frmempleado->ShowModal();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall Tfrmmenuprincipal::Configuration1Click(TObject *Sender)
+{
+   frmConfiguration->ShowModal();   
 }
 //---------------------------------------------------------------------------
 

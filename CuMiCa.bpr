@@ -8,7 +8,7 @@
       Unit7.obj Unit8.obj Unit9.obj Unit10.obj Unit11.obj Unit12.obj Unit13.obj 
       Unit14.obj Unit15.obj Unit16.obj Unit17.obj Unit18.obj Unit19.obj 
       Unit20.obj Unit21.obj DataModule.obj SegProductos.obj SegProductosForm.obj 
-      RepVentasFecha.obj"/>
+      RepVentasFecha.obj Configuration.obj"/>
     <RESFILES value="CuMiCa.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
@@ -17,7 +17,7 @@
       Unit7.dfm Unit8.dfm Unit9.dfm Unit10.dfm Unit11.dfm Unit12.dfm Unit13.dfm 
       Unit14.dfm Unit15.dfm Unit16.dfm Unit17.dfm Unit18.dfm Unit19.dfm 
       Unit20.dfm Unit21.dfm DataModule.dfm SegProductos.dfm SegProductosForm.dfm 
-      RepVentasFecha.dfm"/>
+      RepVentasFecha.dfm Configuration.dfm"/>
     <LIBFILES value=""/>
     <LIBRARIES value="tee.lib teedb.lib vclx.lib qrpt.lib bdertl.lib vcldb.lib dbrtl.lib rtl.lib 
       vcl.lib"/>
@@ -40,13 +40,14 @@
     <USERDEFINES value="_DEBUG"/>
     <SYSDEFINES value="NO_STRICT"/>
     <MAINSOURCE value="CuMiCa.cpp"/>
-    <INCLUDEPATH value="&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;&quot;C:\Program Files\Borland\CBuilder6\Bin&quot;;D:\PROGRAMAS\TRABAJOS\RAULINVENTARIO\App;$(BCB)\include;$(BCB)\include\vcl"/>
-    <LIBPATH value="&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;&quot;C:\Program Files\Borland\CBuilder6\Bin&quot;;D:\PROGRAMAS\TRABAJOS\RAULINVENTARIO\App;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <INCLUDEPATH value="&quot;D:\Program Files\Borland\CBuilder6\Projects&quot;;&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;&quot;C:\Program Files\Borland\CBuilder6\Bin&quot;;D:\PROGRAMAS\TRABAJOS\RAULINVENTARIO\App;$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="&quot;D:\Program Files\Borland\CBuilder6\Projects&quot;;&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;&quot;C:\Program Files\Borland\CBuilder6\Bin&quot;;D:\PROGRAMAS\TRABAJOS\RAULINVENTARIO\App;$(BCB)\lib\obj;$(BCB)\lib"/>
     <WARNINGS value="-w-par"/>
     <OTHERFILES value=""/>
   </MACROS>
   <OPTIONS>
-    <IDLCFLAGS value="-I&quot;C:\Program Files\Borland\CBuilder6\Projects&quot; 
+    <IDLCFLAGS value="-I&quot;D:\Program Files\Borland\CBuilder6\Projects&quot; 
+      -I&quot;C:\Program Files\Borland\CBuilder6\Projects&quot; 
       -I&quot;C:\Program Files\Borland\CBuilder6\Bin&quot; 
       -ID:\PROGRAMAS\TRABAJOS\RAULINVENTARIO\App -I$(BCB)\include 
       -I$(BCB)\include\vcl -src_suffix cpp -D_DEBUG -boa"/>
@@ -92,6 +93,7 @@
       <FILE FILENAME="SegProductos.cpp" FORMNAME="fRepSeguimiento" UNITNAME="SegProductos" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="SegProductosForm.cpp" FORMNAME="fSeguimiento" UNITNAME="SegProductosForm" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="RepVentasFecha.cpp" FORMNAME="frmrepventasfecha" UNITNAME="RepVentasFecha" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Configuration.cpp" FORMNAME="frmConfiguration" UNITNAME="Configuration" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>

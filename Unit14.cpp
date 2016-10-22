@@ -43,10 +43,10 @@ void __fastcall Tfrmmaestrodetalleventa::btnimprimirClick(TObject *Sender)
 
    frmproforma->Query1->Close();
    frmproforma->Query1->SQL->Clear();
-   frmproforma->Query1->SQL->Add("SELECT DETALLE_VENTA.*, producto.*");
-   frmproforma->Query1->SQL->Add("FROM  PRODUCTO INNER JOIN DETALLE_VENTA ON PRODUCTO.CODIGO = DETALLE_VENTA.CODIGO");
-   frmproforma->Query1->SQL->Add("WHERE (((DETALLE_VENTA.ID_NOTA)="+DBEdit1->Text+"))");
-// SELECT DETALLE_VENTA.* FROM DETALLE_VENTA WHERE (((DETALLE_VENTA.ID_NOTA)="+DBEdit1->Text+"))");
+//   frmproforma->Query1->SQL->Add("SELECT DETALLE_VENTA.*, producto.*");
+//   frmproforma->Query1->SQL->Add("FROM  PRODUCTO INNER JOIN DETALLE_VENTA ON PRODUCTO.CODIGO = DETALLE_VENTA.CODIGO");
+//   frmproforma->Query1->SQL->Add("WHERE (((DETALLE_VENTA.ID_NOTA)="+DBEdit1->Text+"))");
+   frmproforma->Query1->SQL->Add("SELECT DETALLE_VENTA.* FROM DETALLE_VENTA WHERE (((DETALLE_VENTA.ID_NOTA)="+DBEdit1->Text+"))");
    frmproforma->Query1->Open();
  frmproforma->QRLabel6->Caption=DBEdit2->Text;
  frmproforma->QRLabel7->Caption=DBEdit3->Text;
@@ -55,6 +55,7 @@ void __fastcall Tfrmmaestrodetalleventa::btnimprimirClick(TObject *Sender)
    frmproforma->Query2->SQL->Add("SELECT * FROM VENTA");
    frmproforma->Query2->SQL->Add("WHERE IDNOTA ="+DBEdit1->Text+"");
     frmproforma->Query2->Open();
+   frmproforma->setValues();
  frmproforma->QuickRep1->PreviewModal();
 }
 //---------------------------------------------------------------------------
