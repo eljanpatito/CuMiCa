@@ -3308,7 +3308,7 @@ object frmmenuprincipal: Tfrmmenuprincipal
   end
   object Table1: TTable
     Active = True
-    DatabaseName = 'CumicaAlias'
+    DatabaseName = 'Cumica2016Alias'
     TableName = 'FORMULARIO'
     Left = 312
     Top = 8

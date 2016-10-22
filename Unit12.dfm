@@ -1,6 +1,6 @@
 object frmproformas: Tfrmproformas
-  Left = 407
-  Top = 343
+  Left = 254
+  Top = 86
   Width = 870
   Height = 640
   Caption = 'PROFORMAS'
@@ -124,7 +124,7 @@ object frmproformas: Tfrmproformas
       object QRSysData2: TQRSysData
         Left = 32
         Top = 4
-        Width = 42
+        Width = 80
         Height = 17
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -135,7 +135,7 @@ object frmproformas: Tfrmproformas
           44.9791666666667
           84.6666666666667
           10.5833333333333
-          111.125)
+          211.666666666667)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
@@ -353,14 +353,14 @@ object frmproformas: Tfrmproformas
   end
   object MasterTable: TTable
     Active = True
-    DatabaseName = 'CuMiCaAlias'
+    DatabaseName = 'Cumica2016Alias'
     TableName = 'VENTA'
     Left = 16
     Top = 20
   end
   object DetailTable: TTable
     Active = True
-    DatabaseName = 'CuMiCaAlias'
+    DatabaseName = 'Cumica2016Alias'
     IndexFieldNames = 'ID_NOTA'
     MasterFields = 'IDNOTA'
     MasterSource = MasterDS

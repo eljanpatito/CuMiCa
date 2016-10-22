@@ -1,7 +1,7 @@
 object frmrepventasfecha: Tfrmrepventasfecha
   Left = 299
   Top = 121
-  Width = 949
+  Width = 955
   Height = 516
   Caption = 'Reporte de ventas por fecha'
   Color = clBtnFace

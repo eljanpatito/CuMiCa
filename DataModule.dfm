@@ -5,8 +5,7 @@ object DM: TDM
   Height = 431
   Width = 512
   object BdD: TDatabase
-    AliasName = 'CuMiCaAlias'
-    Connected = True
+    AliasName = 'Cumica2016Alias'
     DatabaseName = 'CuMiCaBdD'
     LoginPrompt = False
     SessionName = 'Default'
@@ -84,7 +83,7 @@ object DM: TDM
     Top = 16
   end
   object qVentasFecha: TQuery
-    DatabaseName = 'CuMiCaAlias'
+    DatabaseName = 'CuMiCaBdD'
     SQL.Strings = (
       'SELECT VENTA.FECHA, Sum(VENTA.TOTAL_BS) AS TOTAL'
       'FROM VENTA'
@@ -102,7 +101,6 @@ object DM: TDM
     end
   end
   object tConfiguration: TTable
-    Active = True
     DatabaseName = 'CuMiCaBdD'
     TableName = 'configuration'
     Left = 296

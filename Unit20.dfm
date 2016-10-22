@@ -184,8 +184,7 @@ object QRMDForm: TQRMDForm
     end
   end
   object DetailTable: TTable
-    Active = True
-    DatabaseName = 'CuMiCaAlias'
+    DatabaseName = 'Cumica2016Alias'
     IndexFieldNames = 'COD_EMP'
     MasterFields = 'CODIGO'
     MasterSource = MasterDS
@@ -199,7 +198,7 @@ object QRMDForm: TQRMDForm
     Top = 20
   end
   object Query1: TQuery
-    DatabaseName = 'CuMiCaAlias'
+    DatabaseName = 'Cumica2016Alias'
     SQL.Strings = (
       'select IDNOTA, COD_EMP, FECHA, sum(TOTAL_BS) as TOTAL from venta'
       'group by cod_emp,id_nota')
@@ -207,8 +206,7 @@ object QRMDForm: TQRMDForm
     Top = 16
   end
   object Query2: TQuery
-    Active = True
-    DatabaseName = 'CuMiCaAlias'
+    DatabaseName = 'Cumica2016Alias'
     SQL.Strings = (
       'SELECT * FROM V_e')
     Left = 16

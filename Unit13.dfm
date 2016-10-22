@@ -3,8 +3,8 @@ object frmrepproforma: Tfrmrepproforma
   Top = 132
   BorderStyle = bsDialog
   Caption = 'REPORTE DE PROFORMAS'
-  ClientHeight = 123
-  ClientWidth = 298
+  ClientHeight = 124
+  ClientWidth = 281
   Color = clActiveCaption
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -892,7 +892,7 @@ object frmrepproforma: Tfrmrepproforma
   end
   object DetailTable: TTable
     Active = True
-    DatabaseName = 'CuMiCaAlias'
+    DatabaseName = 'Cumica2016Alias'
     IndexFieldNames = 'ID_NOTA'
     MasterFields = 'IDNOTA'
     MasterSource = MasterDS
@@ -907,7 +907,7 @@ object frmrepproforma: Tfrmrepproforma
   end
   object Query1: TQuery
     Active = True
-    DatabaseName = 'CuMiCaAlias'
+    DatabaseName = 'Cumica2016Alias'
     SQL.Strings = (
       'select * from venta')
     Left = 192

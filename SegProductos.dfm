@@ -1,7 +1,7 @@
 object fRepSeguimiento: TfRepSeguimiento
   Left = 192
   Top = 124
-  Width = 924
+  Width = 892
   Height = 480
   Caption = 'fRepSeguimiento'
   Color = clBtnFace

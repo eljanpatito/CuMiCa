@@ -123,7 +123,7 @@ Table1->Locate("NIT",nit,op);
 Table1->Delete();
 DataSource1->DataSet=Query1;
 Query1->SQL->Clear();
-Query1->SQL->Add("Select  `CLIENTE`.`NIT`,  `CLIENTE`.`NOMBRE`,  `CLIENTE`.`APELLIDO`From `CLIENTE`");
+Query1->SQL->Add("Select * From `CLIENTE`");
 Query1->Open();
 }
 }
