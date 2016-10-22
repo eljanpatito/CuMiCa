@@ -6,6 +6,7 @@ object DM: TDM
   Width = 512
   object BdD: TDatabase
     AliasName = 'Cumica2016Alias'
+    Connected = True
     DatabaseName = 'CuMiCaBdD'
     LoginPrompt = False
     SessionName = 'Default'
@@ -118,5 +119,21 @@ object DM: TDM
     DataSet = tConfiguration
     Left = 360
     Top = 72
+  end
+  object qFindProduct: TQuery
+    Active = True
+    DatabaseName = 'CuMiCaBdD'
+    SQL.Strings = (
+      'SELECT * FROM PRODUCTO'
+      'WHERE CODIGO=:codigo')
+    Left = 296
+    Top = 144
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'codigo'
+        ParamType = ptUnknown
+        Value = '1010'
+      end>
   end
 end

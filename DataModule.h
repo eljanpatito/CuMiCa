@@ -28,6 +28,7 @@ __published:	// IDE-managed Components
    TDataSource *dsConfiguration;
    TStringField *tConfigurationproperty;
    TStringField *tConfigurationvalue;
+   TQuery *qFindProduct;
 private:	// User declarations
 public:		// User declarations
    __fastcall TDM(TComponent* Owner);

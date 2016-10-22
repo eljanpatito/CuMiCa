@@ -6,6 +6,7 @@
 #include "Unit1.h"
 #include "Unit2.h"
 #include "Unit3.h"
+#include "DataModule.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmdatosproducto *frmdatosproducto;
@@ -22,17 +23,14 @@ void __fastcall Tfrmdatosproducto::FormCreate(TObject *Sender)
 //----------------------------------------------------------------------------
 void __fastcall Tfrmdatosproducto::btnguardarClick(TObject *Sender)
 {
-try{
-Table1->Post();
-Application->MessageBox("DATOS DE PRODUCTO CORRECTAMENTE GUARDADOS","OK",MB_OK | MB_ICONINFORMATION);
-frmgestionproductos->actualizar_consulta();
-Close();
-}
-catch(...)
-{
-Application->MessageBox("Debe ingresar todos los campos correctamente","Error",MB_OK | MB_ICONERROR);
-}
-
+   try {
+      Table1->Post();
+      Application->MessageBox("DATOS DE PRODUCTO CORRECTAMENTE GUARDADOS","OK",MB_OK | MB_ICONINFORMATION);
+      frmgestionproductos->actualizar_consulta();
+      Close();
+   } catch(...) {
+      Application->MessageBox("Debe ingresar todos los campos correctamente","Error",MB_OK | MB_ICONERROR);
+   }
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrmdatosproducto::btncancelarClick(TObject *Sender)
@@ -47,16 +45,24 @@ Close();
 //---------------------------------------------------------------------------
 void __fastcall Tfrmdatosproducto::EditCODIGOEnter(TObject *Sender)
 {
-((TEdit *)Sender)->Color=clLime;        
+((TEdit *)Sender)->Color=clLime;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall Tfrmdatosproducto::EditCODIGOExit(TObject *Sender)
 {
-if( ((TEdit *)Sender)->Text=="")
-((TEdit *)Sender)->Color=clMaroon;
-else
-((TEdit *)Sender)->Color=clWhite;
+   if( ((TEdit *)Sender)->Text=="") {
+      ((TEdit *)Sender)->Color=clMaroon;
+   } else {
+      ((TEdit *)Sender)->Color=clWhite;
+   }
+   DM->qFindProduct->Close();
+   DM->qFindProduct->ParamByName("codigo")->AsString = EditCODIGO->Text;
+   DM->qFindProduct->Open();
+   if (DM->qFindProduct->RecordCount > 0) {
+      Application->MessageBox("El codigo ingresado ya existe. Ingrese un codigo diferente o cancele la operacion.","Error",MB_OK | MB_ICONERROR);
+      EditCODIGO->SetFocus();
+   }
 }
 //---------------------------------------------------------------------------
 
