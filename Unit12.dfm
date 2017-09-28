@@ -352,15 +352,13 @@ object frmproformas: Tfrmproformas
     end
   end
   object MasterTable: TTable
-    Active = True
-    DatabaseName = 'Cumica2016Alias'
+    DatabaseName = 'Cumica2017Alias'
     TableName = 'VENTA'
     Left = 16
     Top = 20
   end
   object DetailTable: TTable
-    Active = True
-    DatabaseName = 'Cumica2016Alias'
+    DatabaseName = 'Cumica2017Alias'
     IndexFieldNames = 'ID_NOTA'
     MasterFields = 'IDNOTA'
     MasterSource = MasterDS

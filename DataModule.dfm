@@ -1,12 +1,11 @@
 object DM: TDM
   OldCreateOrder = False
-  Left = 252
-  Top = 304
+  Left = 261
+  Top = 229
   Height = 431
   Width = 512
   object BdD: TDatabase
-    AliasName = 'Cumica2016Alias'
-    Connected = True
+    AliasName = 'Cumica2017Alias'
     DatabaseName = 'CuMiCaBdD'
     LoginPrompt = False
     SessionName = 'Default'
@@ -121,7 +120,6 @@ object DM: TDM
     Top = 72
   end
   object qFindProduct: TQuery
-    Active = True
     DatabaseName = 'CuMiCaBdD'
     SQL.Strings = (
       'SELECT * FROM PRODUCTO'

@@ -891,8 +891,7 @@ object frmrepproforma: Tfrmrepproforma
     TabOrder = 4
   end
   object DetailTable: TTable
-    Active = True
-    DatabaseName = 'Cumica2016Alias'
+    DatabaseName = 'Cumica2017Alias'
     IndexFieldNames = 'ID_NOTA'
     MasterFields = 'IDNOTA'
     MasterSource = MasterDS
@@ -906,8 +905,7 @@ object frmrepproforma: Tfrmrepproforma
     Top = 12
   end
   object Query1: TQuery
-    Active = True
-    DatabaseName = 'Cumica2016Alias'
+    DatabaseName = 'Cumica2017Alias'
     SQL.Strings = (
       'select * from venta')
     Left = 192

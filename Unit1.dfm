@@ -3307,8 +3307,7 @@ object frmmenuprincipal: Tfrmmenuprincipal
     OnClick = btnreportesClick
   end
   object Table1: TTable
-    Active = True
-    DatabaseName = 'Cumica2016Alias'
+    DatabaseName = 'Cumica2017Alias'
     TableName = 'FORMULARIO'
     Left = 312
     Top = 8
