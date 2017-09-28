@@ -61,6 +61,8 @@ void __fastcall Tfrmgestionproductos::txtbuscarExit(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall Tfrmgestionproductos::btnnuevoprodClick(TObject *Sender)
 {
+  frmdatosproducto->Label8->Caption="NUEVO PRODUCTO";
+  frmdatosproducto->Caption="NUEVO PRODUCTO";
   frmdatosproducto->Table1->Insert();
   frmdatosproducto->ShowModal();
 }
