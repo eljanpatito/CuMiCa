@@ -63,6 +63,9 @@ void __fastcall Tfrmmenuprincipal::btnreportesClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void Tfrmmenuprincipal::color_ventana(AnsiString formulario, int color)
 {
+   if (!Table1->Active) {
+      Table1->Active = true;
+   }
      TLocateOptions op;
      op<<loPartialKey;
      if(Table1->Locate("FORMULARIO",formulario,op)){
@@ -83,6 +86,9 @@ void Tfrmmenuprincipal::color_ventana(AnsiString formulario, int color)
 
 int Tfrmmenuprincipal::cargar_color_ventana(AnsiString formulario)
 {
+   if (!Table1->Active) {
+      Table1->Active = true;
+   }
    TLocateOptions op;
    op<<loPartialKey;
    if(Table1->Locate("FORMULARIO",formulario,op))
