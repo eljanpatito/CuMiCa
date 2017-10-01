@@ -3,13 +3,14 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "Unit1.h"
+#include "UMainMenu.h"
 #include "Unit3.h"
 #include "Unit5.h"
 #include "Unit6.h"
 #include "Unit9.h"
 #include "Unit16.h"
 #include "Configuration.h"
+#include "DataModule.h"
 
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -63,35 +64,38 @@ void __fastcall Tfrmmenuprincipal::btnreportesClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void Tfrmmenuprincipal::color_ventana(AnsiString formulario, int color)
 {
-   if (!Table1->Active) {
-      Table1->Active = true;
+   ShowMessage("Test");
+   if (!DM->tMainMenu->Active) {
+      DM->tMainMenu->Active = true;
    }
      TLocateOptions op;
      op<<loPartialKey;
-     if(Table1->Locate("FORMULARIO",formulario,op)){
-        Table1->Edit();
+     if(DM->tMainMenu->Locate("FORMULARIO",formulario,op)){
+        DM->tMainMenu->Edit();
         DBEdit1->Text=color;
-        Table1->Post();
-        Table1->Refresh();
+        DM->tMainMenu->Post();
+        DM->tMainMenu->Refresh();
      }
      else{
-      Table1->Insert();
+      DM->tMainMenu->Insert();
       DBEdit2->Text=formulario;
       DBEdit1->Text=color;
-      Table1->Post();
-      Table1->Refresh();
+      DM->tMainMenu->Post();
+      DM->tMainMenu->Refresh();
      }
 }
 //---------------------------------------------------------------------------
 
 int Tfrmmenuprincipal::cargar_color_ventana(AnsiString formulario)
 {
-   if (!Table1->Active) {
-      Table1->Active = true;
+   ShowMessage("Test1");
+   if (!DM->tMainMenu->Active) {
+      DM->tMainMenu->Active = true;
    }
+   ShowMessage("Test2");
    TLocateOptions op;
    op<<loPartialKey;
-   if(Table1->Locate("FORMULARIO",formulario,op))
+   if(DM->tMainMenu->Locate("FORMULARIO",formulario,op))
    return DBEdit1->Text.ToInt();
    else
    return -2147483646;

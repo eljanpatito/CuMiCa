@@ -1,11 +1,12 @@
 object DM: TDM
   OldCreateOrder = False
-  Left = 261
-  Top = 229
+  Left = 196
+  Top = 124
   Height = 431
-  Width = 512
+  Width = 628
   object BdD: TDatabase
     AliasName = 'Cumica2017Alias'
+    Connected = True
     DatabaseName = 'CuMiCaBdD'
     LoginPrompt = False
     SessionName = 'Default'
@@ -79,8 +80,8 @@ object DM: TDM
   end
   object dsVentasFecha: TDataSource
     DataSet = qVentasFecha
-    Left = 368
-    Top = 16
+    Left = 240
+    Top = 8
   end
   object qVentasFecha: TQuery
     DatabaseName = 'CuMiCaBdD'
@@ -90,8 +91,8 @@ object DM: TDM
       'WHERE VENTA.FECHA>=#09/11/2012# AND VENTA.FECHA<=#13/11/2015#'
       'GROUP BY VENTA.FECHA'
       'ORDER BY VENTA.FECHA DESC;')
-    Left = 304
-    Top = 16
+    Left = 176
+    Top = 8
     object qVentasFechaFECHA: TDateTimeField
       FieldName = 'FECHA'
     end
@@ -103,8 +104,8 @@ object DM: TDM
   object tConfiguration: TTable
     DatabaseName = 'CuMiCaBdD'
     TableName = 'configuration'
-    Left = 296
-    Top = 72
+    Left = 168
+    Top = 64
     object tConfigurationproperty: TStringField
       FieldName = 'property'
       Size = 25
@@ -116,16 +117,16 @@ object DM: TDM
   end
   object dsConfiguration: TDataSource
     DataSet = tConfiguration
-    Left = 360
-    Top = 72
+    Left = 232
+    Top = 64
   end
   object qFindProduct: TQuery
     DatabaseName = 'CuMiCaBdD'
     SQL.Strings = (
       'SELECT * FROM PRODUCTO'
       'WHERE CODIGO=:codigo')
-    Left = 296
-    Top = 144
+    Left = 168
+    Top = 136
     ParamData = <
       item
         DataType = ftString
@@ -133,5 +134,16 @@ object DM: TDM
         ParamType = ptUnknown
         Value = '1010'
       end>
+  end
+  object tMainMenu: TTable
+    DatabaseName = 'CuMiCaBdD'
+    TableName = 'FORMULARIO'
+    Left = 352
+    Top = 8
+  end
+  object dsMainMenu: TDataSource
+    DataSet = tMainMenu
+    Left = 416
+    Top = 8
   end
 end

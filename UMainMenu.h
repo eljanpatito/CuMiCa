@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef Unit1H
-#define Unit1H
+#ifndef UMainMenuH
+#define UMainMenuH
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Controls.hpp>
@@ -30,8 +30,6 @@ __published:	// IDE-managed Components
         TButton *btnvender;
         TButton *btnreportes;
         TImage *Image5;
-   TTable *Table1;
-   TDataSource *DataSource1;
    TDBEdit *DBEdit1;
    TDBEdit *DBEdit2;
    TPopupMenu *PopupMenu1;

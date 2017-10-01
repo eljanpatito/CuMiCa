@@ -3,7 +3,7 @@
 #include <vcl.h>
 #pragma hdrstop
 //---------------------------------------------------------------------------
-USEFORM("Unit1.cpp", frmmenuprincipal);
+USEFORM("UMainMenu.cpp", frmmenuprincipal);
 USEFORM("Unit2.cpp", frmlogin);
 USEFORM("Unit3.cpp", frmgestionproductos);
 USEFORM("Unit4.cpp", frmdatosproducto);

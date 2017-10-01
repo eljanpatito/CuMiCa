@@ -29,6 +29,8 @@ __published:	// IDE-managed Components
    TStringField *tConfigurationproperty;
    TStringField *tConfigurationvalue;
    TQuery *qFindProduct;
+   TTable *tMainMenu;
+   TDataSource *dsMainMenu;
 private:	// User declarations
 public:		// User declarations
    __fastcall TDM(TComponent* Owner);

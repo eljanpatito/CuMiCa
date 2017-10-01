@@ -3,7 +3,7 @@ object frmmenuprincipal: Tfrmmenuprincipal
   Top = 227
   BorderStyle = bsDialog
   Caption = 'MENU PRINCIPAL'
-  ClientHeight = 214
+  ClientHeight = 218
   ClientWidth = 849
   Color = clActiveCaption
   Font.Charset = DEFAULT_CHARSET
@@ -3194,22 +3194,24 @@ object frmmenuprincipal: Tfrmmenuprincipal
     OnClick = btnreportesClick
   end
   object DBEdit2: TDBEdit
-    Left = 192
-    Top = 184
+    Left = 488
+    Top = 8
     Width = 121
     Height = 21
     DataField = 'FORMULARIO'
-    DataSource = DataSource1
+    DataSource = DM.dsMainMenu
     TabOrder = 7
+    Visible = False
   end
   object DBEdit1: TDBEdit
     Left = 360
-    Top = 184
+    Top = 8
     Width = 121
     Height = 21
     DataField = 'COLOR'
-    DataSource = DataSource1
+    DataSource = DM.dsMainMenu
     TabOrder = 6
+    Visible = False
   end
   object btncerrar: TButton
     Left = 776
@@ -3305,17 +3307,6 @@ object frmmenuprincipal: Tfrmmenuprincipal
     ParentFont = False
     TabOrder = 5
     OnClick = btnreportesClick
-  end
-  object Table1: TTable
-    DatabaseName = 'Cumica2017Alias'
-    TableName = 'FORMULARIO'
-    Left = 312
-    Top = 8
-  end
-  object DataSource1: TDataSource
-    DataSet = Table1
-    Left = 344
-    Top = 8
   end
   object PopupMenu1: TPopupMenu
     Left = 216

@@ -4,7 +4,6 @@
 
 #include "Unit6.h"
 #include "Unit5.h"
-#include "Unit1.h"
 #include "Unit2.h"
 #include "Unit3.h"
 #include "Unit4.h"
@@ -14,6 +13,7 @@
 #include "num_a_letra.h"
 #include "Unit16.h"
 #include "Unit17.h"
+#include "UMainMenu.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmdevolucion *frmdevolucion;
