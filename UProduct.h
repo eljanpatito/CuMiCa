@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------
-#ifndef Unit4H
-#define Unit4H
+#ifndef UProductH
+#define UProductH
 //----------------------------------------------------------------------------
 #include <SysUtils.hpp>
 #include <Windows.hpp>
@@ -18,7 +18,6 @@
 class Tfrmdatosproducto : public TForm
 {
 __published:
-	TDataSource *DataSource1;
         TLabel *Label1;
         TLabel *Label2;
         TLabel *Label3;
@@ -36,8 +35,6 @@ __published:
         TLabel *Label8;
         TButton *btnguardar;
         TButton *btncancelar;
-        TTable *Table1;
-	void __fastcall FormCreate(TObject *Sender);
         void __fastcall btnguardarClick(TObject *Sender);
         void __fastcall btncancelarClick(TObject *Sender);
         void __fastcall EditCODIGOEnter(TObject *Sender);

@@ -264,4 +264,15 @@ object DM: TDM
     Left = 352
     Top = 201
   end
+  object TProduct: TTable
+    DatabaseName = 'CuMiCaBdD'
+    TableName = 'PRODUCTO'
+    Left = 352
+    Top = 256
+  end
+  object DSProduct: TDataSource
+    DataSet = TProduct
+    Left = 469
+    Top = 251
+  end
 end

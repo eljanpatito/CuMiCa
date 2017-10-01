@@ -2,7 +2,7 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "Unit4.h"
+#include "UProduct.h"
 #include "Unit2.h"
 #include "DataModule.h"
 #include "UMainMenu.h"
@@ -16,15 +16,10 @@ __fastcall Tfrmdatosproducto::Tfrmdatosproducto(TComponent *Owner)
 {
 }
 //----------------------------------------------------------------------------
-void __fastcall Tfrmdatosproducto::FormCreate(TObject *Sender)
-{
-	Table1->Open();
-}
-//----------------------------------------------------------------------------
 void __fastcall Tfrmdatosproducto::btnguardarClick(TObject *Sender)
 {
    try {
-      Table1->Post();
+      DM->TProduct->Post();
       Application->MessageBox("DATOS DE PRODUCTO CORRECTAMENTE GUARDADOS","OK",MB_OK | MB_ICONINFORMATION);
       frmgestionproductos->actualizar_consulta();
       Close();
@@ -39,7 +34,7 @@ EditCODIGO->Color=clWhite;EditDESCRIPCION->Color=clWhite;
 EditCANTIDAD_CAJAS->Color=clWhite;EditCANTIDAS_POR_CAJA->Color=clWhite;
 EditPRECIO_CAJA->Color=clWhite;EditPRECIO_DE_COMPRA->Color=clWhite;
 EditPRECIO_UNIDAD->Color=clWhite;
-   Table1->Cancel();
+   DM->TProduct->Cancel();
 Close();
 }
 //---------------------------------------------------------------------------

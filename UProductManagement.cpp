@@ -59,7 +59,10 @@ void __fastcall Tfrmgestionproductos::btnnuevoprodClick(TObject *Sender)
 {
   frmdatosproducto->Label8->Caption="NUEVO PRODUCTO";
   frmdatosproducto->Caption="NUEVO PRODUCTO";
-  frmdatosproducto->Table1->Insert();
+   if (!DM->TProduct->Active) {
+      DM->TProduct->Active = true;
+   }
+  DM->TProduct->Insert();
   frmdatosproducto->ShowModal();
 }
 //---------------------------------------------------------------------------
@@ -70,8 +73,11 @@ void __fastcall Tfrmgestionproductos::btnmodificarprodClick(
   frmdatosproducto->Caption="MODIFICAR PRODUCTO";
   TLocateOptions op;
   op<<loPartialKey;
-  frmdatosproducto->Table1->Locate("ID",DBEdit1->Text,op);
-  frmdatosproducto->Table1->Edit();
+   if (!DM->TProduct->Active) {
+      DM->TProduct->Active = true;
+   }
+  DM->TProduct->Locate("ID",DBEdit1->Text,op);
+  DM->TProduct->Edit();
   frmdatosproducto->ShowModal();
 }
 //---------------------------------------------------------------------------
@@ -80,9 +86,9 @@ void __fastcall Tfrmgestionproductos::btneliminarprodClick(TObject *Sender) {
    if (Application->MessageBox("¿Seguro que desea Borrar los datos de este PRODUCTO?","Eliminar Datos de Producto",MB_YESNO | MB_ICONQUESTION) == ID_YES) {
       TLocateOptions op;
       op<<loPartialKey;
-      frmdatosproducto->Table1->Locate("ID",DBEdit1->Text,op);
-      frmdatosproducto->Table1->Delete();
-      frmdatosproducto->Table1->Refresh();
+      DM->TProduct->Locate("ID",DBEdit1->Text,op);
+      DM->TProduct->Delete();
+      DM->TProduct->Refresh();
       actualizar_consulta();
    }
 }
@@ -90,7 +96,7 @@ void __fastcall Tfrmgestionproductos::btneliminarprodClick(TObject *Sender) {
 
 
 void __fastcall Tfrmgestionproductos::btnaumentarClick(TObject *Sender) {
-   frmgestionproductos->locateTableByField(frmdatosproducto->Table1, "ID", DBEdit1->Text);
+   frmgestionproductos->locateTableByField(DM->TProduct, "ID", DBEdit1->Text);
    AnsiString amountStr = InputBox("Actualizar cajas","CODIGO: "+frmdatosproducto->EditCODIGO->Text+"\nDESCRIPCION: "+frmdatosproducto->EditDESCRIPCION->Text+"\n\nCantidad de Cajas:","");
    int amount = 0;
    try {
@@ -151,7 +157,7 @@ void __fastcall Tfrmgestionproductos::btnseleccionarClick(TObject *Sender)
          frmventas->Table2->Refresh();
          frmventas->Table2->Filtered = false;
 
-         frmgestionproductos->locateTableByField(frmdatosproducto->Table1, "ID", DBEdit1->Text);
+         frmgestionproductos->locateTableByField(DM->TProduct, "ID", DBEdit1->Text);
          frmgestionproductos->addAmountByID(-amount, DBEdit1->Text);
          actualizar_consulta();
          Panel1->Visible=True;
@@ -191,13 +197,13 @@ void __fastcall Tfrmgestionproductos::FormActivate(TObject *Sender)
 //---------------------------------------------------------------------------
 
 void Tfrmgestionproductos::addAmountByID(int amount, AnsiString id) {
-   AnsiString idTmp = frmdatosproducto->Table1->FieldByName("ID")->AsString;
+   AnsiString idTmp = DM->TProduct->FieldByName("ID")->AsString;
    if (id != idTmp) {
-      frmgestionproductos->locateTableByField(frmdatosproducto->Table1, "ID", id);
+      frmgestionproductos->locateTableByField(DM->TProduct, "ID", id);
    }
-   frmdatosproducto->Table1->Edit();
+   DM->TProduct->Edit();
    frmdatosproducto->EditCANTIDAD_CAJAS->Text=frmdatosproducto->EditCANTIDAD_CAJAS->Text.ToInt()+amount;
-   frmdatosproducto->Table1->Post();
+   DM->TProduct->Post();
 }
 //---------------------------------------------------------------------------
 

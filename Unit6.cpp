@@ -65,11 +65,11 @@ void __fastcall Tfrmventas::btncancelarClick(TObject *Sender)
    while (!Table2->Eof){
      TLocateOptions op;
      op<<loPartialKey;
-     frmdatosproducto->Table1->Locate("CODIGO",DBEdit2->Text,op);
+     DM->TProduct->Locate("CODIGO",DBEdit2->Text,op);
      int a=DBEdit3->Text.ToInt();
-     frmdatosproducto->Table1->Edit();
+     DM->TProduct->Edit();
      frmdatosproducto->EditCANTIDAD_CAJAS->Text=frmdatosproducto->EditCANTIDAD_CAJAS->Text.ToInt()+a;
-     frmdatosproducto->Table1->Post();
+     DM->TProduct->Post();
      frmgestionproductos->actualizar_consulta();
      Table2->Next();
    }
@@ -244,9 +244,9 @@ void __fastcall Tfrmventas::btnQuitarClick(TObject *Sender)
             + Table2->FieldByName("DESCRIPCION")->AsString
             + "\ndel carrito?").c_str(), "Quitar producto del carrito",
             MB_YESNO | MB_ICONQUESTION) == ID_YES) {
-         frmgestionproductos->locateTableByField(frmdatosproducto->Table1, "CODIGO", code);
-         AnsiString id = frmdatosproducto->Table1->FieldByName("ID")->AsString;
-         double price = frmdatosproducto->Table1->FieldByName("PRECIO_CAJA")->AsString.ToDouble();
+         frmgestionproductos->locateTableByField(DM->TProduct, "CODIGO", code);
+         AnsiString id = DM->TProduct->FieldByName("ID")->AsString;
+         double price = DM->TProduct->FieldByName("PRECIO_CAJA")->AsString.ToDouble();
          int amount = DBEdit3->Text.ToInt();
          frmgestionproductos->addAmountByID(amount, id);
          frmgestionproductos->actualizar_consulta();

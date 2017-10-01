@@ -14,6 +14,7 @@
 #include "Unit17.h"
 #include "UMainMenu.h"
 #include "UProductManagement.h"
+#include "DataModule.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmdevolucion *frmdevolucion;
@@ -60,6 +61,9 @@ void __fastcall Tfrmdevolucion::btnimprimirClick(TObject *Sender)
 {
   AnsiString cantidad; double aux;
   cantidad=InputBox("Devolver cajas","DESCRIPCION: "+DBEdit9->Text+"\n\nCantidad de Cajas:","");
+  if (!Table2->Active) {
+      Table2->Active=true;
+  }
   aux= DBEdit7->Text.ToDouble();
   try{
    int a=cantidad.ToInt();
@@ -81,16 +85,21 @@ void __fastcall Tfrmdevolucion::btnimprimirClick(TObject *Sender)
         EditTOTAL_BS->Text=EditTOTAL_BS->Text.ToDouble()-aux+DBEdit7->Text.ToDouble();
         Table1->Post();
         Table1->Refresh();
-
+         if (!DM->TProduct->Active) {
+            DM->TProduct->Active=true;
+         }
         TLocateOptions op;
         op<<loPartialKey;
-        frmdatosproducto->Table1->Locate("CODIGO",DBEdit11->Text,op);
+        DM->TProduct->Locate("CODIGO",DBEdit11->Text,op);
 
-        frmdatosproducto->Table1->Edit();
+        DM->TProduct->Edit();
         frmdatosproducto->EditCANTIDAD_CAJAS->Text=frmdatosproducto->EditCANTIDAD_CAJAS->Text.ToInt()+a;
-        frmdatosproducto->Table1->Post();
+        DM->TProduct->Post();
         frmgestionproductos->actualizar_consulta();
 
+         if (!Table3->Active) {
+            Table3->Active=true;
+         }
         Table3->Insert();
         Table3->FieldByName("CODIGO_EMPLEADO")->Text=Edit2->Text;
         Table3->FieldByName("CODIGO_PRODUCTO")->Text= DBEdit11->Text;
@@ -109,10 +118,11 @@ void __fastcall Tfrmdevolucion::btnimprimirClick(TObject *Sender)
    }
    else
     Application->MessageBox("Cantidad debe ser mayor a 0 (cero) y menor o igual a la catidad de cajas","Error",MB_OK | MB_ICONERROR);
+  } catch (EDatabaseError &e) {
+      Application->MessageBox(e.Message.c_str(), "Error", MB_OK);
   }
-  catch(...)
-  {
-  Application->MessageBox("Cantidad no Valida, no se actualiza la cantidad","Error",MB_OK | MB_ICONERROR);
+  catch(...) {
+      Application->MessageBox("Cantidad no Valida, no se actualiza la cantidad","Error",MB_OK | MB_ICONERROR);
   }
 
 }
@@ -210,6 +220,7 @@ void __fastcall Tfrmdevolucion::FormActivate(TObject *Sender)
    Edit2->Text="";
    Query1->Close();
    Query1->Open();
+   Table1->Active = true;
 }
 //---------------------------------------------------------------------------
 

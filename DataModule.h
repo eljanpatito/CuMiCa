@@ -50,6 +50,8 @@ __published:	// IDE-managed Components
    TDataSource *DSSalesMasterDetail2;
    TDataSource *DSSalesMasterDetail3;
    TTable *TSalesMasterDetail;
+   TTable *TProduct;
+   TDataSource *DSProduct;
 private:	// User declarations
 public:		// User declarations
    __fastcall TDM(TComponent* Owner);
