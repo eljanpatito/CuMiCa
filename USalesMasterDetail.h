@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------
-#ifndef Unit14H
-#define Unit14H
+#ifndef USalesMasterDetailH
+#define USalesMasterDetailH
 //----------------------------------------------------------------------------
 #include <SysUtils.hpp>
 #include <Windows.hpp>

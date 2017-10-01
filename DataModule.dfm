@@ -169,4 +169,99 @@ object DM: TDM
     Left = 352
     Top = 56
   end
+  object QSalesMasterDetail1: TQuery
+    DatabaseName = 'CuMiCaBdD'
+    SQL.Strings = (
+      'SELECT VENTA.IDNOTA, VENTA.NOMBRE_CLIENTE,'
+      'VENTA.TOTAL_CAJAS, VENTA.TOTAL_BS, VENTA.FECHA, VENTA.TOTAL'
+      'FROM VENTA'
+      'ORDER BY VENTA.IDNOTA DESC')
+    Left = 353
+    Top = 107
+    object Query1IDNOTA: TIntegerField
+      FieldName = 'IDNOTA'
+    end
+    object Query1NOMBRE_CLIENTE: TStringField
+      FieldName = 'NOMBRE_CLIENTE'
+      Size = 100
+    end
+    object Query1TOTAL_CAJAS: TIntegerField
+      FieldName = 'TOTAL_CAJAS'
+    end
+    object Query1TOTAL_BS: TFloatField
+      FieldName = 'TOTAL_BS'
+      DisplayFormat = '#.00'
+    end
+    object Query1TOTAL: TStringField
+      FieldName = 'TOTAL'
+      Size = 255
+    end
+    object Query1FECHA: TDateTimeField
+      FieldName = 'FECHA'
+    end
+  end
+  object QSalesMasterDetail2: TQuery
+    DatabaseName = 'CuMiCaBdD'
+    DataSource = DSSalesMasterDetail1
+    SQL.Strings = (
+      'Select'
+      '  `DETALLE_VENTA`.`CODIGO`,'
+      '  `DETALLE_VENTA`.`DESCRIPCION`,'
+      '  `DETALLE_VENTA`.`CANTIDAD`,'
+      '  `DETALLE_VENTA`.`PRECIO`,'
+      '  `DETALLE_VENTA`.`PARCIAL`'
+      'From `DETALLE_VENTA`'
+      'Where'
+      '  `DETALLE_VENTA`.`ID_NOTA` =:"IDNOTA"')
+    Left = 353
+    Top = 155
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IDNOTA'
+        ParamType = ptUnknown
+        Size = 4
+      end>
+    object Query2CODIGO: TStringField
+      FieldName = 'CODIGO'
+      Size = 30
+    end
+    object Query2DESCRIPCION: TStringField
+      FieldName = 'DESCRIPCION'
+      Size = 255
+    end
+    object Query2CANTIDAD: TIntegerField
+      FieldName = 'CANTIDAD'
+    end
+    object Query2PRECIO: TFloatField
+      FieldName = 'PRECIO'
+    end
+    object Query2PARCIAL: TFloatField
+      FieldName = 'PARCIAL'
+    end
+  end
+  object DSSalesMasterDetail1: TDataSource
+    DataSet = QSalesMasterDetail1
+    Left = 469
+    Top = 107
+  end
+  object DSSalesMasterDetail2: TDataSource
+    DataSet = QSalesMasterDetail2
+    Left = 469
+    Top = 155
+  end
+  object DSSalesMasterDetail3: TDataSource
+    DataSet = TSalesMasterDetail
+    Left = 472
+    Top = 200
+  end
+  object TSalesMasterDetail: TTable
+    DatabaseName = 'CuMiCaBdD'
+    IndexFieldNames = 'ID_NOTA'
+    MasterFields = 'IDNOTA'
+    MasterSource = DSSalesMasterDetail1
+    TableName = 'DEVOLUCION'
+    Left = 352
+    Top = 201
+  end
 end

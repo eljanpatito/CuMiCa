@@ -33,6 +33,23 @@ __published:	// IDE-managed Components
    TDataSource *dsMainMenu;
    TDataSource *DSProductManagement;
    TQuery *QProductManagement;
+   TQuery *QSalesMasterDetail1;
+   TIntegerField *Query1IDNOTA;
+   TStringField *Query1NOMBRE_CLIENTE;
+   TIntegerField *Query1TOTAL_CAJAS;
+   TFloatField *Query1TOTAL_BS;
+   TStringField *Query1TOTAL;
+   TDateTimeField *Query1FECHA;
+   TQuery *QSalesMasterDetail2;
+   TStringField *Query2CODIGO;
+   TStringField *Query2DESCRIPCION;
+   TIntegerField *Query2CANTIDAD;
+   TFloatField *Query2PRECIO;
+   TFloatField *Query2PARCIAL;
+   TDataSource *DSSalesMasterDetail1;
+   TDataSource *DSSalesMasterDetail2;
+   TDataSource *DSSalesMasterDetail3;
+   TTable *TSalesMasterDetail;
 private:	// User declarations
 public:		// User declarations
    __fastcall TDM(TComponent* Owner);
