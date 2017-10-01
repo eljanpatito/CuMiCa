@@ -136,6 +136,7 @@ object DM: TDM
       end>
   end
   object tMainMenu: TTable
+    Active = True
     DatabaseName = 'CuMiCaBdD'
     TableName = 'FORMULARIO'
     Left = 352
@@ -145,5 +146,27 @@ object DM: TDM
     DataSet = tMainMenu
     Left = 416
     Top = 8
+  end
+  object DSProductManagement: TDataSource
+    DataSet = QProductManagement
+    Left = 469
+    Top = 56
+  end
+  object QProductManagement: TQuery
+    DatabaseName = 'CuMiCaBdD'
+    SQL.Strings = (
+      'Select'
+      ' `PRODUCTO`.`ID`, '
+      '  `PRODUCTO`.`CODIGO`,'
+      '  `PRODUCTO`.`DESCRIPCION`,'
+      '  `PRODUCTO`.`CANTIDAD_CAJAS`,'
+      '  `PRODUCTO`.`CANTIDAS_POR_CAJA`,'
+      '  `PRODUCTO`.`PRECIO_DE_COMPRA`,'
+      '  `PRODUCTO`.`PRECIO_UNIDAD`,'
+      '  `PRODUCTO`.`PRECIO_CAJA`'
+      'From `PRODUCTO`'
+      'ORDER BY CODIGO')
+    Left = 352
+    Top = 56
   end
 end

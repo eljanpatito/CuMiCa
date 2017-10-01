@@ -2,12 +2,13 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "Unit3.h"
+#include "UProductManagement.h"
 #include "Unit4.h"
 #include "Unit6.h"
 #include "Unit8.h"
 #include "Unit7.h"
 #include "UMainMenu.h"
+#include "DataModule.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmgestionproductos *frmgestionproductos;
@@ -20,43 +21,38 @@ __fastcall Tfrmgestionproductos::Tfrmgestionproductos(TComponent *Owner)
 void __fastcall Tfrmgestionproductos::FormCreate(TObject *Sender)
 {
    this->Color=(TColor)frmmenuprincipal->cargar_color_ventana(this->Name);
-	Query1->Open();
 }
 //----------------------------------------------------------------------------
 void __fastcall Tfrmgestionproductos::txtbuscarChange(TObject *Sender)
 {
-
-Query1->SQL->Clear();
-Query1->SQL->Add("Select  `PRODUCTO`.`ID`,  `PRODUCTO`.`CODIGO`,  `PRODUCTO`.`DESCRIPCION`,  `PRODUCTO`.`CANTIDAD_CAJAS`,  `PRODUCTO`.`CANTIDAS_POR_CAJA`, `PRODUCTO`.`PRECIO_DE_COMPRA`,  `PRODUCTO`.`PRECIO_UNIDAD`,`PRODUCTO`.`PRECIO_CAJA`From `PRODUCTO`");
-Query1->SQL->Add("WHERE (CODIGO LIKE '%"+txtbuscar->Text+"%' OR DESCRIPCION LIKE '%"+txtbuscar->Text+"%')");
-if (!Panel1->Visible) {
-   Query1->SQL->Add("AND CANTIDAD_CAJAS > 0");
-//   ShowMessage("Entro");
-}
-Query1->Close();
-Query1->Open();
+   DM->QProductManagement->SQL->Clear();
+   DM->QProductManagement->SQL->Add("Select  `PRODUCTO`.`ID`,  `PRODUCTO`.`CODIGO`,  `PRODUCTO`.`DESCRIPCION`,  `PRODUCTO`.`CANTIDAD_CAJAS`,  `PRODUCTO`.`CANTIDAS_POR_CAJA`, `PRODUCTO`.`PRECIO_DE_COMPRA`,  `PRODUCTO`.`PRECIO_UNIDAD`,`PRODUCTO`.`PRECIO_CAJA`From `PRODUCTO`");
+   DM->QProductManagement->SQL->Add("WHERE (CODIGO LIKE '%"+txtbuscar->Text+"%' OR DESCRIPCION LIKE '%"+txtbuscar->Text+"%')");
+   if (!Panel1->Visible) {
+      DM->QProductManagement->SQL->Add("AND CANTIDAD_CAJAS > 0");
+   }
+   DM->QProductManagement->Close();
+   DM->QProductManagement->Open();
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrmgestionproductos::btncerrarClick(TObject *Sender)
 {
-Close();
+   Close();
 }
 //---------------------------------------------------------------------------
 void Tfrmgestionproductos::actualizar_consulta()
 {
-/*  Query1->SQL->Clear();
-  Query1->SQL->Add("Select  `PRODUCTO`.`ID`,  `PRODUCTO`.`CODIGO`,  `PRODUCTO`.`DESCRIPCION`,  `PRODUCTO`.`CANTIDAD_CAJAS`,  `PRODUCTO`.`CANTIDAS_POR_CAJA`, `PRODUCTO`.`PRECIO_DE_COMPRA`,  `PRODUCTO`.`PRECIO_UNIDAD`,`PRODUCTO`.`PRECIO_CAJA`From `PRODUCTO`");*/
-  Query1->Close();
-  Query1->Open();
+  DM->QProductManagement->Close();
+  DM->QProductManagement->Open();
 }
 void __fastcall Tfrmgestionproductos::txtbuscarEnter(TObject *Sender)
 {
-((TEdit *)Sender)->Color=clLime;
+   ((TEdit *)Sender)->Color=clLime;
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrmgestionproductos::txtbuscarExit(TObject *Sender)
 {
-((TEdit *)Sender)->Color=clWhite;
+   ((TEdit *)Sender)->Color=clWhite;
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrmgestionproductos::btnnuevoprodClick(TObject *Sender)

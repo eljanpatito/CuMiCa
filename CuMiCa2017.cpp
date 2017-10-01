@@ -5,7 +5,7 @@
 //---------------------------------------------------------------------------
 USEFORM("UMainMenu.cpp", frmmenuprincipal);
 USEFORM("Unit2.cpp", frmlogin);
-USEFORM("Unit3.cpp", frmgestionproductos);
+USEFORM("UProductManagement.cpp", frmgestionproductos);
 USEFORM("Unit4.cpp", frmdatosproducto);
 USEFORM("Unit5.cpp", frmgestioncliente);
 USEFORM("Unit6.cpp", frmventas);
@@ -36,6 +36,7 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
         {
                  Application->Initialize();
                  Application->CreateForm(__classid(Tfrmlogin), &frmlogin);
+       Application->CreateForm(__classid(TDM), &DM);
        Application->CreateForm(__classid(Tfrmmenuprincipal), &frmmenuprincipal);
        Application->CreateForm(__classid(Tfrmgestionproductos), &frmgestionproductos);
        Application->CreateForm(__classid(Tfrmdatosproducto), &frmdatosproducto);
@@ -56,7 +57,6 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
        Application->CreateForm(__classid(Tfrmrepcliente), &frmrepcliente);
        Application->CreateForm(__classid(TQRMDForm), &QRMDForm);
        Application->CreateForm(__classid(Tfrmventaempleado), &frmventaempleado);
-       Application->CreateForm(__classid(TDM), &DM);
        Application->CreateForm(__classid(TfRepSeguimiento), &fRepSeguimiento);
        Application->CreateForm(__classid(TfSeguimiento), &fSeguimiento);
        Application->CreateForm(__classid(Tfrmrepventasfecha), &frmrepventasfecha);

@@ -4,9 +4,9 @@
 
 #include "Unit4.h"
 #include "Unit2.h"
-#include "Unit3.h"
 #include "DataModule.h"
 #include "UMainMenu.h"
+#include "UProductManagement.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmdatosproducto *frmdatosproducto;

@@ -5,7 +5,6 @@
 #include "Unit6.h"
 #include "Unit5.h"
 #include "Unit2.h"
-#include "Unit3.h"
 #include "Unit4.h"
 #include "num_a_letra.h"
 #include "Unit11.h"
@@ -14,6 +13,8 @@
 #include "Unit16.h"
 #include "Configuration.h"
 #include "UMainMenu.h"
+#include "DataModule.h"
+#include "UProductManagement.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmventas *frmventas;
@@ -106,6 +107,9 @@ void __fastcall Tfrmventas::btningresarClick(TObject *Sender) {
       Table1->Post();
       Table1->Refresh();
       Table1->Edit();
+      if (!DM->QProductManagement->Active) {
+         DM->QProductManagement->Open();
+      }
       frmgestionproductos->Panel1->Visible=False;
       frmgestionproductos->Panel2->Visible=True;
       frmgestionproductos->ShowModal();

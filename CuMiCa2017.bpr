@@ -4,20 +4,20 @@
   <MACROS>
     <VERSION value="BCB.06.00"/>
     <PROJECT value="CuMiCa2017.exe"/>
-    <OBJFILES value="CuMiCa2017.obj UMainMenu.obj Unit2.obj Unit3.obj Unit4.obj Unit5.obj 
-      Unit6.obj Unit7.obj Unit8.obj Unit9.obj Unit10.obj Unit11.obj Unit12.obj 
-      Unit13.obj Unit14.obj Unit15.obj Unit16.obj Unit17.obj Unit18.obj 
-      Unit19.obj Unit20.obj Unit21.obj DataModule.obj SegProductos.obj 
-      SegProductosForm.obj RepVentasFecha.obj Configuration.obj"/>
+    <OBJFILES value="CuMiCa2017.obj UMainMenu.obj Unit2.obj UProductManagement.obj Unit4.obj 
+      Unit5.obj Unit6.obj Unit7.obj Unit8.obj Unit9.obj Unit10.obj Unit11.obj 
+      Unit12.obj Unit13.obj Unit14.obj Unit15.obj Unit16.obj Unit17.obj 
+      Unit18.obj Unit19.obj Unit20.obj Unit21.obj DataModule.obj 
+      SegProductos.obj SegProductosForm.obj RepVentasFecha.obj Configuration.obj"/>
     <RESFILES value="CuMiCa2017.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
     <DEFFILE value=""/>
-    <RESDEPEN value="$(RESFILES) UMainMenu.dfm Unit2.dfm Unit3.dfm Unit4.dfm Unit5.dfm 
-      Unit6.dfm Unit7.dfm Unit8.dfm Unit9.dfm Unit10.dfm Unit11.dfm Unit12.dfm 
-      Unit13.dfm Unit14.dfm Unit15.dfm Unit16.dfm Unit17.dfm Unit18.dfm 
-      Unit19.dfm Unit20.dfm Unit21.dfm DataModule.dfm SegProductos.dfm 
-      SegProductosForm.dfm RepVentasFecha.dfm Configuration.dfm"/>
+    <RESDEPEN value="$(RESFILES) UMainMenu.dfm Unit2.dfm UProductManagement.dfm Unit4.dfm 
+      Unit5.dfm Unit6.dfm Unit7.dfm Unit8.dfm Unit9.dfm Unit10.dfm Unit11.dfm 
+      Unit12.dfm Unit13.dfm Unit14.dfm Unit15.dfm Unit16.dfm Unit17.dfm 
+      Unit18.dfm Unit19.dfm Unit20.dfm Unit21.dfm DataModule.dfm 
+      SegProductos.dfm SegProductosForm.dfm RepVentasFecha.dfm Configuration.dfm"/>
     <LIBFILES value=""/>
     <LIBRARIES value="tee.lib teedb.lib vclx.lib qrpt.lib bdertl.lib vcldb.lib dbrtl.lib rtl.lib 
       vcl.lib"/>
@@ -70,7 +70,7 @@
       <FILE FILENAME="CuMiCa2017.cpp" FORMNAME="" UNITNAME="CuMiCa2017" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="UMainMenu.cpp" FORMNAME="frmmenuprincipal" UNITNAME="UMainMenu" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit2.cpp" FORMNAME="frmlogin" UNITNAME="Unit2" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Unit3.cpp" FORMNAME="frmgestionproductos" UNITNAME="Unit3" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="UProductManagement.cpp" FORMNAME="frmgestionproductos" UNITNAME="UProductManagement" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit4.cpp" FORMNAME="frmdatosproducto" UNITNAME="Unit4" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit5.cpp" FORMNAME="frmgestioncliente" UNITNAME="Unit5" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit6.cpp" FORMNAME="frmventas" UNITNAME="Unit6" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>

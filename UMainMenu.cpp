@@ -4,13 +4,13 @@
 #pragma hdrstop
 
 #include "UMainMenu.h"
-#include "Unit3.h"
 #include "Unit5.h"
 #include "Unit6.h"
 #include "Unit9.h"
 #include "Unit16.h"
 #include "Configuration.h"
 #include "DataModule.h"
+#include "UProductManagement.h"
 
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -37,9 +37,12 @@ Application->Terminate();
 
 void __fastcall Tfrmmenuprincipal::btnproductosClick(TObject *Sender)
 {
-frmgestionproductos->Panel1->Visible=True;
-frmgestionproductos->Panel2->Visible=False;
-     frmgestionproductos->ShowModal();
+   if (!DM->QProductManagement->Active) {
+      DM->QProductManagement->Open();
+   }
+   frmgestionproductos->Panel1->Visible=True;
+   frmgestionproductos->Panel2->Visible=False;
+   frmgestionproductos->ShowModal();
 }
 //---------------------------------------------------------------------------
 
@@ -88,11 +91,9 @@ void Tfrmmenuprincipal::color_ventana(AnsiString formulario, int color)
 
 int Tfrmmenuprincipal::cargar_color_ventana(AnsiString formulario)
 {
-   ShowMessage("Test1");
    if (!DM->tMainMenu->Active) {
       DM->tMainMenu->Active = true;
    }
-   ShowMessage("Test2");
    TLocateOptions op;
    op<<loPartialKey;
    if(DM->tMainMenu->Locate("FORMULARIO",formulario,op))

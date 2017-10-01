@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------
-#ifndef Unit3H
-#define Unit3H
+#ifndef UProductManagementH
+#define UProductManagementH
 //----------------------------------------------------------------------------
 #include <SysUtils.hpp>
 #include <Windows.hpp>
@@ -22,13 +22,11 @@
 class Tfrmgestionproductos : public TForm
 {
 __published:
-	TDataSource *DataSource1;
         TDBGrid *DBGrid1;
         TEdit *txtbuscar;
         TLabel *Label1;
         TLabel *Label2;
         TButton *btncerrar;
-        TQuery *Query1;
         TDBEdit *DBEdit1;
         TPanel *Panel1;
         TButton *btnnuevoprod;

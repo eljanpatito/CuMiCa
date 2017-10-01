@@ -31,6 +31,8 @@ __published:	// IDE-managed Components
    TQuery *qFindProduct;
    TTable *tMainMenu;
    TDataSource *dsMainMenu;
+   TDataSource *DSProductManagement;
+   TQuery *QProductManagement;
 private:	// User declarations
 public:		// User declarations
    __fastcall TDM(TComponent* Owner);
