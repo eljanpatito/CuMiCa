@@ -3,8 +3,8 @@
 #pragma hdrstop
 
 #include "Unit16.h"
-#include "Unit15.h"
 #include "Unit6.h"
+#include "URepayment.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmempleado *frmempleado;

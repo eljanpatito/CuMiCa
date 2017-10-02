@@ -5,16 +5,16 @@
 #include "Unit6.h"
 #include "Unit5.h"
 #include "Unit2.h"
-#include "Unit4.h"
 #include "Unit11.h"
 #include "Unit14.h"
-#include "Unit15.h"
+#include "URepayment.h"
 #include "num_a_letra.h"
 #include "Unit16.h"
 #include "Unit17.h"
 #include "UMainMenu.h"
 #include "UProductManagement.h"
 #include "DataModule.h"
+#include "UProduct.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmdevolucion *frmdevolucion;
@@ -28,31 +28,31 @@ __fastcall Tfrmdevolucion::Tfrmdevolucion(TComponent *Owner)
 void __fastcall Tfrmdevolucion::FormCreate(TObject *Sender)
 {
    this->Color=(TColor)frmmenuprincipal->cargar_color_ventana(this->Name);
-	Query1->Open();
-	Query3->Open();
+	DM->QRepayment1->Open();
+	DM->QRepayment3->Open();
 }
 //----------------------------------------------------------------------------
 void __fastcall Tfrmdevolucion::Edit1Change(TObject *Sender)
 {
-Query1->SQL->Clear();
- Query1->SQL->Add("select * from venta where nombre_cliente like '%"+Edit1->Text+"%'");
- Query1->Open();
+DM->QRepayment1->SQL->Clear();
+ DM->QRepayment1->SQL->Add("select * from venta where nombre_cliente like '%"+Edit1->Text+"%'");
+ DM->QRepayment1->Open();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall Tfrmdevolucion::DBEdit1Change(TObject *Sender)
 {
 if(DBEdit1->Text!=""){
-        Table1->Filter= "IDNOTA="+DBEdit1->Text;
-        Table1->Filtered=True;
+        DM->TRepayment1->Filter= "IDNOTA="+DBEdit1->Text;
+        DM->TRepayment1->Filtered=True;
 }
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrmdevolucion::DBEdit8Change(TObject *Sender)
 {
    if(DBEdit8->Text!=""){
-      Table2->Filter= "ID="+DBEdit8->Text;
-      Table2->Filtered=True;
+      DM->TRepayment2->Filter= "ID="+DBEdit8->Text;
+      DM->TRepayment2->Filtered=True;
    }
 }
 //---------------------------------------------------------------------------
@@ -61,8 +61,8 @@ void __fastcall Tfrmdevolucion::btnimprimirClick(TObject *Sender)
 {
   AnsiString cantidad; double aux;
   cantidad=InputBox("Devolver cajas","DESCRIPCION: "+DBEdit9->Text+"\n\nCantidad de Cajas:","");
-  if (!Table2->Active) {
-      Table2->Active=true;
+  if (!DM->TRepayment2->Active) {
+      DM->TRepayment2->Active=true;
   }
   aux= DBEdit7->Text.ToDouble();
   try{
@@ -74,17 +74,17 @@ void __fastcall Tfrmdevolucion::btnimprimirClick(TObject *Sender)
 //   }
        if(a>0 && a<=DBEdit6->Text.ToInt()){
 
-        Table2->Edit();
+        DM->TRepayment2->Edit();
         DBEdit6->Text=DBEdit6->Text.ToInt()-a;
         DBEdit7->Text=DBEdit10->Text.ToDouble()*DBEdit6->Text.ToDouble();
-        Table2->Post();
-        Table2->Refresh();
+        DM->TRepayment2->Post();
+        DM->TRepayment2->Refresh();
 
-        Table1->Edit();
+        DM->TRepayment1->Edit();
         EditTOTAL_CAJAS->Text=EditTOTAL_CAJAS->Text.ToInt()-a;
         EditTOTAL_BS->Text=EditTOTAL_BS->Text.ToDouble()-aux+DBEdit7->Text.ToDouble();
-        Table1->Post();
-        Table1->Refresh();
+        DM->TRepayment1->Post();
+        DM->TRepayment1->Refresh();
          if (!DM->TProduct->Active) {
             DM->TProduct->Active=true;
          }
@@ -97,22 +97,22 @@ void __fastcall Tfrmdevolucion::btnimprimirClick(TObject *Sender)
         DM->TProduct->Post();
         frmgestionproductos->actualizar_consulta();
 
-         if (!Table3->Active) {
-            Table3->Active=true;
+         if (!DM->TRepayment3->Active) {
+            DM->TRepayment3->Active=true;
          }
-        Table3->Insert();
-        Table3->FieldByName("CODIGO_EMPLEADO")->Text=Edit2->Text;
-        Table3->FieldByName("CODIGO_PRODUCTO")->Text= DBEdit11->Text;
-        Table3->FieldByName("CANTIDAD")->Text=a;
-        Table3->FieldByName("ID_NOTA")->Text=DBEdit12->Text;
-        Table3->Post();
-        Table3->Refresh();
+        DM->TRepayment3->Insert();
+        DM->TRepayment3->FieldByName("CODIGO_EMPLEADO")->Text=Edit2->Text;
+        DM->TRepayment3->FieldByName("CODIGO_PRODUCTO")->Text= DBEdit11->Text;
+        DM->TRepayment3->FieldByName("CANTIDAD")->Text=a;
+        DM->TRepayment3->FieldByName("ID_NOTA")->Text=DBEdit12->Text;
+        DM->TRepayment3->Post();
+        DM->TRepayment3->Refresh();
         if(DBEdit6->Text=="0"){
-            Table2->Delete();
-            Table2->Refresh();
+            DM->TRepayment2->Delete();
+            DM->TRepayment2->Refresh();
         }
-        Query3->Close();
-        Query3->Open();
+        DM->QRepayment3->Close();
+        DM->QRepayment3->Open();
         Application->MessageBox("Cantidad actualizada correctamente","OK",MB_OK | MB_ICONINFORMATION);
 
    }
@@ -202,9 +202,9 @@ void __fastcall Tfrmdevolucion::Button1Click(TObject *Sender)
    frmrepdevolucion->Query1->SQL->Add("select * from devolucion where id_nota ="+DBEdit12->Text);
    frmrepdevolucion->Query1->Open();
    frmrepdevolucion->Quickrep1->PreviewModal();
-   Query1->SQL->Clear();
-   Query1->SQL->Add("select * from venta where nombre_cliente like '%"+Edit1->Text+"%'");
-   Query1->Open();
+   DM->QRepayment1->SQL->Clear();
+   DM->QRepayment1->SQL->Add("select * from venta where nombre_cliente like '%"+Edit1->Text+"%'");
+   DM->QRepayment1->Open();
    Close();
 
 }
@@ -218,9 +218,9 @@ void __fastcall Tfrmdevolucion::FormActivate(TObject *Sender)
    Panel1->Color=(TColor)0x0000D900;
    Edit1->Text="";
    Edit2->Text="";
-   Query1->Close();
-   Query1->Open();
-   Table1->Active = true;
+   DM->QRepayment1->Close();
+   DM->QRepayment1->Open();
+   DM->TRepayment1->Active = true;
 }
 //---------------------------------------------------------------------------
 

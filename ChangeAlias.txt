@@ -1,16 +1,17 @@
 Para Cambiar Alias Actualizar los siguientes componentes:
 - DM (DataModule)
 --- BdD
-- frmmenuprincipal (unit1)
+- frmmenuprincipal (unit1 - UMainMenu)
 --- Table1
-- frmgestionproductos (unit3)
+- frmgestionproductos (unit3 - UProductManegement)
 --- Query1
-- frmmaestrodetalleventa (unit14)
+- frmmaestrodetalleventa (unit14 - USalesMasterDetail)
 --- Query1
 --- Query2
-- frmdatosproducto (unit4)
 --- Table1
-- frmdevolucion (unit15)
+- frmdatosproducto (unit4 - UProduct)
+--- Table1
+- frmdevolucion (unit15 - URepayment)
 --- Table1
 --- Table2
 --- Table3

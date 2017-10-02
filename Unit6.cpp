@@ -5,16 +5,16 @@
 #include "Unit6.h"
 #include "Unit5.h"
 #include "Unit2.h"
-#include "Unit4.h"
 #include "num_a_letra.h"
 #include "Unit11.h"
 #include "Unit14.h"
-#include "Unit15.h"
 #include "Unit16.h"
 #include "Configuration.h"
 #include "UMainMenu.h"
 #include "DataModule.h"
 #include "UProductManagement.h"
+#include "UProduct.h"
+#include "URepayment.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmventas *frmventas;

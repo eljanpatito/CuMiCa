@@ -52,6 +52,22 @@ __published:	// IDE-managed Components
    TTable *TSalesMasterDetail;
    TTable *TProduct;
    TDataSource *DSProduct;
+   TTable *TRepayment1;
+   TDataSource *DSRepayment3;
+   TTable *TRepayment2;
+   TDataSource *DSRepayment4;
+   TQuery *QRepayment1;
+   TIntegerField *IntegerField1;
+   TStringField *StringField1;
+   TIntegerField *IntegerField2;
+   TFloatField *FloatField1;
+   TStringField *StringField2;
+   TDateTimeField *DateTimeField1;
+   TDataSource *DSRepayment1;
+   TTable *TRepayment3;
+   TDataSource *DSRepayment2;
+   TDataSource *DSRepayment5;
+   TQuery *QRepayment3;
 private:	// User declarations
 public:		// User declarations
    __fastcall TDM(TComponent* Owner);

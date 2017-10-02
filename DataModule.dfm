@@ -2,20 +2,20 @@ object DM: TDM
   OldCreateOrder = False
   Left = 196
   Top = 124
-  Height = 431
-  Width = 628
+  Height = 591
+  Width = 1072
   object BdD: TDatabase
     AliasName = 'Cumica2017Alias'
     Connected = True
     DatabaseName = 'CuMiCaBdD'
     LoginPrompt = False
     SessionName = 'Default'
-    Left = 16
+    Left = 24
     Top = 8
   end
   object DataSource1: TDataSource
     DataSet = Query1
-    Left = 61
+    Left = 93
     Top = 59
   end
   object Query1: TQuery
@@ -23,7 +23,7 @@ object DM: TDM
     SQL.Strings = (
       'Select *'
       'From USUARIO')
-    Left = 16
+    Left = 24
     Top = 56
   end
   object qSeguimiento: TQuery
@@ -42,7 +42,7 @@ object DM: TDM
         'D'
       'ORDER BY VENTA.NOMBRE_CLIENTE, VENTA.IDNOTA;')
     Left = 24
-    Top = 136
+    Top = 104
     ParamData = <
       item
         DataType = ftString
@@ -54,7 +54,7 @@ object DM: TDM
   object dsSeguimiento: TDataSource
     DataSet = qSeguimiento
     Left = 96
-    Top = 136
+    Top = 104
   end
   object qSumCajas: TQuery
     DatabaseName = 'CuMiCaBdD'
@@ -64,7 +64,7 @@ object DM: TDM
       'WHERE (((DETALLE_VENTA.CODIGO)=:a))'
       'GROUP BY DETALLE_VENTA.CODIGO;')
     Left = 24
-    Top = 192
+    Top = 152
     ParamData = <
       item
         DataType = ftString
@@ -76,12 +76,12 @@ object DM: TDM
   object dsSumCajas: TDataSource
     DataSet = qSumCajas
     Left = 96
-    Top = 192
+    Top = 152
   end
   object dsVentasFecha: TDataSource
     DataSet = qVentasFecha
-    Left = 240
-    Top = 8
+    Left = 96
+    Top = 200
   end
   object qVentasFecha: TQuery
     DatabaseName = 'CuMiCaBdD'
@@ -91,8 +91,8 @@ object DM: TDM
       'WHERE VENTA.FECHA>=#09/11/2012# AND VENTA.FECHA<=#13/11/2015#'
       'GROUP BY VENTA.FECHA'
       'ORDER BY VENTA.FECHA DESC;')
-    Left = 176
-    Top = 8
+    Left = 24
+    Top = 200
     object qVentasFechaFECHA: TDateTimeField
       FieldName = 'FECHA'
     end
@@ -104,8 +104,8 @@ object DM: TDM
   object tConfiguration: TTable
     DatabaseName = 'CuMiCaBdD'
     TableName = 'configuration'
-    Left = 168
-    Top = 64
+    Left = 24
+    Top = 248
     object tConfigurationproperty: TStringField
       FieldName = 'property'
       Size = 25
@@ -117,16 +117,16 @@ object DM: TDM
   end
   object dsConfiguration: TDataSource
     DataSet = tConfiguration
-    Left = 232
-    Top = 64
+    Left = 96
+    Top = 248
   end
   object qFindProduct: TQuery
     DatabaseName = 'CuMiCaBdD'
     SQL.Strings = (
       'SELECT * FROM PRODUCTO'
       'WHERE CODIGO=:codigo')
-    Left = 168
-    Top = 136
+    Left = 24
+    Top = 296
     ParamData = <
       item
         DataType = ftString
@@ -139,17 +139,17 @@ object DM: TDM
     Active = True
     DatabaseName = 'CuMiCaBdD'
     TableName = 'FORMULARIO'
-    Left = 352
+    Left = 184
     Top = 8
   end
   object dsMainMenu: TDataSource
     DataSet = tMainMenu
-    Left = 416
+    Left = 296
     Top = 8
   end
   object DSProductManagement: TDataSource
     DataSet = QProductManagement
-    Left = 469
+    Left = 293
     Top = 56
   end
   object QProductManagement: TQuery
@@ -166,7 +166,7 @@ object DM: TDM
       '  `PRODUCTO`.`PRECIO_CAJA`'
       'From `PRODUCTO`'
       'ORDER BY CODIGO')
-    Left = 352
+    Left = 184
     Top = 56
   end
   object QSalesMasterDetail1: TQuery
@@ -176,7 +176,7 @@ object DM: TDM
       'VENTA.TOTAL_CAJAS, VENTA.TOTAL_BS, VENTA.FECHA, VENTA.TOTAL'
       'FROM VENTA'
       'ORDER BY VENTA.IDNOTA DESC')
-    Left = 353
+    Left = 185
     Top = 107
     object Query1IDNOTA: TIntegerField
       FieldName = 'IDNOTA'
@@ -213,7 +213,7 @@ object DM: TDM
       'From `DETALLE_VENTA`'
       'Where'
       '  `DETALLE_VENTA`.`ID_NOTA` =:"IDNOTA"')
-    Left = 353
+    Left = 185
     Top = 155
     ParamData = <
       item
@@ -242,17 +242,17 @@ object DM: TDM
   end
   object DSSalesMasterDetail1: TDataSource
     DataSet = QSalesMasterDetail1
-    Left = 469
+    Left = 293
     Top = 107
   end
   object DSSalesMasterDetail2: TDataSource
     DataSet = QSalesMasterDetail2
-    Left = 469
+    Left = 293
     Top = 155
   end
   object DSSalesMasterDetail3: TDataSource
     DataSet = TSalesMasterDetail
-    Left = 472
+    Left = 296
     Top = 200
   end
   object TSalesMasterDetail: TTable
@@ -261,18 +261,128 @@ object DM: TDM
     MasterFields = 'IDNOTA'
     MasterSource = DSSalesMasterDetail1
     TableName = 'DEVOLUCION'
-    Left = 352
+    Left = 184
     Top = 201
   end
   object TProduct: TTable
     DatabaseName = 'CuMiCaBdD'
     TableName = 'PRODUCTO'
-    Left = 352
-    Top = 256
+    Left = 184
+    Top = 248
   end
   object DSProduct: TDataSource
     DataSet = TProduct
-    Left = 469
+    Left = 293
     Top = 251
+  end
+  object TRepayment1: TTable
+    AutoRefresh = True
+    DatabaseName = 'CuMiCaBdD'
+    Filtered = True
+    TableName = 'VENTA'
+    Left = 184
+    Top = 296
+  end
+  object DSRepayment3: TDataSource
+    DataSet = TRepayment1
+    Left = 296
+    Top = 296
+  end
+  object TRepayment2: TTable
+    AutoRefresh = True
+    DatabaseName = 'CuMiCaBdD'
+    Filtered = True
+    IndexFieldNames = 'ID_NOTA'
+    MasterFields = 'IDNOTA'
+    MasterSource = DSRepayment3
+    TableName = 'DETALLE_VENTA'
+    Left = 184
+    Top = 344
+  end
+  object DSRepayment4: TDataSource
+    DataSet = TRepayment2
+    Left = 296
+    Top = 344
+  end
+  object QRepayment1: TQuery
+    AutoRefresh = True
+    DatabaseName = 'CuMiCaBdD'
+    SQL.Strings = (
+      'Select'
+      '  `VENTA`.`IDNOTA`,'
+      '  `VENTA`.`NOMBRE_CLIENTE`,'
+      '  `VENTA`.`TOTAL_CAJAS`,'
+      '  `VENTA`.`TOTAL_BS`,'
+      '  `VENTA`.`TOTAL`,'
+      '  `VENTA`.`FECHA`'
+      'From `VENTA`')
+    Left = 185
+    Top = 387
+    object IntegerField1: TIntegerField
+      FieldName = 'IDNOTA'
+    end
+    object StringField1: TStringField
+      FieldName = 'NOMBRE_CLIENTE'
+      Size = 100
+    end
+    object IntegerField2: TIntegerField
+      FieldName = 'TOTAL_CAJAS'
+    end
+    object FloatField1: TFloatField
+      FieldName = 'TOTAL_BS'
+    end
+    object StringField2: TStringField
+      FieldName = 'TOTAL'
+      Size = 255
+    end
+    object DateTimeField1: TDateTimeField
+      FieldName = 'FECHA'
+    end
+  end
+  object DSRepayment1: TDataSource
+    DataSet = QRepayment1
+    Left = 293
+    Top = 387
+  end
+  object TRepayment3: TTable
+    DatabaseName = 'CuMiCaBdD'
+    TableName = 'DEVOLUCION'
+    Left = 184
+    Top = 432
+  end
+  object DSRepayment2: TDataSource
+    DataSet = TRepayment3
+    Left = 296
+    Top = 432
+  end
+  object DSRepayment5: TDataSource
+    DataSet = QRepayment3
+    Left = 296
+    Top = 480
+  end
+  object QRepayment3: TQuery
+    AutoRefresh = True
+    DatabaseName = 'CuMiCaBdD'
+    DataSource = DSRepayment1
+    SQL.Strings = (
+      'Select'
+      '`DETALLE_VENTA`.`ID`,  '
+      '`DETALLE_VENTA`.`CODIGO`,'
+      '  `DETALLE_VENTA`.`DESCRIPCION`,'
+      '  `DETALLE_VENTA`.`CANTIDAD`,'
+      '  `DETALLE_VENTA`.`PRECIO`,'
+      '  `DETALLE_VENTA`.`PARCIAL`'
+      'From `DETALLE_VENTA`'
+      'Where'
+      '  `DETALLE_VENTA`.`ID_NOTA` =:"IDNOTA"')
+    Left = 184
+    Top = 480
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IDNOTA'
+        ParamType = ptUnknown
+        Size = 4
+      end>
   end
 end

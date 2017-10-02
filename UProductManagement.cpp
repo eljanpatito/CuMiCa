@@ -3,12 +3,12 @@
 #pragma hdrstop
 
 #include "UProductManagement.h"
-#include "Unit4.h"
 #include "Unit6.h"
 #include "Unit8.h"
 #include "Unit7.h"
 #include "UMainMenu.h"
 #include "DataModule.h"
+#include "UProduct.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmgestionproductos *frmgestionproductos;

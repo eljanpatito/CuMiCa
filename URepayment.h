@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------
-#ifndef Unit15H
-#define Unit15H
+#ifndef URepaymentH
+#define URepaymentH
 //----------------------------------------------------------------------------
 #include <SysUtils.hpp>
 #include <Windows.hpp>
@@ -22,19 +22,7 @@
 class Tfrmdevolucion : public TForm
 {
 __published:
-	TIntegerField *Query1IDNOTA;
-	TStringField *Query1NOMBRE_CLIENTE;
-	TIntegerField *Query1TOTAL_CAJAS;
-	TFloatField *Query1TOTAL_BS;
-	TStringField *Query1TOTAL;
-	TDateTimeField *Query1FECHA;
-	TDataSource *DataSource1;
-	TQuery *Query1;
         TLabel *Label7;
-        TTable *Table1;
-        TTable *Table2;
-        TDataSource *DataSource3;
-        TDataSource *DataSource4;
         TDBEdit *DBEdit1;
         TDBEdit *DBEdit2;
    TDBEdit *DBEdit3;
@@ -65,12 +53,8 @@ __published:
    TDBEdit *EditTOTAL;
    TDBEdit *EditTOTAL_BS;
    TDBEdit *EditTOTAL_CAJAS;
-   TQuery *Query3;
-   TDataSource *DataSource5;
    TButton *Button1;
    TDBEdit *DBEdit12;
-   TTable *Table3;
-   TDataSource *DataSource2;
    TDBText *DBText1;
 	void __fastcall FormCreate(TObject *Sender);
         void __fastcall Edit1Change(TObject *Sender);

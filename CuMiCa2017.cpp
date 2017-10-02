@@ -6,7 +6,7 @@
 USEFORM("UMainMenu.cpp", frmmenuprincipal);
 USEFORM("Unit2.cpp", frmlogin);
 USEFORM("UProductManagement.cpp", frmgestionproductos);
-USEFORM("Unit4.cpp", frmdatosproducto);
+USEFORM("UProduct.cpp", frmdatosproducto);
 USEFORM("Unit5.cpp", frmgestioncliente);
 USEFORM("Unit6.cpp", frmventas);
 USEFORM("Unit7.cpp", frmrepproducto);
@@ -17,7 +17,7 @@ USEFORM("Unit11.cpp", frmproforma);
 USEFORM("Unit12.cpp", frmproformas);
 USEFORM("Unit13.cpp", frmrepproforma);
 USEFORM("USalesMasterDetail.cpp", frmmaestrodetalleventa);
-USEFORM("Unit15.cpp", frmdevolucion);
+USEFORM("URepayment.cpp", frmdevolucion);
 USEFORM("Unit16.cpp", frmempleado);
 USEFORM("Unit17.cpp", frmrepdevolucion);
 USEFORM("Unit18.cpp", frmrepempleados);
