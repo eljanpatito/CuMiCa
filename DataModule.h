@@ -114,6 +114,7 @@ __published:	// IDE-managed Components
    TDataSource *MasterDS;
    TTable *MasterTable;
    TTable *DetailTable;
+   TTable *TCustomerList;
 private:	// User declarations
 public:		// User declarations
    __fastcall TDM(TComponent* Owner);

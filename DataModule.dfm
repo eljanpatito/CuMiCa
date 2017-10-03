@@ -604,4 +604,10 @@ object DM: TDM
     Left = 404
     Top = 356
   end
+  object TCustomerList: TTable
+    DatabaseName = 'CuMiCaBdD'
+    TableName = 'CLIENTE'
+    Left = 400
+    Top = 400
+  end
 end

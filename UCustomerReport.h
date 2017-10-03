@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------
-#ifndef Unit19H
-#define Unit19H
+#ifndef UCustomerReportH
+#define UCustomerReportH
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Graphics.hpp>
@@ -27,7 +27,6 @@ __published:	// IDE-managed Components
     TQRExpr *QRExpr3;
     TQRLabel *QRLabel3;
     TQRExpr *QRExpr4;
-    TTable *Table1;
         TQRBand *QRBand1;
         TQRLabel *QRLabel4;
 private:	// User declarations

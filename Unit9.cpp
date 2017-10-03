@@ -11,7 +11,6 @@
 #include "Unit13.h"
 #include "Unit14.h"
 #include "Unit18.h"
-#include "Unit19.h"
 #include "Unit21.h"
 #include "SegProductosForm.h"
 #include "RepVentasFecha.h"
@@ -20,6 +19,8 @@
 #include "UCustomer.h"
 #include "UProforma.h"
 #include "UProformas.h"
+#include "UCustomerReport.h"
+#include "DataModule.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -75,7 +76,10 @@ frmrepempleados->QuickRep1->PreviewModal();
 
 void __fastcall Tfrmreportes::btnclientesClick(TObject *Sender)
 {
-frmrepcliente->QuickRep1->PreviewModal();
+   if (!DM->TCustomerList->Active) {
+      DM->TCustomerList->Active = true;
+   }
+   frmrepcliente->QuickRep1->PreviewModal();
 }
 //---------------------------------------------------------------------------
 

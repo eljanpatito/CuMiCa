@@ -21,7 +21,7 @@ USEFORM("URepayment.cpp", frmdevolucion);
 USEFORM("UEmployee.cpp", frmempleado);
 USEFORM("Unit17.cpp", frmrepdevolucion);
 USEFORM("Unit18.cpp", frmrepempleados);
-USEFORM("Unit19.cpp", frmrepcliente);
+USEFORM("UCustomerReport.cpp", frmrepcliente);
 USEFORM("Unit20.cpp", QRMDForm);
 USEFORM("Unit21.cpp", frmventaempleado);
 USEFORM("DataModule.cpp", DM); /* TDataModule: File Type */
