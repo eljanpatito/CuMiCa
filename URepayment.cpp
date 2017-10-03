@@ -4,7 +4,6 @@
 
 #include "Unit6.h"
 #include "Unit2.h"
-#include "Unit11.h"
 #include "Unit14.h"
 #include "URepayment.h"
 #include "num_a_letra.h"
@@ -15,6 +14,7 @@
 #include "UProduct.h"
 #include "UEmployee.h"
 #include "UCustomer.h"
+#include "UProforma.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmdevolucion *frmdevolucion;

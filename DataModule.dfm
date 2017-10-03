@@ -491,4 +491,97 @@ object DM: TDM
     Left = 464
     Top = 56
   end
+  object QProforma1: TQuery
+    DatabaseName = 'CuMiCaBdD'
+    SQL.Strings = (
+      'SELECT DETALLE_VENTA.*, producto.*'
+      
+        'FROM  PRODUCTO INNER JOIN DETALLE_VENTA ON PRODUCTO.CODIGO = DET' +
+        'ALLE_VENTA.CODIGO'
+      'WHERE (((DETALLE_VENTA.ID_NOTA)=148));')
+    Left = 400
+    Top = 160
+    object QProforma1Id: TIntegerField
+      FieldName = 'Id'
+      Origin = 'CUMICAALIAS.PRODUCTO.Id'
+    end
+    object QProforma1CODIGO: TStringField
+      FieldName = 'CODIGO'
+      Origin = 'CUMICAALIAS.PRODUCTO.CODIGO'
+      Size = 30
+    end
+    object QProforma1DESCRIPCION: TStringField
+      FieldName = 'DESCRIPCION'
+      Origin = 'CUMICAALIAS.PRODUCTO.DESCRIPCION'
+      Size = 255
+    end
+    object QProforma1CANTIDAD: TIntegerField
+      FieldName = 'CANTIDAD'
+      Origin = 'CUMICAALIAS.PRODUCTO.CANTIDAD_CAJAS'
+    end
+    object QProforma1PRECIO: TFloatField
+      FieldName = 'PRECIO'
+      Origin = 'CUMICAALIAS.PRODUCTO.CANTIDAS_POR_CAJA'
+    end
+    object QProforma1PARCIAL: TFloatField
+      FieldName = 'PARCIAL'
+      Origin = 'CUMICAALIAS.PRODUCTO.PRECIO_DE_COMPRA'
+    end
+    object QProforma1ID_NOTA: TIntegerField
+      FieldName = 'ID_NOTA'
+      Origin = 'CUMICAALIAS.PRODUCTO.PRECIO_UNIDAD'
+    end
+    object QProforma1CANTIDAS_POR_CAJA: TSmallintField
+      FieldName = 'CANTIDAD_POR_CAJA'
+      Origin = 'CUMICAALIAS.DETALLE_VENTA.CANTIDAD'
+    end
+  end
+  object TProforma: TTable
+    DatabaseName = 'CuMiCaBdD'
+    TableName = 'VENTA'
+    Left = 400
+    Top = 256
+    object TProformaIDNOTA: TIntegerField
+      FieldName = 'IDNOTA'
+    end
+    object TProformaNOMBRE_CLIENTE: TStringField
+      FieldName = 'NOMBRE_CLIENTE'
+      Size = 100
+    end
+    object TProformaTOTAL_CAJAS: TIntegerField
+      FieldName = 'TOTAL_CAJAS'
+    end
+    object TProformaTOTAL_BS: TFloatField
+      FieldName = 'TOTAL_BS'
+    end
+    object TProformaTOTAL: TStringField
+      FieldName = 'TOTAL'
+      Size = 255
+    end
+    object TProformaFECHA: TDateTimeField
+      FieldName = 'FECHA'
+    end
+    object TProformaCOD_EMP: TStringField
+      FieldName = 'COD_EMP'
+      Size = 30
+    end
+  end
+  object DSProforma1: TDataSource
+    DataSet = QProforma1
+    Left = 464
+    Top = 160
+  end
+  object DSProforma2: TDataSource
+    DataSet = TProforma
+    Left = 464
+    Top = 208
+  end
+  object QProforma2: TQuery
+    DatabaseName = 'CuMiCaBdD'
+    SQL.Strings = (
+      'SELECT * FROM VENTA'
+      'WHERE IDNOTA = 140')
+    Left = 400
+    Top = 208
+  end
 end

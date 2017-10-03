@@ -91,6 +91,26 @@ __published:	// IDE-managed Components
    TStringField *TCustomerDIRECCION;
    TStringField *TCustomerCIUDAD;
    TDataSource *DSCustomer2;
+   TQuery *QProforma1;
+   TIntegerField *QProforma1Id;
+   TStringField *QProforma1CODIGO;
+   TStringField *QProforma1DESCRIPCION;
+   TIntegerField *QProforma1CANTIDAD;
+   TFloatField *QProforma1PRECIO;
+   TFloatField *QProforma1PARCIAL;
+   TIntegerField *QProforma1ID_NOTA;
+   TSmallintField *QProforma1CANTIDAS_POR_CAJA;
+   TTable *TProforma;
+   TIntegerField *TProformaIDNOTA;
+   TStringField *TProformaNOMBRE_CLIENTE;
+   TIntegerField *TProformaTOTAL_CAJAS;
+   TFloatField *TProformaTOTAL_BS;
+   TStringField *TProformaTOTAL;
+   TDateTimeField *TProformaFECHA;
+   TStringField *TProformaCOD_EMP;
+   TDataSource *DSProforma1;
+   TDataSource *DSProforma2;
+   TQuery *QProforma2;
 private:	// User declarations
 public:		// User declarations
    __fastcall TDM(TComponent* Owner);

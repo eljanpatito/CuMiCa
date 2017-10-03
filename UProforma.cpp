@@ -2,10 +2,11 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "Unit11.h"
+#include "UProforma.h"
 #include "Unit6.h"
 #include "Unit14.h"
 #include "Configuration.h"
+#include "DataModule.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"

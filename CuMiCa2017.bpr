@@ -6,7 +6,7 @@
     <PROJECT value="CuMiCa2017.exe"/>
     <OBJFILES value="CuMiCa2017.obj UMainMenu.obj Unit2.obj UProductManagement.obj UProduct.obj 
       UCustomer.obj Unit6.obj Unit7.obj Unit8.obj Unit9.obj Unit10.obj 
-      Unit11.obj Unit12.obj Unit13.obj USalesMasterDetail.obj URepayment.obj 
+      UProforma.obj Unit12.obj Unit13.obj USalesMasterDetail.obj URepayment.obj 
       UEmployee.obj Unit17.obj Unit18.obj Unit19.obj Unit20.obj Unit21.obj 
       DataModule.obj SegProductos.obj SegProductosForm.obj RepVentasFecha.obj 
       Configuration.obj"/>
@@ -16,7 +16,7 @@
     <DEFFILE value=""/>
     <RESDEPEN value="$(RESFILES) UMainMenu.dfm Unit2.dfm UProductManagement.dfm UProduct.dfm 
       UCustomer.dfm Unit6.dfm Unit7.dfm Unit8.dfm Unit9.dfm Unit10.dfm 
-      Unit11.dfm Unit12.dfm Unit13.dfm USalesMasterDetail.dfm URepayment.dfm 
+      UProforma.dfm Unit12.dfm Unit13.dfm USalesMasterDetail.dfm URepayment.dfm 
       UEmployee.dfm Unit17.dfm Unit18.dfm Unit19.dfm Unit20.dfm Unit21.dfm 
       DataModule.dfm SegProductos.dfm SegProductosForm.dfm RepVentasFecha.dfm 
       Configuration.dfm"/>
@@ -80,7 +80,7 @@
       <FILE FILENAME="Unit8.cpp" FORMNAME="QRListForm" UNITNAME="Unit8" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit9.cpp" FORMNAME="frmreportes" UNITNAME="Unit9" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit10.cpp" FORMNAME="frmreporteventa" UNITNAME="Unit10" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Unit11.cpp" FORMNAME="frmproforma" UNITNAME="Unit11" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="UProforma.cpp" FORMNAME="frmproforma" UNITNAME="UProforma" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit12.cpp" FORMNAME="frmproformas" UNITNAME="Unit12" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit13.cpp" FORMNAME="frmrepproforma" UNITNAME="Unit13" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="USalesMasterDetail.cpp" FORMNAME="frmmaestrodetalleventa" UNITNAME="USalesMasterDetail" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>

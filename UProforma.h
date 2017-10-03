@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------
-#ifndef Unit11H
-#define Unit11H
+#ifndef UProformaH
+#define UProformaH
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Graphics.hpp>
@@ -27,13 +27,11 @@ __published:	// IDE-managed Components
     TQRExpr *QRExpr4;
     TQRExpr *QRExpr5;
         TQRExpr *QRExpr6;
-        TQuery *Query1;
         TQRLabel *QRLabel7;
         TQRLabel *QRLabel6;
    TQRBand *QRBand1;
    TQRDBText *QRDBText1;
    TQRLabel *QRLabel1;
-   TTable *Table1;
    TQRLabel *QRLabel4;
    TQRLabel *QRLabel12;
    TQRLabel *QRLabel13;
@@ -43,27 +41,9 @@ __published:	// IDE-managed Components
    TQRLabel *QRLabel17;
    TQRLabel *QRLabel18;
    TQRExpr *QRExpr1;
-   TIntegerField *Table1IDNOTA;
-   TStringField *Table1NOMBRE_CLIENTE;
-   TIntegerField *Table1TOTAL_CAJAS;
-   TFloatField *Table1TOTAL_BS;
-   TStringField *Table1TOTAL;
-   TDateTimeField *Table1FECHA;
-   TStringField *Table1COD_EMP;
    TQRExpr *QRExpr7;
    TQRLabel *QRLabel2;
-   TDataSource *DataSource1;
    TDBGrid *DBGrid1;
-   TDataSource *DataSource2;
-   TQuery *Query2;
-   TIntegerField *Query1Id;
-   TStringField *Query1CODIGO;
-   TStringField *Query1DESCRIPCION;
-   TIntegerField *Query1CANTIDAD;
-   TFloatField *Query1PRECIO;
-   TFloatField *Query1PARCIAL;
-   TIntegerField *Query1ID_NOTA;
-   TSmallintField *Query1CANTIDAS_POR_CAJA;
    TQRLabel *QRLabel3;
    TQRDBText *QRDBText2;
    TQRLabel *QRLabel10;

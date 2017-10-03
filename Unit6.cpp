@@ -5,7 +5,6 @@
 #include "Unit6.h"
 #include "Unit2.h"
 #include "num_a_letra.h"
-#include "Unit11.h"
 #include "Unit14.h"
 #include "Configuration.h"
 #include "UMainMenu.h"
@@ -15,6 +14,7 @@
 #include "URepayment.h"
 #include "UEmployee.h"
 #include "UCustomer.h"
+#include "UProforma.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmventas *frmventas;
@@ -155,19 +155,19 @@ void __fastcall Tfrmventas::btnvenderClick(TObject *Sender)
    Table3->Active = true;
    Table3->Last();
    Application->MessageBox("VENTA REGISTRADA CORRECTAMENTE","OK",MB_OK | MB_ICONINFORMATION);
-   frmproforma->Query1->Close();
-   frmproforma->Query1->SQL->Clear();
-   frmproforma->Query1->SQL->Add("SELECT DETALLE_VENTA.*, producto.*");
-   frmproforma->Query1->SQL->Add("FROM  PRODUCTO INNER JOIN DETALLE_VENTA ON PRODUCTO.CODIGO = DETALLE_VENTA.CODIGO");
-   frmproforma->Query1->SQL->Add("WHERE (((DETALLE_VENTA.ID_NOTA)="+DBEdit5->Text+"))");
+   DM->QProforma1->Close();
+   DM->QProforma1->SQL->Clear();
+   DM->QProforma1->SQL->Add("SELECT DETALLE_VENTA.*, producto.*");
+   DM->QProforma1->SQL->Add("FROM  PRODUCTO INNER JOIN DETALLE_VENTA ON PRODUCTO.CODIGO = DETALLE_VENTA.CODIGO");
+   DM->QProforma1->SQL->Add("WHERE (((DETALLE_VENTA.ID_NOTA)="+DBEdit5->Text+"))");
 // SELECT DETALLE_VENTA.* FROM DETALLE_VENTA WHERE (((DETALLE_VENTA.ID_NOTA)="+DBEdit1->Text+"))");
-   frmproforma->Query1->Open();
+   DM->QProforma1->Open();
    frmproforma->QRLabel6->Caption=EditTOTAL->Text;
    frmproforma->QRLabel7->Caption=EditTOTAL_BS->Text;
-   frmproforma->Query2->SQL->Clear();
-   frmproforma->Query2->SQL->Add("SELECT * FROM VENTA");
-   frmproforma->Query2->SQL->Add("WHERE IDNOTA ="+DBEdit5->Text+"");
-   frmproforma->Query2->Open();
+   DM->QProforma2->SQL->Clear();
+   DM->QProforma2->SQL->Add("SELECT * FROM VENTA");
+   DM->QProforma2->SQL->Add("WHERE IDNOTA ="+DBEdit5->Text+"");
+   DM->QProforma2->Open();
    frmproforma->setValues();
    frmproforma->QuickRep1->PreviewModal();
    txtnombre->Text="";

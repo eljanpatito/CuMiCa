@@ -13,7 +13,7 @@ USEFORM("Unit7.cpp", frmrepproducto);
 USEFORM("Unit8.cpp", QRListForm);
 USEFORM("Unit9.cpp", frmreportes);
 USEFORM("Unit10.cpp", frmreporteventa);
-USEFORM("Unit11.cpp", frmproforma);
+USEFORM("UProforma.cpp", frmproforma);
 USEFORM("Unit12.cpp", frmproformas);
 USEFORM("Unit13.cpp", frmrepproforma);
 USEFORM("USalesMasterDetail.cpp", frmmaestrodetalleventa);
