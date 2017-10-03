@@ -584,4 +584,24 @@ object DM: TDM
     Left = 400
     Top = 208
   end
+  object MasterDS: TDataSource
+    DataSet = MasterTable
+    Left = 460
+    Top = 308
+  end
+  object MasterTable: TTable
+    DatabaseName = 'CuMiCaBdD'
+    TableName = 'VENTA'
+    Left = 400
+    Top = 308
+  end
+  object DetailTable: TTable
+    DatabaseName = 'CuMiCaBdD'
+    IndexFieldNames = 'ID_NOTA'
+    MasterFields = 'IDNOTA'
+    MasterSource = MasterDS
+    TableName = 'DETALLE_VENTA'
+    Left = 404
+    Top = 356
+  end
 end

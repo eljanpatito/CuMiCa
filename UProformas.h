@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------
-#ifndef Unit12H
-#define Unit12H
+#ifndef UProformasH
+#define UProformasH
 //----------------------------------------------------------------------------
 #include <vcl\ExtCtrls.hpp>
 #include <vcl\StdCtrls.hpp>
@@ -22,16 +22,13 @@
 class Tfrmproformas : public TForm
 {
 __published:
-        TQuickRep *QuickRep1;
-	TTable *MasterTable; 
+        TQuickRep *QuickRep1; 
 	TQRBand *DetailBand1;
 	TQRBand *PageFooterBand1;
 	TQRBand *TitleBand1;
 	TQRBand * ColumnHeaderBand1;
 	TQRSysData *QRSysData2;
-	TTable *DetailTable;
-	TQRSubDetail *QRSubDetail1;  
-	TDataSource *MasterDS;
+	TQRSubDetail *QRSubDetail1;
         TQRDBText *QRDBText1;
         TQRDBText *QRDBText2;
         TQRLabel *QRLabel1;

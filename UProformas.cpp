@@ -2,7 +2,8 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "Unit12.h"
+#include "UProformas.h"
+#include "DataModule.h"
 //---------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmproformas *frmproformas;

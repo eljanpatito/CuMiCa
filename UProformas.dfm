@@ -96,7 +96,7 @@ object frmproformas: Tfrmproformas
         AutoSize = True
         AutoStretch = False
         Color = clWhite
-        DataSet = MasterTable
+        DataSet = DM.MasterTable
         DataField = 'IDNOTA'
         Transparent = False
         WordWrap = True
@@ -320,7 +320,6 @@ object frmproformas: Tfrmproformas
         63.5
         1905)
       Master = QuickRep1
-      DataSet = DetailTable
       PrintBefore = False
       PrintIfEmpty = False
       object QRDBText2: TQRDBText
@@ -343,32 +342,12 @@ object frmproformas: Tfrmproformas
         AutoSize = True
         AutoStretch = False
         Color = clWhite
-        DataSet = DetailTable
+        DataSet = DM.DetailTable
         DataField = 'CODIGO'
         Transparent = False
         WordWrap = True
         FontSize = 10
       end
     end
-  end
-  object MasterTable: TTable
-    DatabaseName = 'Cumica2017Alias'
-    TableName = 'VENTA'
-    Left = 16
-    Top = 20
-  end
-  object DetailTable: TTable
-    DatabaseName = 'Cumica2017Alias'
-    IndexFieldNames = 'ID_NOTA'
-    MasterFields = 'IDNOTA'
-    MasterSource = MasterDS
-    TableName = 'DETALLE_VENTA'
-    Left = 28
-    Top = 52
-  end
-  object MasterDS: TDataSource
-    DataSet = MasterTable
-    Left = 52
-    Top = 20
   end
 end

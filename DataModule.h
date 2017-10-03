@@ -111,6 +111,9 @@ __published:	// IDE-managed Components
    TDataSource *DSProforma1;
    TDataSource *DSProforma2;
    TQuery *QProforma2;
+   TDataSource *MasterDS;
+   TTable *MasterTable;
+   TTable *DetailTable;
 private:	// User declarations
 public:		// User declarations
    __fastcall TDM(TComponent* Owner);
