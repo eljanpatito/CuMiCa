@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------
-#ifndef Unit16H
-#define Unit16H
+#ifndef UEmployeeH
+#define UEmployeeH
 //----------------------------------------------------------------------------
 #include <SysUtils.hpp>
 #include <Windows.hpp>
@@ -21,10 +21,6 @@
 class Tfrmempleado : public TForm
 {
 __published:
-	TStringField *Table1CODIGO;
-	TStringField *Table1NOMBRE_COMPLETO;
-	TDataSource *DataSource1;
-	TTable *Table1;
    TLabel *Label1;
    TPanel *Panel1;
    TButton *btnnuevoprod;
@@ -38,7 +34,6 @@ __published:
    TButton *btnseleccionar;
    TDBEdit *DBEdit1;
         TDBEdit *DBEdit2;
-   TStringField *Table1TELEFONO;
 	void __fastcall FormCreate(TObject *Sender);
    void __fastcall btnnuevoprodClick(TObject *Sender);
    void __fastcall Button1Click(TObject *Sender);

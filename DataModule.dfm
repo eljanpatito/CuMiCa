@@ -385,4 +385,27 @@ object DM: TDM
         Size = 4
       end>
   end
+  object TEmployee: TTable
+    DatabaseName = 'CuMiCaBdD'
+    TableName = 'EMPLEADO'
+    Left = 401
+    Top = 11
+    object TEmployeeCODIGO: TStringField
+      FieldName = 'CODIGO'
+      Size = 30
+    end
+    object TEmployeeNOMBRE_COMPLETO: TStringField
+      FieldName = 'NOMBRE_COMPLETO'
+      Size = 100
+    end
+    object TEmployeeTELEFONO: TStringField
+      FieldName = 'TELEFONO'
+      Size = 25
+    end
+  end
+  object DSEmployee: TDataSource
+    DataSet = TEmployee
+    Left = 461
+    Top = 11
+  end
 end

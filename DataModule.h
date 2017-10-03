@@ -68,6 +68,11 @@ __published:	// IDE-managed Components
    TDataSource *DSRepayment2;
    TDataSource *DSRepayment5;
    TQuery *QRepayment3;
+   TTable *TEmployee;
+   TStringField *TEmployeeCODIGO;
+   TStringField *TEmployeeNOMBRE_COMPLETO;
+   TStringField *TEmployeeTELEFONO;
+   TDataSource *DSEmployee;
 private:	// User declarations
 public:		// User declarations
    __fastcall TDM(TComponent* Owner);

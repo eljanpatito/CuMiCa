@@ -18,7 +18,7 @@ USEFORM("Unit12.cpp", frmproformas);
 USEFORM("Unit13.cpp", frmrepproforma);
 USEFORM("USalesMasterDetail.cpp", frmmaestrodetalleventa);
 USEFORM("URepayment.cpp", frmdevolucion);
-USEFORM("Unit16.cpp", frmempleado);
+USEFORM("UEmployee.cpp", frmempleado);
 USEFORM("Unit17.cpp", frmrepdevolucion);
 USEFORM("Unit18.cpp", frmrepempleados);
 USEFORM("Unit19.cpp", frmrepcliente);

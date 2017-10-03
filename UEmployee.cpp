@@ -2,9 +2,10 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "Unit16.h"
+#include "UEmployee.h"
 #include "Unit6.h"
 #include "URepayment.h"
+#include "DataModule.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmempleado *frmempleado;
@@ -19,7 +20,7 @@ void __fastcall Tfrmempleado::FormCreate(TObject *Sender)
          Panel1->Enabled=True;
          Panel2->Color=clRed;
          Panel1->Color=(TColor)0x0000D900;
-      	Table1->Open();
+      	DM->TEmployee->Open();
 }
 //----------------------------------------------------------------------------
 void __fastcall Tfrmempleado::btnnuevoprodClick(TObject *Sender)
@@ -27,7 +28,7 @@ void __fastcall Tfrmempleado::btnnuevoprodClick(TObject *Sender)
    Panel1->Enabled=False;
    Panel1->Color=clRed;
    Panel2->Color=(TColor)0x0000D900;
-   Table1->Insert();
+   DM->TEmployee->Insert();
    DBGrid1->SetFocus();
 }
 //---------------------------------------------------------------------------
@@ -38,8 +39,8 @@ void __fastcall Tfrmempleado::Button1Click(TObject *Sender)
          Panel1->Enabled=True;
          Panel2->Color=clRed;
          Panel1->Color=(TColor)0x0000D900;
-         Table1->Post();
-         Table1->Refresh();
+         DM->TEmployee->Post();
+         DM->TEmployee->Refresh();
          Application->MessageBox("Datos de empleado guardado correctamente","OK",MB_OK | MB_ICONINFORMATION);
       }
    }
@@ -55,8 +56,8 @@ void __fastcall Tfrmempleado::Button2Click(TObject *Sender)
       Panel1->Enabled=True;
       Panel2->Color=clRed;
       Panel1->Color=(TColor)0x0000D900;
-      Table1->Cancel();
-      Table1->Refresh();
+      DM->TEmployee->Cancel();
+      DM->TEmployee->Refresh();
    }
    catch(...){}
 }
@@ -66,7 +67,7 @@ void __fastcall Tfrmempleado::btnmodificarprodClick(TObject *Sender)
    Panel1->Enabled=False;
    Panel1->Color=clRed;
    Panel2->Color=(TColor)0x0000D900;
-   Table1->Edit();
+   DM->TEmployee->Edit();
    DBGrid1->SetFocus();
 }
 //---------------------------------------------------------------------------
@@ -79,8 +80,8 @@ void __fastcall Tfrmempleado::btneliminarprodClick(TObject *Sender)
 {
    if (Application->MessageBox("¿Seguro que desea Borrar los datos de este EMPLEADO?","Eliminar Datos de Empleado",MB_YESNO | MB_ICONQUESTION) == ID_YES)
    {
-      Table1->Delete();
-      Table1->Refresh();
+      DM->TEmployee->Delete();
+      DM->TEmployee->Refresh();
     }
 }
 //---------------------------------------------------------------------------
