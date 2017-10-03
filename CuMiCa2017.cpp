@@ -7,7 +7,7 @@ USEFORM("UMainMenu.cpp", frmmenuprincipal);
 USEFORM("Unit2.cpp", frmlogin);
 USEFORM("UProductManagement.cpp", frmgestionproductos);
 USEFORM("UProduct.cpp", frmdatosproducto);
-USEFORM("Unit5.cpp", frmgestioncliente);
+USEFORM("UCustomer.cpp", frmgestioncliente);
 USEFORM("Unit6.cpp", frmventas);
 USEFORM("Unit7.cpp", frmrepproducto);
 USEFORM("Unit8.cpp", QRListForm);

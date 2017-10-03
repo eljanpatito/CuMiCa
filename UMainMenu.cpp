@@ -4,13 +4,13 @@
 #pragma hdrstop
 
 #include "UMainMenu.h"
-#include "Unit5.h"
 #include "Unit6.h"
 #include "Unit9.h"
 #include "Configuration.h"
 #include "DataModule.h"
 #include "UProductManagement.h"
 #include "UEmployee.h"
+#include "UCustomer.h"
 
 //---------------------------------------------------------------------------
 #pragma package(smart_init)

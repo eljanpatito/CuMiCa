@@ -73,6 +73,24 @@ __published:	// IDE-managed Components
    TStringField *TEmployeeNOMBRE_COMPLETO;
    TStringField *TEmployeeTELEFONO;
    TDataSource *DSEmployee;
+   TQuery *QCustomer;
+   TStringField *Query1NIT;
+   TStringField *Query1NOMBRE;
+   TStringField *Query1APELLIDO;
+   TStringField *Query1TELEFONO;
+   TStringField *Query1CELULAR;
+   TStringField *Query1DIRECCION;
+   TStringField *Query1CIUDAD;
+   TDataSource *DSCustomer1;
+   TTable *TCustomer;
+   TStringField *TCustomerNIT;
+   TStringField *TCustomerNOMBRE;
+   TStringField *TCustomerAPELLIDO;
+   TStringField *TCustomerTELEFONO;
+   TStringField *TCustomerCELULAR;
+   TStringField *TCustomerDIRECCION;
+   TStringField *TCustomerCIUDAD;
+   TDataSource *DSCustomer2;
 private:	// User declarations
 public:		// User declarations
    __fastcall TDM(TComponent* Owner);

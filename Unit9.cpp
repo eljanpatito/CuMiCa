@@ -5,7 +5,6 @@
 
 #include "Unit9.h"
 #include "Unit2.h"
-#include "Unit5.h"
 #include "Unit6.h"
 #include "Unit7.h"
 #include "Unit10.h"
@@ -20,6 +19,7 @@
 #include "RepVentasFecha.h"
 #include "UMainMenu.h"
 #include "UProductManagement.h"
+#include "UCustomer.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"

@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------
-#ifndef Unit5H
-#define Unit5H
+#ifndef UCustomerH
+#define UCustomerH
 //----------------------------------------------------------------------------
 #include <SysUtils.hpp>
 #include <Windows.hpp>
@@ -21,11 +21,6 @@
 class Tfrmgestioncliente : public TForm
 {
 __published:
-	TStringField *Query1NIT;
-	TStringField *Query1NOMBRE;
-	TStringField *Query1APELLIDO;
-	TDataSource *DataSource1;
-	TQuery *Query1;
         TDBGrid *DBGrid1;
         TLabel *Label2;
         TPanel *Panel1;
@@ -42,28 +37,15 @@ __published:
         TLabel *Label5;
         TButton *btnguardar;
         TButton *btncancelar;
-        TTable *Table1;
         TLabel *Label1;
         TEdit *txtbuscar;
         TButton *btnseleccionar;
-   TStringField *Query1TELEFONO;
-   TStringField *Table1NIT;
-   TStringField *Table1NOMBRE;
-   TStringField *Table1APELLIDO;
-   TStringField *Table1TELEFONO;
    TLabel *Label6;
    TDBEdit *DBEdit4;
-   TDataSource *DataSource2;
    TLabel *Label7;
    TDBEdit *dbeCliCelular;
    TLabel *Label8;
    TDBEdit *dbeCliCiudad;
-   TStringField *Table1CELULAR;
-   TStringField *Table1DIRECCION;
-   TStringField *Table1CIUDAD;
-   TStringField *Query1CELULAR;
-   TStringField *Query1DIRECCION;
-   TStringField *Query1CIUDAD;
    TLabel *Label9;
    TDBEdit *DBEdit5;
 	void __fastcall FormCreate(TObject *Sender);

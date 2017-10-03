@@ -2,12 +2,13 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "Unit5.h"
+#include "UCustomer.h"
 #include "Unit2.h"
 #include "Unit6.h"
 #include "UMainMenu.h"
 #include "UProductManagement.h"
 #include "UProduct.h"
+#include "DataModule.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmgestioncliente *frmgestioncliente;
@@ -21,7 +22,7 @@ __fastcall Tfrmgestioncliente::Tfrmgestioncliente(TComponent *Owner)
 //----------------------------------------------------------------------------
 void __fastcall Tfrmgestioncliente::FormCreate(TObject *Sender)
 {
-	Query1->Open();
+	DM->QCustomer->Open();
 }
 //----------------------------------------------------------------------------
 void __fastcall Tfrmgestioncliente::btncerrarClick(TObject *Sender)
@@ -31,7 +32,7 @@ Close();
 }
 //---------------------------------------------------------------------------
 void Tfrmgestioncliente::iniciar_ingreso_de_datos() {
-   DataSource1->DataSet=Table1;
+   DM->DSCustomer1->DataSet=DM->TCustomer;
    Panel2->Enabled=True;
    Panel1->Enabled=False;
    DBEdit1->SetFocus();
@@ -41,7 +42,10 @@ void Tfrmgestioncliente::iniciar_ingreso_de_datos() {
 void __fastcall Tfrmgestioncliente::btnnuevoclienteClick(TObject *Sender)
 {
    iniciar_ingreso_de_datos();
-   Table1->Insert();
+   if (!DM->TCustomer->Active) {
+      DM->TCustomer->Active = true;
+   }
+   DM->TCustomer->Insert();
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrmgestioncliente::DBEdit1Enter(TObject *Sender)
@@ -59,25 +63,25 @@ void __fastcall Tfrmgestioncliente::btncancelarClick(TObject *Sender)
    frmgestioncliente->Height=_fClientHeightSearch;
    Panel2->Enabled=False;
    Panel1->Enabled=True;
-   Table1->Cancel();
+   DM->TCustomer->Cancel();
    DBGrid1->Enabled=True;
-   DataSource1->DataSet=Query1;
+   DM->DSCustomer1->DataSet=DM->QCustomer;
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrmgestioncliente::btnguardarClick(TObject *Sender)
 {
 try{
-Table1->Post();
+DM->TCustomer->Post();
 Panel2->Enabled=False;
 Panel1->Enabled=True;
 frmgestioncliente->Height=_fClientHeightSearch;
 DBGrid1->Enabled=True;
-DataSource1->DataSet=Query1;
+DM->DSCustomer1->DataSet=DM->QCustomer;
 /*Query1->SQL->Clear();
 Query1->SQL->Add("Select  `CLIENTE`.`NIT`,  `CLIENTE`.`NOMBRE`,  `CLIENTE`.`APELLIDO`From `CLIENTE`");
 Query1->Open();*/
-Query1->Close();
-Query1->Open();
+DM->QCustomer->Close();
+DM->QCustomer->Open();
 }
 catch(...)
 {
@@ -87,9 +91,9 @@ Application->MessageBox("Debe ingresar todos los campos correctamente","Error",M
 //---------------------------------------------------------------------------
 void __fastcall Tfrmgestioncliente::txtbuscarChange(TObject *Sender)
 {
-Query1->SQL->Clear();
-Query1->SQL->Add("Select  * From `CLIENTE` WHERE NIT LIKE '%"+txtbuscar->Text+"%' OR APELLIDO LIKE '%"+txtbuscar->Text+"%'");
-Query1->Open();
+DM->QCustomer->SQL->Clear();
+DM->QCustomer->SQL->Add("Select  * From `CLIENTE` WHERE NIT LIKE '%"+txtbuscar->Text+"%' OR APELLIDO LIKE '%"+txtbuscar->Text+"%'");
+DM->QCustomer->Open();
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrmgestioncliente::FormClose(TObject *Sender,
@@ -105,8 +109,8 @@ void __fastcall Tfrmgestioncliente::btnmodificarclienteClick(
    iniciar_ingreso_de_datos();
    TLocateOptions op;
    op<<loPartialKey;
-   Table1->Locate("NIT",nit,op);
-   Table1->Edit();
+   DM->TCustomer->Locate("NIT",nit,op);
+   DM->TCustomer->Edit();
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrmgestioncliente::btneliminarclienteClick(
@@ -116,15 +120,15 @@ if (Application->MessageBox("¿Seguro que desea Borrar los datos de este CLIENTE?
 {
 AnsiString nit;
 nit=DBEdit1->Text;
-DataSource1->DataSet=Table1;
+DM->DSCustomer1->DataSet=DM->TCustomer;
 TLocateOptions op;
 op<<loPartialKey;
-Table1->Locate("NIT",nit,op);
-Table1->Delete();
-DataSource1->DataSet=Query1;
-Query1->SQL->Clear();
-Query1->SQL->Add("Select * From `CLIENTE`");
-Query1->Open();
+DM->TCustomer->Locate("NIT",nit,op);
+DM->TCustomer->Delete();
+DM->DSCustomer1->DataSet=DM->QCustomer;
+DM->QCustomer->SQL->Clear();
+DM->QCustomer->SQL->Add("Select * From `CLIENTE`");
+DM->QCustomer->Open();
 }
 }
 //---------------------------------------------------------------------------

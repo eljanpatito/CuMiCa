@@ -408,4 +408,87 @@ object DM: TDM
     Left = 461
     Top = 11
   end
+  object QCustomer: TQuery
+    DatabaseName = 'CuMiCaBdD'
+    SQL.Strings = (
+      'SELECT * FROM Cliente')
+    Left = 401
+    Top = 107
+    object Query1NIT: TStringField
+      FieldName = 'NIT'
+      Size = 30
+    end
+    object Query1NOMBRE: TStringField
+      FieldName = 'NOMBRE'
+      Size = 50
+    end
+    object Query1APELLIDO: TStringField
+      FieldName = 'APELLIDO'
+      Size = 50
+    end
+    object Query1TELEFONO: TStringField
+      FieldName = 'TELEFONO'
+      Origin = 'CUMICAALIAS.CLIENTE.TELEFONO'
+      Size = 25
+    end
+    object Query1CELULAR: TStringField
+      FieldName = 'CELULAR'
+      Origin = 'CUMICAALIAS.CLIENTE.CELULAR'
+      Size = 25
+    end
+    object Query1DIRECCION: TStringField
+      FieldName = 'DIRECCION'
+      Origin = 'CUMICAALIAS.CLIENTE.DIRECCION'
+      Size = 50
+    end
+    object Query1CIUDAD: TStringField
+      FieldName = 'CIUDAD'
+      Origin = 'CUMICAALIAS.CLIENTE.CIUDAD'
+      Size = 15
+    end
+  end
+  object DSCustomer1: TDataSource
+    DataSet = QCustomer
+    Left = 461
+    Top = 107
+  end
+  object TCustomer: TTable
+    DatabaseName = 'CuMiCaBdD'
+    TableName = 'CLIENTE'
+    Left = 400
+    Top = 56
+    object TCustomerNIT: TStringField
+      FieldName = 'NIT'
+      Size = 30
+    end
+    object TCustomerNOMBRE: TStringField
+      FieldName = 'NOMBRE'
+      Size = 50
+    end
+    object TCustomerAPELLIDO: TStringField
+      FieldName = 'APELLIDO'
+      Size = 50
+    end
+    object TCustomerTELEFONO: TStringField
+      FieldName = 'TELEFONO'
+      Size = 25
+    end
+    object TCustomerCELULAR: TStringField
+      FieldName = 'CELULAR'
+      Size = 25
+    end
+    object TCustomerDIRECCION: TStringField
+      FieldName = 'DIRECCION'
+      Size = 50
+    end
+    object TCustomerCIUDAD: TStringField
+      FieldName = 'CIUDAD'
+      Size = 15
+    end
+  end
+  object DSCustomer2: TDataSource
+    DataSet = TCustomer
+    Left = 464
+    Top = 56
+  end
 end
