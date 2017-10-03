@@ -5,10 +5,10 @@
 #include "UProductManagement.h"
 #include "Unit6.h"
 #include "Unit8.h"
-#include "Unit7.h"
 #include "UMainMenu.h"
 #include "DataModule.h"
 #include "UProduct.h"
+#include "UProductReport.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmgestionproductos *frmgestionproductos;

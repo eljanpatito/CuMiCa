@@ -9,7 +9,7 @@ USEFORM("UProductManagement.cpp", frmgestionproductos);
 USEFORM("UProduct.cpp", frmdatosproducto);
 USEFORM("UCustomer.cpp", frmgestioncliente);
 USEFORM("Unit6.cpp", frmventas);
-USEFORM("Unit7.cpp", frmrepproducto);
+USEFORM("UProductReport.cpp", frmrepproducto);
 USEFORM("Unit8.cpp", QRListForm);
 USEFORM("Unit9.cpp", frmreportes);
 USEFORM("UDaySalesReport.cpp", frmreporteventa);

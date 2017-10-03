@@ -35,7 +35,7 @@ Para Cambiar Alias Actualizar los siguientes componentes:
 --- Query1
 - frmrepempleados (unit18 - UEmployeeReport)
 --- Table1
-- frmreporteventa (unit10)
+- frmreporteventa (unit10 - )
 --- Query1
 --- Query2
 - frmrepproducto (unit7)

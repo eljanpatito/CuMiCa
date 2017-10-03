@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------
-#ifndef Unit7H
-#define Unit7H
+#ifndef UProductReportH
+#define UProductReportH
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Graphics.hpp>
@@ -38,7 +38,6 @@ __published:	// IDE-managed Components
         TQRDBText *QRDBText1;
         TQRLabel *QRLabel8;
         TButton *Button1;
-        TQuery *Query1;
         TLabel *Label2;
         TButton *Button2;
         TButton *btnsalir;

@@ -637,4 +637,11 @@ object DM: TDM
     Left = 536
     Top = 56
   end
+  object QProductList: TQuery
+    DatabaseName = 'CuMiCaBdD'
+    SQL.Strings = (
+      'select * from producto order by codigo')
+    Left = 536
+    Top = 104
+  end
 end
