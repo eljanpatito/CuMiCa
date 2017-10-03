@@ -3,8 +3,8 @@ object frmrepproforma: Tfrmrepproforma
   Top = 132
   BorderStyle = bsDialog
   Caption = 'REPORTE DE PROFORMAS'
-  ClientHeight = 124
-  ClientWidth = 281
+  ClientHeight = 118
+  ClientWidth = 269
   Color = clActiveCaption
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -66,7 +66,7 @@ object frmrepproforma: Tfrmrepproforma
     Frame.DrawBottom = False
     Frame.DrawLeft = False
     Frame.DrawRight = False
-    DataSet = Query1
+    DataSet = DM.QProformas
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
@@ -119,7 +119,7 @@ object frmrepproforma: Tfrmrepproforma
         44.9791666666667
         1846.79166666667)
       Master = QuickRep1
-      DataSet = DetailTable
+      DataSet = DM.TProformas
       PrintBefore = False
       PrintIfEmpty = False
       object QRDBText1: TQRDBText
@@ -142,7 +142,7 @@ object frmrepproforma: Tfrmrepproforma
         AutoSize = True
         AutoStretch = False
         Color = clWhite
-        DataSet = DetailTable
+        DataSet = DM.TProformas
         DataField = 'CODIGO'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -174,7 +174,7 @@ object frmrepproforma: Tfrmrepproforma
         AutoSize = False
         AutoStretch = False
         Color = clWhite
-        DataSet = DetailTable
+        DataSet = DM.TProformas
         DataField = 'DESCRIPCION'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -206,7 +206,7 @@ object frmrepproforma: Tfrmrepproforma
         AutoSize = False
         AutoStretch = False
         Color = clWhite
-        DataSet = DetailTable
+        DataSet = DM.TProformas
         DataField = 'CANTIDAD'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -238,7 +238,7 @@ object frmrepproforma: Tfrmrepproforma
         AutoSize = False
         AutoStretch = False
         Color = clWhite
-        DataSet = DetailTable
+        DataSet = DM.TProformas
         DataField = 'PRECIO'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -270,7 +270,7 @@ object frmrepproforma: Tfrmrepproforma
         AutoSize = False
         AutoStretch = False
         Color = clWhite
-        DataSet = DetailTable
+        DataSet = DM.TProformas
         DataField = 'PARCIAL'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -396,7 +396,7 @@ object frmrepproforma: Tfrmrepproforma
         AutoSize = True
         AutoStretch = False
         Color = clWhite
-        DataSet = Query1
+        DataSet = DM.QProformas
         DataField = 'IDNOTA'
         Transparent = False
         WordWrap = True
@@ -453,7 +453,7 @@ object frmrepproforma: Tfrmrepproforma
         AutoSize = True
         AutoStretch = False
         Color = clWhite
-        DataSet = Query1
+        DataSet = DM.QProformas
         DataField = 'FECHA'
         Transparent = False
         WordWrap = True
@@ -665,7 +665,7 @@ object frmrepproforma: Tfrmrepproforma
         AutoSize = True
         AutoStretch = False
         Color = clWhite
-        DataSet = Query1
+        DataSet = DM.QProformas
         DataField = 'NOMBRE_CLIENTE'
         Transparent = False
         WordWrap = True
@@ -722,7 +722,7 @@ object frmrepproforma: Tfrmrepproforma
         AutoSize = False
         AutoStretch = False
         Color = clWhite
-        DataSet = Query1
+        DataSet = DM.QProformas
         DataField = 'TOTAL_BS'
         Transparent = False
         WordWrap = True
@@ -748,7 +748,7 @@ object frmrepproforma: Tfrmrepproforma
         AutoSize = False
         AutoStretch = False
         Color = clWhite
-        DataSet = Query1
+        DataSet = DM.QProformas
         DataField = 'TOTAL'
         Transparent = False
         WordWrap = True
@@ -889,26 +889,5 @@ object frmrepproforma: Tfrmrepproforma
     ParseInput = False
     ParentFont = False
     TabOrder = 4
-  end
-  object DetailTable: TTable
-    DatabaseName = 'Cumica2017Alias'
-    IndexFieldNames = 'ID_NOTA'
-    MasterFields = 'IDNOTA'
-    MasterSource = MasterDS
-    TableName = 'DETALLE_VENTA'
-    Left = 260
-    Top = 12
-  end
-  object MasterDS: TDataSource
-    DataSet = Query1
-    Left = 228
-    Top = 12
-  end
-  object Query1: TQuery
-    DatabaseName = 'Cumica2017Alias'
-    SQL.Strings = (
-      'select * from venta')
-    Left = 192
-    Top = 8
   end
 end

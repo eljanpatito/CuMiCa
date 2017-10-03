@@ -120,6 +120,9 @@ __published:	// IDE-managed Components
    TQuery *QDaySales1;
    TQuery *QDaySales2;
    TQuery *QProductList;
+   TTable *TProformas;
+   TDataSource *DSQProformas;
+   TQuery *QProformas;
 private:	// User declarations
 public:		// User declarations
    __fastcall TDM(TComponent* Owner);

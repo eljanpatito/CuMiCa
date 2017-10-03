@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------
-#ifndef Unit13H
-#define Unit13H
+#ifndef UProformasReportH
+#define UProformasReportH
 //----------------------------------------------------------------------------
 #include <vcl\ExtCtrls.hpp>
 #include <vcl\StdCtrls.hpp>
@@ -24,10 +24,7 @@ class Tfrmrepproforma : public TForm
 {
 __published:
         TQuickRep *QuickRep1;
-	TTable *DetailTable;
-	TQRSubDetail *QRSubDetail1;  
-	TDataSource *MasterDS;
-        TQuery *Query1;
+	TQRSubDetail *QRSubDetail1;
         TQRDBText *QRDBText1;
         TQRDBText *QRDBText4;
         TQRDBText *QRDBText5;

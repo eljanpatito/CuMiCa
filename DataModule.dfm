@@ -644,4 +644,25 @@ object DM: TDM
     Left = 536
     Top = 104
   end
+  object TProformas: TTable
+    DatabaseName = 'CuMiCaBdD'
+    IndexFieldNames = 'ID_NOTA'
+    MasterFields = 'IDNOTA'
+    MasterSource = DSQProformas
+    TableName = 'DETALLE_VENTA'
+    Left = 532
+    Top = 204
+  end
+  object DSQProformas: TDataSource
+    DataSet = QProformas
+    Left = 612
+    Top = 156
+  end
+  object QProformas: TQuery
+    DatabaseName = 'CuMiCaBdD'
+    SQL.Strings = (
+      'select * from venta')
+    Left = 536
+    Top = 152
+  end
 end

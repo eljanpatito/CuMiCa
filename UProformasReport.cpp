@@ -2,7 +2,8 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "Unit13.h"
+#include "UProformasReport.h"
+#include "DataModule.h"
 //---------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmrepproforma *frmrepproforma;
@@ -46,12 +47,15 @@ st=s2+"/"+s1+"/"+st;
 /*   AnsiString ini, st;
    ini = FormatDateTime("dd/mm/yyyy", DateTimePicker1->Date);
    st = FormatDateTime("dd/mm/yyyy", DateTimePicker2->Date);   */
-   Query1->Close();
-Query1->SQL->Clear();
-Query1->SQL->Add("SELECT * FROM VENTA WHERE FECHA >= #"+ini+"# and FECHA <= #"+st+"#");
-Query1->Open();
-QRLabel9->Caption="Desde "+DateTimePicker1->Date+" Hasta "+DateTimePicker2->Date;
-QuickRep1->PreviewModal();
+   DM->QProformas->Close();
+   DM->QProformas->SQL->Clear();
+   DM->QProformas->SQL->Add("SELECT * FROM VENTA WHERE FECHA >= #"+ini+"# and FECHA <= #"+st+"#");
+   DM->QProformas->Open();
+   if (!DM->TProformas->Active) {
+      DM->TProformas->Active = true;
+   }
+   QRLabel9->Caption="Desde "+DateTimePicker1->Date+" Hasta "+DateTimePicker2->Date;
+   QuickRep1->PreviewModal();
 }
 //---------------------------------------------------------------------------
 
