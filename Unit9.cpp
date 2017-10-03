@@ -7,10 +7,8 @@
 #include "Unit2.h"
 #include "Unit6.h"
 #include "Unit7.h"
-#include "Unit10.h"
 #include "Unit13.h"
 #include "Unit14.h"
-#include "Unit18.h"
 #include "Unit21.h"
 #include "SegProductosForm.h"
 #include "RepVentasFecha.h"
@@ -21,6 +19,8 @@
 #include "UProformas.h"
 #include "UCustomerReport.h"
 #include "DataModule.h"
+#include "UEmployeeReport.h"
+#include "UDaySalesReport.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -70,7 +70,10 @@ void __fastcall Tfrmreportes::FormCreate(TObject *Sender)
 
 void __fastcall Tfrmreportes::btnempleadosClick(TObject *Sender)
 {
-frmrepempleados->QuickRep1->PreviewModal();
+   if (!DM->TEmployeeList->Active) {
+      DM->TEmployeeList->Active = true;
+   }
+   frmrepempleados->QuickRep1->PreviewModal();
 }
 //---------------------------------------------------------------------------
 

@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------
-#ifndef Unit18H
-#define Unit18H
+#ifndef UEmployeeReportH
+#define UEmployeeReportH
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Graphics.hpp>
@@ -25,7 +25,6 @@ __published:	// IDE-managed Components
     TQRExpr *QRExpr2;
     TQRLabel *QRLabel2;
     TQRExpr *QRExpr3;
-    TTable *Table1;
         TQRBand *QRBand1;
         TQRLabel *QRLabel3;
    TQRLabel *QRLabel4;

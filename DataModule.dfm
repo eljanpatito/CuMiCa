@@ -617,4 +617,24 @@ object DM: TDM
     Left = 400
     Top = 440
   end
+  object TEmployeeList: TTable
+    DatabaseName = 'CuMiCaBdD'
+    TableName = 'EMPLEADO'
+    Left = 400
+    Top = 488
+  end
+  object QDaySales1: TQuery
+    DatabaseName = 'CuMiCaBdD'
+    SQL.Strings = (
+      'select * from venta')
+    Left = 536
+    Top = 8
+  end
+  object QDaySales2: TQuery
+    DatabaseName = 'CuMiCaBdD'
+    SQL.Strings = (
+      'select sum(total_bs) from venta')
+    Left = 536
+    Top = 56
+  end
 end

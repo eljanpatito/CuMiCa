@@ -2,8 +2,9 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "Unit10.h"
+#include "UDaySalesReport.h"
 #include "num_a_letra.h"
+#include "DataModule.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -20,14 +21,14 @@ void __fastcall Tfrmreporteventa::btnimprimirClick(TObject *Sender)
    AnsiString st;
    st = FormatDateTime("mm/dd/yyyy", DateTimePicker1->Date);
 
-Query1->SQL->Clear();
-Query1->SQL->Add("SELECT * FROM VENTA WHERE FECHA = #"+st+"#");
-Query1->Open();
+   DM->QDaySales1->SQL->Clear();
+DM->QDaySales1->SQL->Add("SELECT * FROM VENTA WHERE FECHA = #"+st+"#");
+DM->QDaySales1->Open();
 
-Query2->SQL->Clear();
-Query2->SQL->Add("SELECT sum(total_bs) as TOTAL FROM VENTA WHERE FECHA = #"+st+"#");
-Query2->Open();
-AnsiString sum= Query2->FieldByName("TOTAL")->Text;
+DM->QDaySales2->SQL->Clear();
+DM->QDaySales2->SQL->Add("SELECT sum(total_bs) as TOTAL FROM VENTA WHERE FECHA = #"+st+"#");
+DM->QDaySales2->Open();
+AnsiString sum= DM->QDaySales2->FieldByName("TOTAL")->Text;
    AnsiString s1="", s2="";
    st = "";
    int i;

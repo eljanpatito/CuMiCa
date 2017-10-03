@@ -17,23 +17,23 @@ Para Cambiar Alias Actualizar los siguientes componentes:
 --- Table3
 --- Query1
 --- Query3
-- frmempleado (unit16)
+- frmempleado (unit16 - UEmployee)
 --- Table1
-- frmgestioncliente (unit5)
+- frmgestioncliente (unit5 - UCustomer)
 --- Query1
 --- Table1
-- frmproforma (unit11)
+- frmproforma (unit11 - UProforma)
 --- Table1
 --- Query1
 --- Query2
-- frmproformas (unit12)
+- frmproformas (unit12 - UProformas)
 --- mastertable
 --- detailtable
-- frmrepcliente (unit19)
+- frmrepcliente (unit19 - UCustomerReport)
 --- Table1
-- frmrepdevolucion (unit17)
+- frmrepdevolucion (unit17 - URepaymentReport)
 --- Query1
-- frmrepempleados (unit18)
+- frmrepempleados (unit18 - UEmployeeReport)
 --- Table1
 - frmreporteventa (unit10)
 --- Query1

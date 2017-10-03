@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------
-#ifndef Unit10H
-#define Unit10H
+#ifndef UDaySalesReportH
+#define UDaySalesReportH
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Graphics.hpp>
@@ -41,10 +41,8 @@ __published:	// IDE-managed Components
         TDateTimePicker *DateTimePicker1;
         TLabel *Label8;
         TLabel *Label1;
-        TQuery *Query1;
         TQRExpr *QRExpr3;
         TButton *btnimprimir;
-        TQuery *Query2;
         TButton *btnsalir;
         void __fastcall btnimprimirClick(TObject *Sender);
         void __fastcall btnsalirClick(TObject *Sender);
