@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------
-#ifndef Unit17H
-#define Unit17H
+#ifndef URepaymentReportH
+#define URepaymentReportH
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Graphics.hpp>
@@ -25,7 +25,6 @@ __published:	// IDE-managed Components
     TQRLabel *QRLabel2;
     TQRExpr *QRExpr3;
     TQRLabel *QRLabel3;
-   TQuery *Query1;
    TQRBand *QRBand1;
    TQRLabel *QRLabel4;
    TQRExpr *QRExpr2;

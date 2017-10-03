@@ -115,6 +115,7 @@ __published:	// IDE-managed Components
    TTable *MasterTable;
    TTable *DetailTable;
    TTable *TCustomerList;
+   TQuery *QRepaymentList;
 private:	// User declarations
 public:		// User declarations
    __fastcall TDM(TComponent* Owner);

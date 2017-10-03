@@ -7,9 +7,9 @@
     <OBJFILES value="CuMiCa2017.obj UMainMenu.obj Unit2.obj UProductManagement.obj UProduct.obj 
       UCustomer.obj Unit6.obj Unit7.obj Unit8.obj Unit9.obj Unit10.obj 
       UProforma.obj UProformas.obj Unit13.obj USalesMasterDetail.obj 
-      URepayment.obj UEmployee.obj Unit17.obj Unit18.obj UCustomerReport.obj 
-      Unit20.obj Unit21.obj DataModule.obj SegProductos.obj SegProductosForm.obj 
-      RepVentasFecha.obj Configuration.obj"/>
+      URepayment.obj UEmployee.obj URepaymentReport.obj Unit18.obj 
+      UCustomerReport.obj Unit20.obj Unit21.obj DataModule.obj SegProductos.obj 
+      SegProductosForm.obj RepVentasFecha.obj Configuration.obj"/>
     <RESFILES value="CuMiCa2017.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
@@ -17,9 +17,9 @@
     <RESDEPEN value="$(RESFILES) UMainMenu.dfm Unit2.dfm UProductManagement.dfm UProduct.dfm 
       UCustomer.dfm Unit6.dfm Unit7.dfm Unit8.dfm Unit9.dfm Unit10.dfm 
       UProforma.dfm UProformas.dfm Unit13.dfm USalesMasterDetail.dfm 
-      URepayment.dfm UEmployee.dfm Unit17.dfm Unit18.dfm UCustomerReport.dfm 
-      Unit20.dfm Unit21.dfm DataModule.dfm SegProductos.dfm SegProductosForm.dfm 
-      RepVentasFecha.dfm Configuration.dfm"/>
+      URepayment.dfm UEmployee.dfm URepaymentReport.dfm Unit18.dfm 
+      UCustomerReport.dfm Unit20.dfm Unit21.dfm DataModule.dfm SegProductos.dfm 
+      SegProductosForm.dfm RepVentasFecha.dfm Configuration.dfm"/>
     <LIBFILES value=""/>
     <LIBRARIES value="tee.lib teedb.lib vclx.lib qrpt.lib bdertl.lib vcldb.lib dbrtl.lib rtl.lib 
       vcl.lib"/>
@@ -86,7 +86,7 @@
       <FILE FILENAME="USalesMasterDetail.cpp" FORMNAME="frmmaestrodetalleventa" UNITNAME="USalesMasterDetail" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="URepayment.cpp" FORMNAME="frmdevolucion" UNITNAME="URepayment" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="UEmployee.cpp" FORMNAME="frmempleado" UNITNAME="UEmployee" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Unit17.cpp" FORMNAME="frmrepdevolucion" UNITNAME="Unit17" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="URepaymentReport.cpp" FORMNAME="frmrepdevolucion" UNITNAME="URepaymentReport" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit18.cpp" FORMNAME="frmrepempleados" UNITNAME="Unit18" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="UCustomerReport.cpp" FORMNAME="frmrepcliente" UNITNAME="UCustomerReport" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit20.cpp" FORMNAME="QRMDForm" UNITNAME="Unit20" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>

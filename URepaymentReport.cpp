@@ -2,7 +2,8 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "Unit17.h"
+#include "URepaymentReport.h"
+#include "DataModule.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"

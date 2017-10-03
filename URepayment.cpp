@@ -7,7 +7,6 @@
 #include "Unit14.h"
 #include "URepayment.h"
 #include "num_a_letra.h"
-#include "Unit17.h"
 #include "UMainMenu.h"
 #include "UProductManagement.h"
 #include "DataModule.h"
@@ -15,6 +14,7 @@
 #include "UEmployee.h"
 #include "UCustomer.h"
 #include "UProforma.h"
+#include "URepaymentReport.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmdevolucion *frmdevolucion;
@@ -198,9 +198,10 @@ void __fastcall Tfrmdevolucion::Button1Click(TObject *Sender)
 //    return;
 
 //   }
-   frmrepdevolucion->Query1->SQL->Clear();
-   frmrepdevolucion->Query1->SQL->Add("select * from devolucion where id_nota ="+DBEdit12->Text);
-   frmrepdevolucion->Query1->Open();
+   DM->QRepaymentList->Close();
+   DM->QRepaymentList->SQL->Clear();
+   DM->QRepaymentList->SQL->Add("select * from devolucion where id_nota ="+DBEdit12->Text);
+   DM->QRepaymentList->Open();
    frmrepdevolucion->Quickrep1->PreviewModal();
    DM->QRepayment1->SQL->Clear();
    DM->QRepayment1->SQL->Add("select * from venta where nombre_cliente like '%"+Edit1->Text+"%'");

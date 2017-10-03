@@ -610,4 +610,11 @@ object DM: TDM
     Left = 400
     Top = 400
   end
+  object QRepaymentList: TQuery
+    DatabaseName = 'CuMiCaBdD'
+    SQL.Strings = (
+      'select * from devolucion')
+    Left = 400
+    Top = 440
+  end
 end

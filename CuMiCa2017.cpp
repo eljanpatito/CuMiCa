@@ -19,7 +19,7 @@ USEFORM("Unit13.cpp", frmrepproforma);
 USEFORM("USalesMasterDetail.cpp", frmmaestrodetalleventa);
 USEFORM("URepayment.cpp", frmdevolucion);
 USEFORM("UEmployee.cpp", frmempleado);
-USEFORM("Unit17.cpp", frmrepdevolucion);
+USEFORM("URepaymentReport.cpp", frmrepdevolucion);
 USEFORM("Unit18.cpp", frmrepempleados);
 USEFORM("UCustomerReport.cpp", frmrepcliente);
 USEFORM("Unit20.cpp", QRMDForm);
