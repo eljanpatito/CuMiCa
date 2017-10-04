@@ -3,7 +3,6 @@
 #pragma hdrstop
 
 #include "USales.h"
-#include "Unit2.h"
 #include "num_a_letra.h"
 #include "Unit14.h"
 #include "Configuration.h"
@@ -15,6 +14,7 @@
 #include "UEmployee.h"
 #include "UCustomer.h"
 #include "UProforma.h"
+#include "ULogin.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmventas *frmventas;

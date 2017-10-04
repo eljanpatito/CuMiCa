@@ -4,7 +4,7 @@
 #pragma hdrstop
 //---------------------------------------------------------------------------
 USEFORM("UMainMenu.cpp", frmmenuprincipal);
-USEFORM("Unit2.cpp", frmlogin);
+USEFORM("ULogin.cpp", frmlogin);
 USEFORM("UProductManagement.cpp", frmgestionproductos);
 USEFORM("UProduct.cpp", frmdatosproducto);
 USEFORM("UCustomer.cpp", frmgestioncliente);

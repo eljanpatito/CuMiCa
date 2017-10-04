@@ -3,11 +3,11 @@
 #pragma hdrstop
 
 #include "USalesMasterDetail.h"
-#include "Unit2.h"
 #include "UMainMenu.h"
 #include "DataModule.h"
 #include "UProforma.h"
 #include "USales.h"
+#include "ULogin.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmmaestrodetalleventa *frmmaestrodetalleventa;

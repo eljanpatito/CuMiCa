@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------
-#ifndef Unit2H
-#define Unit2H
+#ifndef ULoginH
+#define ULoginH
 //----------------------------------------------------------------------------
 #include <SysUtils.hpp>
 #include <Windows.hpp>

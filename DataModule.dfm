@@ -762,7 +762,7 @@ object DM: TDM
     Top = 448
   end
   object QSales1: TQuery
-    DatabaseName = 'Cumica2017Alias'
+    DatabaseName = 'CuMiCaBdD'
     SQL.Strings = (
       'select maX(IDNOTA)+1 AS MAY FROM VENTA')
     Left = 728

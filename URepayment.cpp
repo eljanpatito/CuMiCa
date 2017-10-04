@@ -2,7 +2,6 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "Unit2.h"
 #include "Unit14.h"
 #include "URepayment.h"
 #include "num_a_letra.h"
@@ -15,6 +14,7 @@
 #include "UProforma.h"
 #include "URepaymentReport.h"
 #include "USales.h"
+#include "ULogin.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmdevolucion *frmdevolucion;
