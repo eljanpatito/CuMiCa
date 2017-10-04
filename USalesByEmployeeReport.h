@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------
-#ifndef Unit21H
-#define Unit21H
+#ifndef USalesByEmployeeReportH
+#define USalesByEmployeeReportH
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Graphics.hpp>
@@ -27,10 +27,7 @@ __published:	// IDE-managed Components
     TQRExpr *QRExpr2;
         TQRExpr *QRExpr3;
         TQRExpr *QRExpr4;
-        TQuery *Query1;
-        TTable *Table1;
         TDBGrid *DBGrid1;
-        TDataSource *DataSource1;
         TLabel *Label1;
         TLabel *Label2;
         TDateTimePicker *dpini;
@@ -39,9 +36,7 @@ __published:	// IDE-managed Components
         TDateTimePicker *dpfin;
         TLabel *Label8;
         TDBGrid *DBGrid2;
-        TDataSource *DataSource2;
         TDBEdit *DBEdit1;
-        TQuery *Query2;
         TDBEdit *DBEdit2;
         TDBEdit *DBEdit3;
         TDBEdit *DBEdit4;

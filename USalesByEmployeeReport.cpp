@@ -2,7 +2,8 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "Unit21.h"
+#include "USalesByEmployeeReport.h"
+#include "DataModule.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -44,66 +45,71 @@ i=st.Pos("/");
 s3=st.SubString(1,i-1);
 st=st.SubString(i+1,s.Length()-(i+1));
 st=s2+"/"+s1+"/"+st;
-Query1->SQL->Clear();
-Query1->SQL->Add("SELECT * FROM v_e WHERE FECHA >= #"+ini+"# and FECHA <= #"+st+"# ORDER BY EMPLEADO.NOMBRE_COMPLETO,VENTA.FECHA;");
-Query1->Open();
+ShowMessage("before");
+   if (!DM->TSalesByEmployee->Active) {
+      DM->TSalesByEmployee->Active = true;
+   }
+ShowMessage("After");
+DM->QSalesByEmployee1->SQL->Clear();
+DM->QSalesByEmployee1->SQL->Add("SELECT * FROM v_e WHERE FECHA >= #"+ini+"# and FECHA <= #"+st+"# ORDER BY EMPLEADO.NOMBRE_COMPLETO,VENTA.FECHA;");
+DM->QSalesByEmployee1->Open();
 QRLabel2->Caption="Desde "+dpini->Date+" Hasta "+dpfin->Date;
 //Table1->DeleteTable();
 //Table1->Refresh();
-Table1->First();
-while(!Table1->Eof)
+DM->TSalesByEmployee->First();
+while(!DM->TSalesByEmployee->Eof)
 {
-  Table1->Delete();
-  Table1->Refresh();
-  Table1->First();
+  DM->TSalesByEmployee->Delete();
+  DM->TSalesByEmployee->Refresh();
+  DM->TSalesByEmployee->First();
 }
-Query1->First();
+DM->QSalesByEmployee1->First();
 AnsiString nom=""; double suma=0;
-while(!Query1->Eof)
+while(!DM->QSalesByEmployee1->Eof)
 {
-   Table1->Insert();
+   DM->TSalesByEmployee->Insert();
    if(nom != DBEdit1->Text)
    {
       if(nom!="")
       {
-        Table1->FieldByName("DOS")->Text="TOTAL";
-        Table1->FieldByName("TRES")->Text=AnsiString(suma)+" ";
+        DM->TSalesByEmployee->FieldByName("DOS")->Text="TOTAL";
+        DM->TSalesByEmployee->FieldByName("TRES")->Text=AnsiString(suma)+" ";
         suma=0;
-        Table1->Post();
-        Table1->Refresh();
-        Table1->Insert();
+        DM->TSalesByEmployee->Post();
+        DM->TSalesByEmployee->Refresh();
+        DM->TSalesByEmployee->Insert();
         nom=DBEdit1->Text;
-        Table1->FieldByName("UNO")->Text=" "+nom;
+        DM->TSalesByEmployee->FieldByName("UNO")->Text=" "+nom;
       }
       else
       {
-        Table1->Insert();
+        DM->TSalesByEmployee->Insert();
         nom=DBEdit1->Text;
-        Table1->FieldByName("UNO")->Text=" "+nom;
+        DM->TSalesByEmployee->FieldByName("UNO")->Text=" "+nom;
       }
-      Table1->Post();
-      Table1->Refresh();
+      DM->TSalesByEmployee->Post();
+      DM->TSalesByEmployee->Refresh();
 
    }
    else
    {
-     Table1->FieldByName("UNO")->Text=" "+DBEdit2->Text;
-     Table1->FieldByName("DOS")->Text=DBEdit3->Text;
-     Table1->FieldByName("TRES")->Text=DBEdit4->Text+" ";
-     Table1->Post();
-     Table1->Refresh();
+     DM->TSalesByEmployee->FieldByName("UNO")->Text=" "+DBEdit2->Text;
+     DM->TSalesByEmployee->FieldByName("DOS")->Text=DBEdit3->Text;
+     DM->TSalesByEmployee->FieldByName("TRES")->Text=DBEdit4->Text+" ";
+     DM->TSalesByEmployee->Post();
+     DM->TSalesByEmployee->Refresh();
      suma=suma+DBEdit4->Text.ToDouble();
-     Query1->Next();
+     DM->QSalesByEmployee1->Next();
    }
 }
 if(suma>0){
-        Table1->Insert();
-        Table1->FieldByName("TRES")->Text=AnsiString(suma)+" ";
-        Table1->Post();
-        Table1->Refresh();
+        DM->TSalesByEmployee->Insert();
+        DM->TSalesByEmployee->FieldByName("TRES")->Text=AnsiString(suma)+" ";
+        DM->TSalesByEmployee->Post();
+        DM->TSalesByEmployee->Refresh();
 }
 
-Table1->Close();Table1->Open();
+DM->TSalesByEmployee->Close();DM->TSalesByEmployee->Open();
 QuickRep1->PreviewModal();
 }
 //---------------------------------------------------------------------------

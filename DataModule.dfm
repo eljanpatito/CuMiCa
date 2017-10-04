@@ -665,4 +665,34 @@ object DM: TDM
     Left = 536
     Top = 152
   end
+  object TSalesByEmployee: TTable
+    DatabaseName = 'CuMiCaBdD'
+    TableName = 'AUX'
+    Left = 536
+    Top = 256
+  end
+  object DSSalesByEmployee2: TDataSource
+    DataSet = TSalesByEmployee
+    Left = 616
+    Top = 256
+  end
+  object QSalesByEmployee2: TQuery
+    DatabaseName = 'CuMiCaBdD'
+    Left = 536
+    Top = 304
+  end
+  object QSalesByEmployee1: TQuery
+    DatabaseName = 'CuMiCaBdD'
+    SQL.Strings = (
+      'select *'
+      'from v_e'
+      'ORDER BY NOMBRE_COMPLETO;')
+    Left = 537
+    Top = 352
+  end
+  object DSSalesByEmployee1: TDataSource
+    DataSet = QSalesByEmployee1
+    Left = 616
+    Top = 352
+  end
 end

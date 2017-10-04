@@ -131,6 +131,9 @@ void __fastcall Tfrmgestionproductos::btnseleccionarClick(TObject *Sender)
    }
    try {
       if ((amount > 0) && (amount <= DBEdit5->Text.ToInt())) {
+         if (!DM->TProduct->Active) {
+            DM->TProduct->Active = true;
+         }
          frmventas->Table2->Active = false;
          frmventas->Table2->Filter = "CODIGO='"+DBEdit2->Text+"'";
          frmventas->Table2->Filtered = true;

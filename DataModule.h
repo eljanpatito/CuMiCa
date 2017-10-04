@@ -123,6 +123,11 @@ __published:	// IDE-managed Components
    TTable *TProformas;
    TDataSource *DSQProformas;
    TQuery *QProformas;
+   TTable *TSalesByEmployee;
+   TDataSource *DSSalesByEmployee2;
+   TQuery *QSalesByEmployee2;
+   TQuery *QSalesByEmployee1;
+   TDataSource *DSSalesByEmployee1;
 private:	// User declarations
 public:		// User declarations
    __fastcall TDM(TComponent* Owner);
