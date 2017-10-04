@@ -22,7 +22,6 @@ USEFORM("UEmployee.cpp", frmempleado);
 USEFORM("URepaymentReport.cpp", frmrepdevolucion);
 USEFORM("UEmployeeReport.cpp", frmrepempleados);
 USEFORM("UCustomerReport.cpp", frmrepcliente);
-USEFORM("Unit20.cpp", QRMDForm);
 USEFORM("USalesByEmployeeReport.cpp", frmventaempleado);
 USEFORM("DataModule.cpp", DM); /* TDataModule: File Type */
 USEFORM("SegProductos.cpp", fRepSeguimiento);
@@ -55,7 +54,6 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
        Application->CreateForm(__classid(Tfrmrepdevolucion), &frmrepdevolucion);
        Application->CreateForm(__classid(Tfrmrepempleados), &frmrepempleados);
        Application->CreateForm(__classid(Tfrmrepcliente), &frmrepcliente);
-       Application->CreateForm(__classid(TQRMDForm), &QRMDForm);
        Application->CreateForm(__classid(Tfrmventaempleado), &frmventaempleado);
        Application->CreateForm(__classid(TfRepSeguimiento), &fRepSeguimiento);
        Application->CreateForm(__classid(TfSeguimiento), &fSeguimiento);

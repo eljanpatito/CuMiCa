@@ -8,9 +8,9 @@
       UCustomer.obj USales.obj UProductReport.obj Unit8.obj Unit9.obj 
       UDaySalesReport.obj UProforma.obj UProformas.obj UProformasReport.obj 
       USalesMasterDetail.obj URepayment.obj UEmployee.obj URepaymentReport.obj 
-      UEmployeeReport.obj UCustomerReport.obj Unit20.obj 
-      USalesByEmployeeReport.obj DataModule.obj SegProductos.obj 
-      SegProductosForm.obj RepVentasFecha.obj Configuration.obj"/>
+      UEmployeeReport.obj UCustomerReport.obj USalesByEmployeeReport.obj 
+      DataModule.obj SegProductos.obj SegProductosForm.obj RepVentasFecha.obj 
+      Configuration.obj"/>
     <RESFILES value="CuMiCa2017.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
@@ -19,9 +19,9 @@
       UCustomer.dfm USales.dfm UProductReport.dfm Unit8.dfm Unit9.dfm 
       UDaySalesReport.dfm UProforma.dfm UProformas.dfm UProformasReport.dfm 
       USalesMasterDetail.dfm URepayment.dfm UEmployee.dfm URepaymentReport.dfm 
-      UEmployeeReport.dfm UCustomerReport.dfm Unit20.dfm 
-      USalesByEmployeeReport.dfm DataModule.dfm SegProductos.dfm 
-      SegProductosForm.dfm RepVentasFecha.dfm Configuration.dfm"/>
+      UEmployeeReport.dfm UCustomerReport.dfm USalesByEmployeeReport.dfm 
+      DataModule.dfm SegProductos.dfm SegProductosForm.dfm RepVentasFecha.dfm 
+      Configuration.dfm"/>
     <LIBFILES value=""/>
     <LIBRARIES value="tee.lib teedb.lib vclx.lib qrpt.lib bdertl.lib vcldb.lib dbrtl.lib rtl.lib 
       vcl.lib"/>
@@ -91,7 +91,6 @@
       <FILE FILENAME="URepaymentReport.cpp" FORMNAME="frmrepdevolucion" UNITNAME="URepaymentReport" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="UEmployeeReport.cpp" FORMNAME="frmrepempleados" UNITNAME="UEmployeeReport" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="UCustomerReport.cpp" FORMNAME="frmrepcliente" UNITNAME="UCustomerReport" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Unit20.cpp" FORMNAME="QRMDForm" UNITNAME="Unit20" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="USalesByEmployeeReport.cpp" FORMNAME="frmventaempleado" UNITNAME="USalesByEmployeeReport" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="DataModule.cpp" FORMNAME="DM" UNITNAME="DataModule" CONTAINERID="CCompiler" DESIGNCLASS="TDataModule" LOCALCOMMAND=""/>
       <FILE FILENAME="SegProductos.cpp" FORMNAME="fRepSeguimiento" UNITNAME="SegProductos" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>

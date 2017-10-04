@@ -35,23 +35,23 @@ Para Cambiar Alias Actualizar los siguientes componentes:
 --- Query1
 - frmrepempleados (unit18 - UEmployeeReport)
 --- Table1
-- frmreporteventa (unit10 - )
+- frmreporteventa (unit10 - UDaySalesReport)
 --- Query1
 --- Query2
-- frmrepproducto (unit7)
+- frmrepproducto (unit7 - UProductReport)
 --- Query1
-- frmrepproforma (unit13)
+- frmrepproforma (unit13 - UProformasReport)
 --- Query1
 --- DetailTable
-- frmventaempleado (unit21)
+- frmventaempleado (unit21 - USalesByEmployeeReport)
 --- Table1
 --- Query1
 --- Query2
-- frmventas (unit6)
+- frmventas (unit6 - Sales)
 --- Table1
 --- Table2
 --- Query1
-- QRMDForm (unit20)
+- QRMDForm (unit20 - Was deleted)
 --- DetailTable
 --- Query1
 --- Query2
