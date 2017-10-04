@@ -4,18 +4,19 @@
 #pragma hdrstop
 
 #include "UMainMenu.h"
-#include "Unit9.h"
 #include "Configuration.h"
 #include "DataModule.h"
 #include "UProductManagement.h"
 #include "UEmployee.h"
 #include "UCustomer.h"
 #include "USales.h"
+#include "UReportsList.h"
 
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 Tfrmmenuprincipal *frmmenuprincipal;
+
 //---------------------------------------------------------------------------
 __fastcall Tfrmmenuprincipal::Tfrmmenuprincipal(TComponent* Owner)
         : TForm(Owner)
@@ -67,7 +68,7 @@ void __fastcall Tfrmmenuprincipal::btnreportesClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void Tfrmmenuprincipal::color_ventana(AnsiString formulario, int color)
 {
-   ShowMessage("Test");
+   ShowMessage("Color: [" + IntToStr(color) + "]");
    if (!DM->tMainMenu->Active) {
       DM->tMainMenu->Active = true;
    }
@@ -99,7 +100,7 @@ int Tfrmmenuprincipal::cargar_color_ventana(AnsiString formulario)
    if(DM->tMainMenu->Locate("FORMULARIO",formulario,op))
    return DBEdit1->Text.ToInt();
    else
-   return -2147483646;
+   return defaultColor;
 }
 
 void __fastcall Tfrmmenuprincipal::btnempleadoClick(TObject *Sender)
@@ -111,6 +112,15 @@ frmempleado->ShowModal();
 void __fastcall Tfrmmenuprincipal::Configuration1Click(TObject *Sender)
 {
    frmConfiguration->ShowModal();   
+}
+//---------------------------------------------------------------------------
+
+void __fastcall Tfrmmenuprincipal::FormCreate(TObject *Sender)
+{
+   defaultColor = -2147483646;
+   neutroColor = 0;
+   defaultColor = StrToInt(frmConfiguration->getValueFromProperty("defaultColor"));
+   neutroColor = StrToInt(frmConfiguration->getValueFromProperty("neutroColor"));
 }
 //---------------------------------------------------------------------------
 

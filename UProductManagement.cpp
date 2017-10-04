@@ -3,7 +3,6 @@
 #pragma hdrstop
 
 #include "UProductManagement.h"
-#include "Unit8.h"
 #include "UMainMenu.h"
 #include "DataModule.h"
 #include "UProduct.h"
@@ -187,8 +186,12 @@ void __fastcall Tfrmgestionproductos::Edit1KeyPress(TObject *Sender,
 void __fastcall Tfrmgestionproductos::btncolorClick(TObject *Sender)
 {
    ColorDialog1->Execute();
-      this->Color=ColorDialog1->Color;
-      frmmenuprincipal->color_ventana(this->Name,ColorDialog1->Color);   
+   int colorIntValue = ColorDialog1->Color;
+   if (colorIntValue == frmmenuprincipal->neutroColor) {
+      colorIntValue = frmmenuprincipal->defaultColor;
+   }
+   this->Color = TColor(colorIntValue);
+   frmmenuprincipal->color_ventana(this->Name, colorIntValue);
 }
 //---------------------------------------------------------------------------
 

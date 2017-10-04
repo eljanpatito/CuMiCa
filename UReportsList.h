@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef Unit9H
-#define Unit9H
+#ifndef UReportsListH
+#define UReportsListH
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Controls.hpp>

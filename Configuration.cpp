@@ -40,7 +40,9 @@ void TfrmConfiguration::loadDefaultConfiguration() {
    values[5][0] = "address"; values[5][1]="Av. Villarroel No. A-3, Backovic";
    values[6][0] = "phone"; values[6][1]="Telefono: 2-5236291 - Celular: 71187384";
    values[7][0] = "maxRecords"; values[7][1]="25";
-   for (int row = 0; row < 8; row++) {
+   values[8][0] = "defaultColor"; values[8][1]="-2147483646";
+   values[9][0] = "neutroColor"; values[9][1]="16777215";
+   for (int row = 0; row < 10; row++) {
       DM->tConfiguration->Active = false;
       DM->tConfiguration->Filtered = false;
       DM->tConfiguration->Filter="property='"+values[row][0]+"'";

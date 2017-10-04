@@ -5,18 +5,18 @@
     <VERSION value="BCB.06.00"/>
     <PROJECT value="CuMiCa2017.exe"/>
     <OBJFILES value="CuMiCa2017.obj UMainMenu.obj ULogin.obj UProductManagement.obj 
-      UProduct.obj UCustomer.obj USales.obj UProductReport.obj Unit8.obj 
-      Unit9.obj UDaySalesReport.obj UProforma.obj UProformas.obj 
-      UProformasReport.obj USalesMasterDetail.obj URepayment.obj UEmployee.obj 
-      URepaymentReport.obj UEmployeeReport.obj UCustomerReport.obj 
-      USalesByEmployeeReport.obj DataModule.obj SegProductos.obj 
-      SegProductosForm.obj RepVentasFecha.obj Configuration.obj"/>
+      UProduct.obj UCustomer.obj USales.obj UProductReport.obj UReportsList.obj 
+      UDaySalesReport.obj UProforma.obj UProformas.obj UProformasReport.obj 
+      USalesMasterDetail.obj URepayment.obj UEmployee.obj URepaymentReport.obj 
+      UEmployeeReport.obj UCustomerReport.obj USalesByEmployeeReport.obj 
+      DataModule.obj SegProductos.obj SegProductosForm.obj RepVentasFecha.obj 
+      Configuration.obj"/>
     <RESFILES value="CuMiCa2017.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
     <DEFFILE value=""/>
     <RESDEPEN value="$(RESFILES) UMainMenu.dfm ULogin.dfm UProductManagement.dfm UProduct.dfm 
-      UCustomer.dfm USales.dfm UProductReport.dfm Unit8.dfm Unit9.dfm 
+      UCustomer.dfm USales.dfm UProductReport.dfm UReportsList.dfm 
       UDaySalesReport.dfm UProforma.dfm UProformas.dfm UProformasReport.dfm 
       USalesMasterDetail.dfm URepayment.dfm UEmployee.dfm URepaymentReport.dfm 
       UEmployeeReport.dfm UCustomerReport.dfm USalesByEmployeeReport.dfm 
@@ -79,8 +79,7 @@
       <FILE FILENAME="UCustomer.cpp" FORMNAME="frmgestioncliente" UNITNAME="UCustomer" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="USales.cpp" FORMNAME="frmventas" UNITNAME="USales" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="UProductReport.cpp" FORMNAME="frmrepproducto" UNITNAME="UProductReport" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Unit8.cpp" FORMNAME="QRListForm" UNITNAME="Unit8" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Unit9.cpp" FORMNAME="frmreportes" UNITNAME="Unit9" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="UReportsList.cpp" FORMNAME="frmreportes" UNITNAME="UReportsList" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="UDaySalesReport.cpp" FORMNAME="frmreporteventa" UNITNAME="UDaySalesReport" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="UProforma.cpp" FORMNAME="frmproforma" UNITNAME="UProforma" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="UProformas.cpp" FORMNAME="frmproformas" UNITNAME="UProformas" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>

@@ -201,9 +201,13 @@ void __fastcall Tfrmventas::btnmodificarClick(TObject *Sender)
 
 void __fastcall Tfrmventas::btncolorClick(TObject *Sender)
 {
-      ColorDialog1->Execute();
-      this->Color=ColorDialog1->Color;
-      frmmenuprincipal->color_ventana(this->Name,ColorDialog1->Color);
+   ColorDialog1->Execute();
+   int colorIntValue = ColorDialog1->Color;
+   if (colorIntValue == frmmenuprincipal->neutroColor) {
+      colorIntValue = frmmenuprincipal->defaultColor;
+   }
+   this->Color = TColor(colorIntValue);
+   frmmenuprincipal->color_ventana(this->Name, colorIntValue);
 }
 //---------------------------------------------------------------------------
 

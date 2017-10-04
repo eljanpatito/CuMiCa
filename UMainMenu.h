@@ -42,11 +42,14 @@ __published:	// IDE-managed Components
         void __fastcall btnreportesClick(TObject *Sender);
    void __fastcall btnempleadoClick(TObject *Sender);
    void __fastcall Configuration1Click(TObject *Sender);
+   void __fastcall FormCreate(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall Tfrmmenuprincipal(TComponent* Owner);
         void Tfrmmenuprincipal::color_ventana(AnsiString formulario, int color);
         int Tfrmmenuprincipal::cargar_color_ventana(AnsiString formulario);
+        int Tfrmmenuprincipal::neutroColor;
+        int Tfrmmenuprincipal::defaultColor;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE Tfrmmenuprincipal *frmmenuprincipal;

@@ -3,7 +3,7 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "Unit9.h"
+#include "UReportsList.h"
 #include "Unit14.h"
 #include "SegProductosForm.h"
 #include "RepVentasFecha.h"
@@ -57,8 +57,12 @@ frmrepproforma->ShowModal();
 void __fastcall Tfrmreportes::btncolorClick(TObject *Sender)
 {
    ColorDialog1->Execute();
-      this->Color=ColorDialog1->Color;
-      frmmenuprincipal->color_ventana(this->Name,ColorDialog1->Color);    
+   int colorIntValue = ColorDialog1->Color;
+   if (colorIntValue == frmmenuprincipal->neutroColor) {
+      colorIntValue = frmmenuprincipal->defaultColor;
+   }
+   this->Color = TColor(colorIntValue);
+   frmmenuprincipal->color_ventana(this->Name, colorIntValue);
 }
 //---------------------------------------------------------------------------
 

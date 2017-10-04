@@ -10,8 +10,7 @@ USEFORM("UProduct.cpp", frmdatosproducto);
 USEFORM("UCustomer.cpp", frmgestioncliente);
 USEFORM("USales.cpp", frmventas);
 USEFORM("UProductReport.cpp", frmrepproducto);
-USEFORM("Unit8.cpp", QRListForm);
-USEFORM("Unit9.cpp", frmreportes);
+USEFORM("UReportsList.cpp", frmreportes);
 USEFORM("UDaySalesReport.cpp", frmreporteventa);
 USEFORM("UProforma.cpp", frmproforma);
 USEFORM("UProformas.cpp", frmproformas);
@@ -36,13 +35,13 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
                  Application->Initialize();
                  Application->CreateForm(__classid(Tfrmlogin), &frmlogin);
        Application->CreateForm(__classid(TDM), &DM);
+       Application->CreateForm(__classid(TfrmConfiguration), &frmConfiguration);
        Application->CreateForm(__classid(Tfrmmenuprincipal), &frmmenuprincipal);
        Application->CreateForm(__classid(Tfrmgestionproductos), &frmgestionproductos);
        Application->CreateForm(__classid(Tfrmdatosproducto), &frmdatosproducto);
        Application->CreateForm(__classid(Tfrmgestioncliente), &frmgestioncliente);
        Application->CreateForm(__classid(Tfrmventas), &frmventas);
        Application->CreateForm(__classid(Tfrmrepproducto), &frmrepproducto);
-       Application->CreateForm(__classid(TQRListForm), &QRListForm);
        Application->CreateForm(__classid(Tfrmreportes), &frmreportes);
        Application->CreateForm(__classid(Tfrmreporteventa), &frmreporteventa);
        Application->CreateForm(__classid(Tfrmproforma), &frmproforma);
@@ -58,7 +57,6 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
        Application->CreateForm(__classid(TfRepSeguimiento), &fRepSeguimiento);
        Application->CreateForm(__classid(TfSeguimiento), &fSeguimiento);
        Application->CreateForm(__classid(Tfrmrepventasfecha), &frmrepventasfecha);
-       Application->CreateForm(__classid(TfrmConfiguration), &frmConfiguration);
        Application->Run();
         }
         catch (Exception &exception)
