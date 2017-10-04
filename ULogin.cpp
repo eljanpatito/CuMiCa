@@ -27,6 +27,13 @@ Close();
 //---------------------------------------------------------------------------
 void __fastcall Tfrmlogin::btningresarClick(TObject *Sender)
 {
+   if ((txtusuario->Text.Trim() == "") || (txtpassword->Text.Trim() == "")) {
+      Application->MessageBoxA("Debe ingresar usuario y contraseña", "Error", MB_OK | MB_ICONERROR);
+      txtusuario->Text="";
+    txtpassword->Text="";
+      txtusuario->SetFocus();
+      return;
+   }
    DM->Query1->SQL->Clear();
    DM->Query1->SQL->Add("Select  * From `USUARIO`");
    DM->Query1->SQL->Add("where USUARIO='"+txtusuario->Text+"' and PASSWORD='"+txtpassword->Text+"'");
@@ -46,6 +53,7 @@ void __fastcall Tfrmlogin::btningresarClick(TObject *Sender)
    }
    else
    {
+      Application->MessageBoxA("Error de usuario o contraseña", "Error", MB_OK | MB_ICONERROR);
     txtusuario->Text="";
     txtpassword->Text="";
     txtusuario->SetFocus();
@@ -59,7 +67,11 @@ void __fastcall Tfrmlogin::txtusuarioEnter(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall Tfrmlogin::txtusuarioExit(TObject *Sender)
 {
- ((TEdit *)Sender)->Color=clWhite;
+   if (((TEdit *)Sender)->Text.Trim() == "") {
+      ((TEdit *)Sender)->Color=clMaroon;
+   } else {
+      ((TEdit *)Sender)->Color=clWhite;
+   }
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrmlogin::txtusuarioKeyDown(TObject *Sender, WORD &Key,
