@@ -695,4 +695,88 @@ object DM: TDM
     Left = 616
     Top = 352
   end
+  object TSales1: TTable
+    DatabaseName = 'CuMiCaBdD'
+    TableName = 'VENTA'
+    Left = 536
+    Top = 400
+    object TSales1IDNOTA: TIntegerField
+      FieldName = 'IDNOTA'
+      DisplayFormat = '00000000'
+    end
+    object TSales1NOMBRE_CLIENTE: TStringField
+      FieldName = 'NOMBRE_CLIENTE'
+      Size = 100
+    end
+    object TSales1TOTAL_CAJAS: TIntegerField
+      FieldName = 'TOTAL_CAJAS'
+    end
+    object TSales1TOTAL_BS: TFloatField
+      FieldName = 'TOTAL_BS'
+    end
+    object TSales1TOTAL: TStringField
+      FieldName = 'TOTAL'
+      Size = 255
+    end
+    object TSales1FECHA: TDateTimeField
+      FieldName = 'FECHA'
+    end
+    object TSales1COD_EMP: TStringField
+      FieldName = 'COD_EMP'
+      Size = 30
+    end
+    object TSales1CLI_TEL: TStringField
+      FieldName = 'CLI_TEL'
+      Size = 12
+    end
+    object TSales1CLI_CEL: TStringField
+      FieldName = 'CLI_CEL'
+      Size = 12
+    end
+    object TSales1CLI_CIUDAD: TStringField
+      FieldName = 'CLI_CIUDAD'
+      Size = 12
+    end
+    object TSales1CLI_NIT: TStringField
+      FieldName = 'CLI_NIT'
+      Size = 30
+    end
+  end
+  object DSSales1: TDataSource
+    DataSet = TSales1
+    Left = 621
+    Top = 403
+  end
+  object TSales2: TTable
+    DatabaseName = 'CuMiCaBdD'
+    IndexFieldNames = 'ID_NOTA'
+    MasterFields = 'IDNOTA'
+    MasterSource = DSSales1
+    TableName = 'DETALLE_VENTA'
+    Left = 536
+    Top = 448
+  end
+  object DSSales2: TDataSource
+    DataSet = TSales2
+    Left = 616
+    Top = 448
+  end
+  object QSales1: TQuery
+    DatabaseName = 'Cumica2017Alias'
+    SQL.Strings = (
+      'select maX(IDNOTA)+1 AS MAY FROM VENTA')
+    Left = 728
+    Top = 8
+  end
+  object TSales3: TTable
+    DatabaseName = 'CuMiCaBdD'
+    TableName = 'VENTA'
+    Left = 536
+    Top = 496
+  end
+  object DSSales3: TDataSource
+    DataSet = TSales3
+    Left = 616
+    Top = 496
+  end
 end

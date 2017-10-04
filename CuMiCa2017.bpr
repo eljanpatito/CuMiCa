@@ -5,7 +5,7 @@
     <VERSION value="BCB.06.00"/>
     <PROJECT value="CuMiCa2017.exe"/>
     <OBJFILES value="CuMiCa2017.obj UMainMenu.obj Unit2.obj UProductManagement.obj UProduct.obj 
-      UCustomer.obj Unit6.obj UProductReport.obj Unit8.obj Unit9.obj 
+      UCustomer.obj USales.obj UProductReport.obj Unit8.obj Unit9.obj 
       UDaySalesReport.obj UProforma.obj UProformas.obj UProformasReport.obj 
       USalesMasterDetail.obj URepayment.obj UEmployee.obj URepaymentReport.obj 
       UEmployeeReport.obj UCustomerReport.obj Unit20.obj 
@@ -16,7 +16,7 @@
     <IDLGENFILES value=""/>
     <DEFFILE value=""/>
     <RESDEPEN value="$(RESFILES) UMainMenu.dfm Unit2.dfm UProductManagement.dfm UProduct.dfm 
-      UCustomer.dfm Unit6.dfm UProductReport.dfm Unit8.dfm Unit9.dfm 
+      UCustomer.dfm USales.dfm UProductReport.dfm Unit8.dfm Unit9.dfm 
       UDaySalesReport.dfm UProforma.dfm UProformas.dfm UProformasReport.dfm 
       USalesMasterDetail.dfm URepayment.dfm UEmployee.dfm URepaymentReport.dfm 
       UEmployeeReport.dfm UCustomerReport.dfm Unit20.dfm 
@@ -77,7 +77,7 @@
       <FILE FILENAME="UProductManagement.cpp" FORMNAME="frmgestionproductos" UNITNAME="UProductManagement" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="UProduct.cpp" FORMNAME="frmdatosproducto" UNITNAME="UProduct" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="UCustomer.cpp" FORMNAME="frmgestioncliente" UNITNAME="UCustomer" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Unit6.cpp" FORMNAME="frmventas" UNITNAME="Unit6" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="USales.cpp" FORMNAME="frmventas" UNITNAME="USales" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="UProductReport.cpp" FORMNAME="frmrepproducto" UNITNAME="UProductReport" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit8.cpp" FORMNAME="QRListForm" UNITNAME="Unit8" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit9.cpp" FORMNAME="frmreportes" UNITNAME="Unit9" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>

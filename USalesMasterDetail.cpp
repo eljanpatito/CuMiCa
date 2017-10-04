@@ -4,10 +4,10 @@
 
 #include "USalesMasterDetail.h"
 #include "Unit2.h"
-#include "Unit6.h"
 #include "UMainMenu.h"
 #include "DataModule.h"
 #include "UProforma.h"
+#include "USales.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmmaestrodetalleventa *frmmaestrodetalleventa;

@@ -4,11 +4,11 @@
 
 #include "UCustomer.h"
 #include "Unit2.h"
-#include "Unit6.h"
 #include "UMainMenu.h"
 #include "UProductManagement.h"
 #include "UProduct.h"
 #include "DataModule.h"
+#include "USales.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmgestioncliente *frmgestioncliente;
@@ -137,10 +137,10 @@ void __fastcall Tfrmgestioncliente::btnseleccionarClick(TObject *Sender)
 btnseleccionar->Visible=False;
 frmventas->DBEdit1->Text=DBEdit3->Text+" "+DBEdit2->Text;
    // Asign values from actual client to ventas table
-   frmventas->Table1CLI_TEL->Value = DBEdit4->Text;
-   frmventas->Table1CLI_CEL->Value = dbeCliCelular->Text;
-   frmventas->Table1CLI_CIUDAD->Value = dbeCliCiudad->Text;
-   frmventas->Table1CLI_NIT->Value = DBEdit1->Text;
+   DM->TSales1CLI_TEL->Value = DBEdit4->Text;
+   DM->TSales1CLI_CEL->Value = dbeCliCelular->Text;
+   DM->TSales1CLI_CIUDAD->Value = dbeCliCiudad->Text;
+   DM->TSales1CLI_NIT->Value = DBEdit1->Text;
 Close();
 }
 //---------------------------------------------------------------------------

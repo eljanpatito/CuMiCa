@@ -2,7 +2,7 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "Unit6.h"
+#include "USales.h"
 #include "Unit2.h"
 #include "num_a_letra.h"
 #include "Unit14.h"
@@ -32,17 +32,19 @@ frmgestioncliente->ShowModal();
 //---------------------------------------------------------------------------
 void __fastcall Tfrmventas::btnnuevaventaClick(TObject *Sender)
 {
-Table1->Open();
-Table2->Open();
+DM->TSales1->Open();
+DM->TSales2->Open();
 btnbuscar->Enabled=True;
-Query1->SQL->Clear();
-Query1->SQL->Add("select MAX(IDNOTA)+1 AS MAY FROM VENTA;");
-Query1->Open();
-AnsiString idnota= Query1->FieldByName("MAY")->Text;
-if(idnota=="")idnota="1";
-Query1->Close();
+DM->QSales1->SQL->Clear();
+DM->QSales1->SQL->Add("select MAX(IDNOTA)+1 AS MAY FROM VENTA;");
+DM->QSales1->Open();
+AnsiString idnota= DM->QSales1->FieldByName("MAY")->Text;
+   if (idnota == "") {
+      idnota="1";
+   }
+DM->QSales1->Close();
 Panel1->Enabled=False;
-Table1->Insert();
+DM->TSales1->Insert();
 btnbuscar->Click();
 EditIDNOTA->Text=idnota;
 EditTOTAL_BS->Text="0";
@@ -61,8 +63,8 @@ void __fastcall Tfrmventas::btncancelarClick(TObject *Sender)
    Panel2->Enabled=False;
    Panel2->Color=clRed;
 
-   Table2->First();
-   while (!Table2->Eof){
+   DM->TSales2->First();
+   while (!DM->TSales2->Eof){
      TLocateOptions op;
      op<<loPartialKey;
      DM->TProduct->Locate("CODIGO",DBEdit2->Text,op);
@@ -71,15 +73,15 @@ void __fastcall Tfrmventas::btncancelarClick(TObject *Sender)
      frmdatosproducto->EditCANTIDAD_CAJAS->Text=frmdatosproducto->EditCANTIDAD_CAJAS->Text.ToInt()+a;
      DM->TProduct->Post();
      frmgestionproductos->actualizar_consulta();
-     Table2->Next();
+     DM->TSales2->Next();
    }
-   Table2->First();
-   Table1->Delete();
-   Table1->Refresh();
+   DM->TSales2->First();
+   DM->TSales1->Delete();
+   DM->TSales1->Refresh();
    Application->MessageBox("Venta CANCELADA","OK",MB_OK | MB_ICONINFORMATION);
    txtnombre->Text="";
-   Table1->Close();
-   Table2->Close();
+   DM->TSales1->Close();
+   DM->TSales2->Close();
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrmventas::FormClose(TObject *Sender,
@@ -102,11 +104,11 @@ void __fastcall Tfrmventas::btningresarClick(TObject *Sender) {
    } catch (...) {
       ShowMessage("Ocurrio un error al recuperar el maximo de registros permitido, se usara 25 como valor predeterminado");
    }
-   if (Table2->RecordCount < maxRecords) {
+   if (DM->TSales2->RecordCount < maxRecords) {
       //btnbuscar->Enabled=False;
-      Table1->Post();
-      Table1->Refresh();
-      Table1->Edit();
+      DM->TSales1->Post();
+      DM->TSales1->Refresh();
+      DM->TSales1->Edit();
       if (!DM->QProductManagement->Active) {
          DM->QProductManagement->Open();
       }
@@ -149,11 +151,11 @@ void __fastcall Tfrmventas::btnvenderClick(TObject *Sender)
    Panel1->Enabled=True;
    Panel2->Enabled=False;
    Panel2->Color=clRed;
-   Table1->Post();
-   Table1->Refresh();
-   Table3->Active = false;
-   Table3->Active = true;
-   Table3->Last();
+   DM->TSales1->Post();
+   DM->TSales1->Refresh();
+   DM->TSales3->Active = false;
+   DM->TSales3->Active = true;
+   DM->TSales3->Last();
    Application->MessageBox("VENTA REGISTRADA CORRECTAMENTE","OK",MB_OK | MB_ICONINFORMATION);
    DM->QProforma1->Close();
    DM->QProforma1->SQL->Clear();
@@ -171,8 +173,8 @@ void __fastcall Tfrmventas::btnvenderClick(TObject *Sender)
    frmproforma->setValues();
    frmproforma->QuickRep1->PreviewModal();
    txtnombre->Text="";
-   Table1->Close();
-   Table2->Close();
+   DM->TSales1->Close();
+   DM->TSales2->Close();
 }
 //---------------------------------------------------------------------------
 
@@ -208,9 +210,9 @@ void __fastcall Tfrmventas::btncolorClick(TObject *Sender)
 
 void __fastcall Tfrmventas::FormActivate(TObject *Sender)
 {
-DBEdit1->Text=="";
-Table1->Close();
-Table2->Close();
+   DBEdit1->Text=="";
+   DM->TSales1->Close();
+   DM->TSales2->Close();
 }
 //---------------------------------------------------------------------------
 
@@ -238,10 +240,10 @@ if(Panel2->Enabled)
 
 void __fastcall Tfrmventas::btnQuitarClick(TObject *Sender)
 {
-   AnsiString code = Table2->FieldByName("CODIGO")->AsString;
+   AnsiString code = DM->TSales2->FieldByName("CODIGO")->AsString;
    if (!code.IsEmpty()) {
       if (Application->MessageBox(("¿Esta seguro de quitar:\n"
-            + Table2->FieldByName("DESCRIPCION")->AsString
+            + DM->TSales2->FieldByName("DESCRIPCION")->AsString
             + "\ndel carrito?").c_str(), "Quitar producto del carrito",
             MB_YESNO | MB_ICONQUESTION) == ID_YES) {
          frmgestionproductos->locateTableByField(DM->TProduct, "CODIGO", code);
@@ -250,8 +252,8 @@ void __fastcall Tfrmventas::btnQuitarClick(TObject *Sender)
          int amount = DBEdit3->Text.ToInt();
          frmgestionproductos->addAmountByID(amount, id);
          frmgestionproductos->actualizar_consulta();
-         Table2->Delete();
-         Table2->Refresh();
+         DM->TSales2->Delete();
+         DM->TSales2->Refresh();
          frmventas->EditTOTAL_CAJAS->Text=frmventas->EditTOTAL_CAJAS->Text.ToInt() - amount;
          frmventas->EditTOTAL_BS->Text=frmventas->EditTOTAL_BS->Text.ToDouble()-(amount*price);
       }

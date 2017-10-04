@@ -3,9 +3,9 @@
 #pragma hdrstop
 
 #include "UEmployee.h"
-#include "Unit6.h"
 #include "URepayment.h"
 #include "DataModule.h"
+#include "USales.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmempleado *frmempleado;

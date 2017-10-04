@@ -3,10 +3,10 @@
 #pragma hdrstop
 
 #include "UProforma.h"
-#include "Unit6.h"
 #include "Unit14.h"
 #include "Configuration.h"
 #include "DataModule.h"
+#include "USales.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"

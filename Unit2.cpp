@@ -3,9 +3,9 @@
 #pragma hdrstop
 
 #include "Unit2.h"
-#include "Unit6.h"
 #include "DataModule.h"
 #include "UMainMenu.h"
+#include "USales.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmlogin *frmlogin;

@@ -45,11 +45,9 @@ i=st.Pos("/");
 s3=st.SubString(1,i-1);
 st=st.SubString(i+1,s.Length()-(i+1));
 st=s2+"/"+s1+"/"+st;
-ShowMessage("before");
    if (!DM->TSalesByEmployee->Active) {
       DM->TSalesByEmployee->Active = true;
    }
-ShowMessage("After");
 DM->QSalesByEmployee1->SQL->Clear();
 DM->QSalesByEmployee1->SQL->Add("SELECT * FROM v_e WHERE FECHA >= #"+ini+"# and FECHA <= #"+st+"# ORDER BY EMPLEADO.NOMBRE_COMPLETO,VENTA.FECHA;");
 DM->QSalesByEmployee1->Open();

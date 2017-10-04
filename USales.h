@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------
-#ifndef Unit6H
-#define Unit6H
+#ifndef USalesH
+#define USalesH
 //----------------------------------------------------------------------------
 #include <SysUtils.hpp>
 #include <Windows.hpp>
@@ -24,7 +24,6 @@
 class Tfrmventas : public TForm
 {
 __published:
-	TDataSource *DataSource1;
 	TPanel *Panel2;
         TLabel *Label1;
         TLabel *Label2;
@@ -42,12 +41,9 @@ __published:
         TButton *btncancelar;
         TDBGrid *DBGrid1;
         TDBEdit *DBEdit1;
-        TTable *Table2;
-        TDataSource *DataSource2;
         TDBGrid *DBGrid2;
         TButton *btningresar;
         TButton *btnvender;
-        TQuery *Query1;
         TDBEdit *DBEdit2;
         TDBEdit *DBEdit3;
    TButton *btncolor;
@@ -59,22 +55,8 @@ __published:
         TButton *btnempleado;
         TDBEdit *DBEdit4;
         TLabel *Label5;
-        TTable *Table1;
         TEdit *txtnombre;
-   TIntegerField *Table1IDNOTA;
-   TStringField *Table1NOMBRE_CLIENTE;
-   TIntegerField *Table1TOTAL_CAJAS;
-   TFloatField *Table1TOTAL_BS;
-   TStringField *Table1TOTAL;
-   TDateTimeField *Table1FECHA;
-   TStringField *Table1COD_EMP;
    TDBEdit *DBEdit5;
-   TTable *Table3;
-   TDataSource *DataSource3;
-   TStringField *Table1CLI_TEL;
-   TStringField *Table1CLI_CEL;
-   TStringField *Table1CLI_CIUDAD;
-   TStringField *Table1CLI_NIT;
         TButton *btnQuitar;
         void __fastcall btnbuscarClick(TObject *Sender);
         void __fastcall btnnuevaventaClick(TObject *Sender);

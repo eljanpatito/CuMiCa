@@ -128,6 +128,24 @@ __published:	// IDE-managed Components
    TQuery *QSalesByEmployee2;
    TQuery *QSalesByEmployee1;
    TDataSource *DSSalesByEmployee1;
+   TTable *TSales1;
+   TIntegerField *TSales1IDNOTA;
+   TStringField *TSales1NOMBRE_CLIENTE;
+   TIntegerField *TSales1TOTAL_CAJAS;
+   TFloatField *TSales1TOTAL_BS;
+   TStringField *TSales1TOTAL;
+   TDateTimeField *TSales1FECHA;
+   TStringField *TSales1COD_EMP;
+   TStringField *TSales1CLI_TEL;
+   TStringField *TSales1CLI_CEL;
+   TStringField *TSales1CLI_CIUDAD;
+   TStringField *TSales1CLI_NIT;
+   TDataSource *DSSales1;
+   TTable *TSales2;
+   TDataSource *DSSales2;
+   TQuery *QSales1;
+   TTable *TSales3;
+   TDataSource *DSSales3;
 private:	// User declarations
 public:		// User declarations
    __fastcall TDM(TComponent* Owner);

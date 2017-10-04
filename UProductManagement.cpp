@@ -3,12 +3,12 @@
 #pragma hdrstop
 
 #include "UProductManagement.h"
-#include "Unit6.h"
 #include "Unit8.h"
 #include "UMainMenu.h"
 #include "DataModule.h"
 #include "UProduct.h"
 #include "UProductReport.h"
+#include "USales.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmgestionproductos *frmgestionproductos;
@@ -134,31 +134,31 @@ void __fastcall Tfrmgestionproductos::btnseleccionarClick(TObject *Sender)
          if (!DM->TProduct->Active) {
             DM->TProduct->Active = true;
          }
-         frmventas->Table2->Active = false;
-         frmventas->Table2->Filter = "CODIGO='"+DBEdit2->Text+"'";
-         frmventas->Table2->Filtered = true;
-         frmventas->Table2->Active = true;
-         if (frmventas->Table2->RecordCount > 0) {
-            int oldBoxQuantity = frmventas->Table2->FieldByName("CANTIDAD")->AsInteger;
+         DM->TSales2->Active = false;
+         DM->TSales2->Filter = "CODIGO='"+DBEdit2->Text+"'";
+         DM->TSales2->Filtered = true;
+         DM->TSales2->Active = true;
+         if (DM->TSales2->RecordCount > 0) {
+            int oldBoxQuantity = DM->TSales2->FieldByName("CANTIDAD")->AsInteger;
             int boxQuantity = oldBoxQuantity + amount;
-            frmventas->Table2->Edit();
-            frmventas->Table2->FieldByName("CANTIDAD")->Text = boxQuantity;
-            frmventas->Table2->FieldByName("PARCIAL")->Text=AnsiString(boxQuantity*DBEdit4->Text.ToDouble());
+            DM->TSales2->Edit();
+            DM->TSales2->FieldByName("CANTIDAD")->Text = boxQuantity;
+            DM->TSales2->FieldByName("PARCIAL")->Text=AnsiString(boxQuantity*DBEdit4->Text.ToDouble());
          } else {
-            frmventas->Table2->Insert();
-            frmventas->Table2->FieldByName("CODIGO")->Text=DBEdit2->Text;
-            frmventas->Table2->FieldByName("DESCRIPCION")->Text=DBEdit3->Text;
-            frmventas->Table2->FieldByName("CANTIDAD")->Text=Edit1->Text;
-            frmventas->Table2->FieldByName("CANTIDAD_POR_CAJA")->Text = dbeAmountByBox->Text;
-            frmventas->Table2->FieldByName("PRECIO")->Text=DBEdit4->Text;
-            frmventas->Table2->FieldByName("PARCIAL")->Text=AnsiString(Edit1->Text.ToDouble()*DBEdit4->Text.ToDouble());
-            frmventas->Table2->FieldByName("ID_NOTA")->Text=frmventas->EditIDNOTA->Text;
+            DM->TSales2->Insert();
+            DM->TSales2->FieldByName("CODIGO")->Text=DBEdit2->Text;
+            DM->TSales2->FieldByName("DESCRIPCION")->Text=DBEdit3->Text;
+            DM->TSales2->FieldByName("CANTIDAD")->Text=Edit1->Text;
+            DM->TSales2->FieldByName("CANTIDAD_POR_CAJA")->Text = dbeAmountByBox->Text;
+            DM->TSales2->FieldByName("PRECIO")->Text=DBEdit4->Text;
+            DM->TSales2->FieldByName("PARCIAL")->Text=AnsiString(Edit1->Text.ToDouble()*DBEdit4->Text.ToDouble());
+            DM->TSales2->FieldByName("ID_NOTA")->Text=frmventas->EditIDNOTA->Text;
          }
          frmventas->EditTOTAL_CAJAS->Text=frmventas->EditTOTAL_CAJAS->Text.ToInt() + amount;
          frmventas->EditTOTAL_BS->Text=frmventas->EditTOTAL_BS->Text.ToDouble()+(amount*DBEdit4->Text.ToDouble());
-         frmventas->Table2->Post();
-         frmventas->Table2->Refresh();
-         frmventas->Table2->Filtered = false;
+         DM->TSales2->Post();
+         DM->TSales2->Refresh();
+         DM->TSales2->Filtered = false;
 
          frmgestionproductos->locateTableByField(DM->TProduct, "ID", DBEdit1->Text);
          frmgestionproductos->addAmountByID(-amount, DBEdit1->Text);
