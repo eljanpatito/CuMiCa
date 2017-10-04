@@ -4,7 +4,6 @@
 
 #include "USales.h"
 #include "num_a_letra.h"
-#include "Unit14.h"
 #include "Configuration.h"
 #include "UMainMenu.h"
 #include "DataModule.h"
@@ -15,6 +14,7 @@
 #include "UCustomer.h"
 #include "UProforma.h"
 #include "ULogin.h"
+#include "USalesMasterDetail.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmventas *frmventas;

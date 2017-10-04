@@ -4,7 +4,6 @@
 #pragma hdrstop
 
 #include "UReportsList.h"
-#include "Unit14.h"
 #include "SegProductosForm.h"
 #include "RepVentasFecha.h"
 #include "UMainMenu.h"
@@ -21,6 +20,7 @@
 #include "USalesByEmployeeReport.h"
 #include "USales.h"
 #include "ULogin.h"
+#include "USalesMasterDetail.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
