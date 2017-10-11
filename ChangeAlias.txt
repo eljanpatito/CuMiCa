@@ -56,5 +56,11 @@ Para Cambiar Alias Actualizar los siguientes componentes:
 --- Query1
 --- Query2
 
+Color table
+Color		intValue	TColor
+white		16777215	clWhite
+activeCaption	-2147483646	clActiveCaption
+
+
 
 
