@@ -10,6 +10,7 @@
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmdatosproducto *frmdatosproducto;
+AnsiString oldProductCode, newProductCode;
 //----------------------------------------------------------------------------
 __fastcall Tfrmdatosproducto::Tfrmdatosproducto(TComponent *Owner)
 	: TForm(Owner)
@@ -19,6 +20,19 @@ __fastcall Tfrmdatosproducto::Tfrmdatosproducto(TComponent *Owner)
 void __fastcall Tfrmdatosproducto::btnguardarClick(TObject *Sender)
 {
    try {
+      if (EditCODIGO->Text.Trim().IsEmpty()) {
+         Application->MessageBox("El codigo ingresado no puede ser vacio. Ingrese un codigo válido o cancele la operacion.","Error",MB_OK | MB_ICONERROR);
+      }
+      if (oldProductCode != EditCODIGO->Text) {
+         DM->qFindProduct->Close();
+         DM->qFindProduct->ParamByName("codigo")->AsString = EditCODIGO->Text;
+         DM->qFindProduct->Open();
+         if (DM->qFindProduct->RecordCount > 0) {
+            Application->MessageBox("El codigo ingresado ya existe. Ingrese un codigo diferente o cancele la operacion.","Error",MB_OK | MB_ICONERROR);
+            EditCODIGO->SetFocus();
+            return;
+         }
+      }
       DM->TProduct->Post();
       Application->MessageBox("DATOS DE PRODUCTO CORRECTAMENTE GUARDADOS","OK",MB_OK | MB_ICONINFORMATION);
       frmgestionproductos->actualizar_consulta();
@@ -51,13 +65,6 @@ void __fastcall Tfrmdatosproducto::EditCODIGOExit(TObject *Sender)
    } else {
       ((TEdit *)Sender)->Color=clWhite;
    }
-   DM->qFindProduct->Close();
-   DM->qFindProduct->ParamByName("codigo")->AsString = EditCODIGO->Text;
-   DM->qFindProduct->Open();
-   if (DM->qFindProduct->RecordCount > 0) {
-      Application->MessageBox("El codigo ingresado ya existe. Ingrese un codigo diferente o cancele la operacion.","Error",MB_OK | MB_ICONERROR);
-      EditCODIGO->SetFocus();
-   }
 }
 //---------------------------------------------------------------------------
 
@@ -65,6 +72,7 @@ void __fastcall Tfrmdatosproducto::EditCODIGOExit(TObject *Sender)
 void __fastcall Tfrmdatosproducto::FormActivate(TObject *Sender)
 {
    EditCODIGO->SetFocus();
+   oldProductCode = EditCODIGO->Text;
 }
 //---------------------------------------------------------------------------
 
