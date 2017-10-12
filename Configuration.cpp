@@ -31,7 +31,8 @@ void __fastcall TfrmConfiguration::Copiaralvalor1Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 void TfrmConfiguration::loadDefaultConfiguration() {
-   AnsiString values[10][10];
+   AnsiString values[11][10];
+   int maxRow = 11;
    values[0][0] = "fontName"; values[0][1]="Tahoma";
    values[1][0] = "fontSize"; values[1][1]="10";
    values[2][0] = "fontColor"; values[2][1]="clBlack";
@@ -42,7 +43,8 @@ void TfrmConfiguration::loadDefaultConfiguration() {
    values[7][0] = "maxRecords"; values[7][1]="25";
    values[8][0] = "defaultColor"; values[8][1]="-2147483646";
    values[9][0] = "neutroColor"; values[9][1]="16777215";
-   for (int row = 0; row < 10; row++) {
+   values[10][0] = "store"; values[10][1]="Comercial QUISPE";
+   for (int row = 0; row < maxRow; row++) {
       DM->tConfiguration->Active = false;
       DM->tConfiguration->Filtered = false;
       DM->tConfiguration->Filter="property='"+values[row][0]+"'";

@@ -32,7 +32,7 @@ __published:	// IDE-managed Components
    TQRBand *QRBand1;
    TQRDBText *QRDBText1;
    TQRLabel *QRLabel1;
-   TQRLabel *QRLabel4;
+   TQRLabel *QRLStore;
    TQRLabel *QRLabel12;
    TQRLabel *QRLabel13;
    TQRLabel *QRLabel14;

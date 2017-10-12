@@ -190,7 +190,8 @@ object DM: TDM
     end
     object Query1TOTAL_BS: TFloatField
       FieldName = 'TOTAL_BS'
-      DisplayFormat = '#.00'
+      DisplayFormat = '###,###,###.00'
+      currency = True
     end
     object Query1TOTAL: TStringField
       FieldName = 'TOTAL'
@@ -713,6 +714,8 @@ object DM: TDM
     end
     object TSales1TOTAL_BS: TFloatField
       FieldName = 'TOTAL_BS'
+      EditFormat = '###,###,###.00'
+      currency = True
     end
     object TSales1TOTAL: TStringField
       FieldName = 'TOTAL'
