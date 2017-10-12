@@ -6,6 +6,7 @@ object DM: TDM
   Width = 1072
   object BdD: TDatabase
     AliasName = 'CumicaQG2017Alias'
+    Connected = True
     DatabaseName = 'CuMiCaQGBdD'
     LoginPrompt = False
     SessionName = 'Default'
@@ -188,7 +189,8 @@ object DM: TDM
     end
     object Query1TOTAL_BS: TFloatField
       FieldName = 'TOTAL_BS'
-      DisplayFormat = '#.00'
+      DisplayFormat = '###,###,###.00'
+      currency = True
     end
     object Query1TOTAL: TStringField
       FieldName = 'TOTAL'
@@ -695,6 +697,7 @@ object DM: TDM
   end
   object TSales1: TTable
     DatabaseName = 'CuMiCaQGBdD'
+    StoreDefs = True
     TableName = 'VENTA'
     Left = 536
     Top = 400
@@ -711,6 +714,8 @@ object DM: TDM
     end
     object TSales1TOTAL_BS: TFloatField
       FieldName = 'TOTAL_BS'
+      DisplayFormat = '###,###,###.00'
+      currency = True
     end
     object TSales1TOTAL: TStringField
       FieldName = 'TOTAL'
@@ -753,6 +758,34 @@ object DM: TDM
     TableName = 'DETALLE_VENTA'
     Left = 536
     Top = 448
+    object TSales2Id: TAutoIncField
+      FieldName = 'Id'
+    end
+    object TSales2CODIGO: TStringField
+      FieldName = 'CODIGO'
+      Size = 30
+    end
+    object TSales2DESCRIPCION: TStringField
+      FieldName = 'DESCRIPCION'
+      Size = 255
+    end
+    object TSales2CANTIDAD: TIntegerField
+      FieldName = 'CANTIDAD'
+    end
+    object TSales2PRECIO: TFloatField
+      FieldName = 'PRECIO'
+    end
+    object TSales2PARCIAL: TFloatField
+      FieldName = 'PARCIAL'
+      DisplayFormat = '###,###,###.00'
+      currency = True
+    end
+    object TSales2ID_NOTA: TIntegerField
+      FieldName = 'ID_NOTA'
+    end
+    object TSales2CANTIDAD_POR_CAJA: TIntegerField
+      FieldName = 'CANTIDAD_POR_CAJA'
+    end
   end
   object DSSales2: TDataSource
     DataSet = TSales2

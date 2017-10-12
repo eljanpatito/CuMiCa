@@ -146,6 +146,14 @@ __published:	// IDE-managed Components
    TQuery *QSales1;
    TTable *TSales3;
    TDataSource *DSSales3;
+   TAutoIncField *TSales2Id;
+   TStringField *TSales2CODIGO;
+   TStringField *TSales2DESCRIPCION;
+   TIntegerField *TSales2CANTIDAD;
+   TFloatField *TSales2PRECIO;
+   TFloatField *TSales2PARCIAL;
+   TIntegerField *TSales2ID_NOTA;
+   TIntegerField *TSales2CANTIDAD_POR_CAJA;
 private:	// User declarations
 public:		// User declarations
    __fastcall TDM(TComponent* Owner);
