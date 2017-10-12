@@ -36,3 +36,10 @@ void __fastcall Tfrmrepventasfecha::BitBtn1Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall Tfrmrepventasfecha::FormActivate(TObject *Sender)
+{
+   dtpFrom->Date = Now();
+   dtpTo->Date = Now();   
+}
+//---------------------------------------------------------------------------
+

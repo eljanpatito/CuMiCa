@@ -30,6 +30,7 @@ __published:	// IDE-managed Components
    TDBChart *DBChart1;
    TBarSeries *Series1;
    void __fastcall BitBtn1Click(TObject *Sender);
+   void __fastcall FormActivate(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
    __fastcall Tfrmrepventasfecha(TComponent* Owner);
