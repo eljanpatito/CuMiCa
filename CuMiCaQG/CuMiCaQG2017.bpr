@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="CuMiCaQG2017.exe"/>
+    <OBJFILES value="CuMiCaQG2017.obj UMainMenu.obj ULogin.obj UProductManagement.obj 
+      UProduct.obj UCustomer.obj USales.obj UProductReport.obj UReportsList.obj 
+      UDaySalesReport.obj UProforma.obj UProformas.obj UProformasReport.obj 
+      USalesMasterDetail.obj URepayment.obj UEmployee.obj URepaymentReport.obj 
+      UEmployeeReport.obj UCustomerReport.obj USalesByEmployeeReport.obj 
+      DataModule.obj SegProductos.obj SegProductosForm.obj RepVentasFecha.obj 
+      Configuration.obj"/>
+    <RESFILES value="CuMiCaQG2017.res"/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) UMainMenu.dfm ULogin.dfm UProductManagement.dfm UProduct.dfm 
+      UCustomer.dfm USales.dfm UProductReport.dfm UReportsList.dfm 
+      UDaySalesReport.dfm UProforma.dfm UProformas.dfm UProformasReport.dfm 
+      USalesMasterDetail.dfm URepayment.dfm UEmployee.dfm URepaymentReport.dfm 
+      UEmployeeReport.dfm UCustomerReport.dfm USalesByEmployeeReport.dfm 
+      DataModule.dfm SegProductos.dfm SegProductosForm.dfm RepVentasFecha.dfm 
+      Configuration.dfm"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value="tee.lib teedb.lib vclx.lib qrpt.lib bdertl.lib vcldb.lib dbrtl.lib rtl.lib 
+      vcl.lib"/>
+    <SPARELIBS value="vcl.lib rtl.lib dbrtl.lib vcldb.lib bdertl.lib qrpt.lib vclx.lib teedb.lib 
+      tee.lib"/>
+    <PACKAGES value="vcl.bpi rtl.bpi dbrtl.bpi adortl.bpi vcldb.bpi vclx.bpi bdertl.bpi 
+      vcldbx.bpi ibxpress.bpi dsnap.bpi cds.bpi bdecds.bpi qrpt.bpi teeui.bpi 
+      teedb.bpi tee.bpi dss.bpi teeqr.bpi visualclx.bpi visualdbclx.bpi 
+      dsnapcrba.bpi dsnapcon.bpi bcbsmp.bpi vclie.bpi xmlrtl.bpi inet.bpi 
+      inetdbbde.bpi inetdbxpress.bpi inetdb.bpi nmfast.bpi webdsnap.bpi 
+      bcbie.bpi websnap.bpi soaprtl.bpi dclocx.bpi dbexpress.bpi dbxcds.bpi 
+      indy.bpi bcb2kaxserver.bpi vsfb6.bpi"/>
+    <PATHCPP value=".;"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value="_DEBUG"/>
+    <SYSDEFINES value="NO_STRICT"/>
+    <MAINSOURCE value="CuMiCaQG2017.cpp"/>
+    <INCLUDEPATH value="&quot;D:\Program Files\Borland\CBuilder6\Projects&quot;;&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;&quot;C:\Program Files\Borland\CBuilder6\Bin&quot;;D:\PROGRAMAS\TRABAJOS\RAULINVENTARIO\App;$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="&quot;D:\Program Files\Borland\CBuilder6\Projects&quot;;&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;&quot;C:\Program Files\Borland\CBuilder6\Bin&quot;;D:\PROGRAMAS\TRABAJOS\RAULINVENTARIO\App;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-I&quot;D:\Program Files\Borland\CBuilder6\Projects&quot; 
+      -I&quot;C:\Program Files\Borland\CBuilder6\Projects&quot; 
+      -I&quot;C:\Program Files\Borland\CBuilder6\Bin&quot; 
+      -ID:\PROGRAMAS\TRABAJOS\RAULINVENTARIO\App -I$(BCB)\include 
+      -I$(BCB)\include\vcl -src_suffix cpp -D_DEBUG -boa"/>
+    <CFLAG1 value="-Od -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- -c 
+      -tW -tWM"/>
+    <PFLAGS value="-$YD -$W -$O- -$A8 -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value="-D&quot;&quot; -aa -Tpe -x -Gn"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0w32.obj sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mt.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="CuMiCaQG2017.res" FORMNAME="" UNITNAME="CuMiCaQG2017.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="CuMiCaQG2017.cpp" FORMNAME="" UNITNAME="CuMiCaQG2017" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="UMainMenu.cpp" FORMNAME="frmmenuprincipal" UNITNAME="UMainMenu" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="ULogin.cpp" FORMNAME="frmlogin" UNITNAME="ULogin" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="UProductManagement.cpp" FORMNAME="frmgestionproductos" UNITNAME="UProductManagement" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="UProduct.cpp" FORMNAME="frmdatosproducto" UNITNAME="UProduct" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="UCustomer.cpp" FORMNAME="frmgestioncliente" UNITNAME="UCustomer" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="USales.cpp" FORMNAME="frmventas" UNITNAME="USales" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="UProductReport.cpp" FORMNAME="frmrepproducto" UNITNAME="UProductReport" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="UReportsList.cpp" FORMNAME="frmreportes" UNITNAME="UReportsList" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="UDaySalesReport.cpp" FORMNAME="frmreporteventa" UNITNAME="UDaySalesReport" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="UProforma.cpp" FORMNAME="frmproforma" UNITNAME="UProforma" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="UProformas.cpp" FORMNAME="frmproformas" UNITNAME="UProformas" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="UProformasReport.cpp" FORMNAME="frmrepproforma" UNITNAME="UProformasReport" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="USalesMasterDetail.cpp" FORMNAME="frmmaestrodetalleventa" UNITNAME="USalesMasterDetail" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="URepayment.cpp" FORMNAME="frmdevolucion" UNITNAME="URepayment" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="UEmployee.cpp" FORMNAME="frmempleado" UNITNAME="UEmployee" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="URepaymentReport.cpp" FORMNAME="frmrepdevolucion" UNITNAME="URepaymentReport" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="UEmployeeReport.cpp" FORMNAME="frmrepempleados" UNITNAME="UEmployeeReport" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="UCustomerReport.cpp" FORMNAME="frmrepcliente" UNITNAME="UCustomerReport" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="USalesByEmployeeReport.cpp" FORMNAME="frmventaempleado" UNITNAME="USalesByEmployeeReport" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="DataModule.cpp" FORMNAME="DM" UNITNAME="DataModule" CONTAINERID="CCompiler" DESIGNCLASS="TDataModule" LOCALCOMMAND=""/>
+      <FILE FILENAME="SegProductos.cpp" FORMNAME="fRepSeguimiento" UNITNAME="SegProductos" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="SegProductosForm.cpp" FORMNAME="fSeguimiento" UNITNAME="SegProductosForm" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="RepVentasFecha.cpp" FORMNAME="frmrepventasfecha" UNITNAME="RepVentasFecha" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Configuration.cpp" FORMNAME="frmConfiguration" UNITNAME="Configuration" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=3082
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+  </IDEOPTIONS>
+</PROJECT>

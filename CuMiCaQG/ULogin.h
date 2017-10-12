@@ -33,6 +33,7 @@ __published:
         TButton *btningresar;
         TButton *btncancelar;
         TDBEdit *DBEdit1;
+   TLabel *Label3;
 	void __fastcall FormCreate(TObject *Sender);
         void __fastcall btncancelarClick(TObject *Sender);
         void __fastcall btningresarClick(TObject *Sender);

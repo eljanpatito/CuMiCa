@@ -26,6 +26,7 @@ void Tfrmproforma::setValues()
    qrlAddress->Font->Size = StrToInt(frmConfiguration->getValueFromProperty("fontSize"));
    qrlAddress->Font->Color = StringToColor(frmConfiguration->getValueFromProperty("fontColor"));
    qrlPhone->Font = qrlAddress->Font;
+   QRLStore->Caption = frmConfiguration->getValueFromProperty("store");
 }
 //---------------------------------------------------------------------------
 

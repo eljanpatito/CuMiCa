@@ -5,9 +5,8 @@ object DM: TDM
   Height = 591
   Width = 1072
   object BdD: TDatabase
-    AliasName = 'Cumica2017Alias'
-    Connected = True
-    DatabaseName = 'CuMiCaBdD'
+    AliasName = 'CumicaQG2017Alias'
+    DatabaseName = 'CuMiCaQGBdD'
     LoginPrompt = False
     SessionName = 'Default'
     Left = 24
@@ -19,7 +18,7 @@ object DM: TDM
     Top = 59
   end
   object Query1: TQuery
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     SQL.Strings = (
       'Select *'
       'From USUARIO')
@@ -27,7 +26,7 @@ object DM: TDM
     Top = 56
   end
   object qSeguimiento: TQuery
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     SQL.Strings = (
       
         'SELECT VENTA.NOMBRE_CLIENTE, VENTA.IDNOTA, DETALLE_VENTA.DESCRIP' +
@@ -57,7 +56,7 @@ object DM: TDM
     Top = 104
   end
   object qSumCajas: TQuery
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     SQL.Strings = (
       'SELECT Sum([DETALLE_VENTA.CANTIDAD]) AS TOTAL_CAJAS'
       'FROM DETALLE_VENTA'
@@ -84,7 +83,7 @@ object DM: TDM
     Top = 200
   end
   object qVentasFecha: TQuery
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     SQL.Strings = (
       'SELECT VENTA.FECHA, Sum(VENTA.TOTAL_BS) AS TOTAL'
       'FROM VENTA'
@@ -102,7 +101,7 @@ object DM: TDM
     end
   end
   object tConfiguration: TTable
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     TableName = 'configuration'
     Left = 24
     Top = 248
@@ -121,7 +120,7 @@ object DM: TDM
     Top = 248
   end
   object qFindProduct: TQuery
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     SQL.Strings = (
       'SELECT * FROM PRODUCTO'
       'WHERE CODIGO=:codigo')
@@ -136,8 +135,7 @@ object DM: TDM
       end>
   end
   object tMainMenu: TTable
-    Active = True
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     TableName = 'FORMULARIO'
     Left = 184
     Top = 8
@@ -153,7 +151,7 @@ object DM: TDM
     Top = 56
   end
   object QProductManagement: TQuery
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     SQL.Strings = (
       'Select'
       ' `PRODUCTO`.`ID`, '
@@ -170,7 +168,7 @@ object DM: TDM
     Top = 56
   end
   object QSalesMasterDetail1: TQuery
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     SQL.Strings = (
       'SELECT VENTA.IDNOTA, VENTA.NOMBRE_CLIENTE,'
       'VENTA.TOTAL_CAJAS, VENTA.TOTAL_BS, VENTA.FECHA, VENTA.TOTAL'
@@ -201,7 +199,7 @@ object DM: TDM
     end
   end
   object QSalesMasterDetail2: TQuery
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     DataSource = DSSalesMasterDetail1
     SQL.Strings = (
       'Select'
@@ -256,7 +254,7 @@ object DM: TDM
     Top = 200
   end
   object TSalesMasterDetail: TTable
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     IndexFieldNames = 'ID_NOTA'
     MasterFields = 'IDNOTA'
     MasterSource = DSSalesMasterDetail1
@@ -265,7 +263,7 @@ object DM: TDM
     Top = 201
   end
   object TProduct: TTable
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     TableName = 'PRODUCTO'
     Left = 184
     Top = 248
@@ -277,7 +275,7 @@ object DM: TDM
   end
   object TRepayment1: TTable
     AutoRefresh = True
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     Filtered = True
     TableName = 'VENTA'
     Left = 184
@@ -290,7 +288,7 @@ object DM: TDM
   end
   object TRepayment2: TTable
     AutoRefresh = True
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     Filtered = True
     IndexFieldNames = 'ID_NOTA'
     MasterFields = 'IDNOTA'
@@ -306,7 +304,7 @@ object DM: TDM
   end
   object QRepayment1: TQuery
     AutoRefresh = True
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     SQL.Strings = (
       'Select'
       '  `VENTA`.`IDNOTA`,'
@@ -345,7 +343,7 @@ object DM: TDM
     Top = 387
   end
   object TRepayment3: TTable
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     TableName = 'DEVOLUCION'
     Left = 184
     Top = 432
@@ -362,7 +360,7 @@ object DM: TDM
   end
   object QRepayment3: TQuery
     AutoRefresh = True
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     DataSource = DSRepayment1
     SQL.Strings = (
       'Select'
@@ -386,7 +384,7 @@ object DM: TDM
       end>
   end
   object TEmployee: TTable
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     TableName = 'EMPLEADO'
     Left = 401
     Top = 11
@@ -409,7 +407,7 @@ object DM: TDM
     Top = 11
   end
   object QCustomer: TQuery
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     SQL.Strings = (
       'SELECT * FROM Cliente')
     Left = 401
@@ -453,7 +451,7 @@ object DM: TDM
     Top = 107
   end
   object TCustomer: TTable
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     TableName = 'CLIENTE'
     Left = 400
     Top = 56
@@ -492,7 +490,7 @@ object DM: TDM
     Top = 56
   end
   object QProforma1: TQuery
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     SQL.Strings = (
       'SELECT DETALLE_VENTA.*, producto.*'
       
@@ -537,7 +535,7 @@ object DM: TDM
     end
   end
   object TProforma: TTable
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     TableName = 'VENTA'
     Left = 400
     Top = 256
@@ -577,7 +575,7 @@ object DM: TDM
     Top = 208
   end
   object QProforma2: TQuery
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     SQL.Strings = (
       'SELECT * FROM VENTA'
       'WHERE IDNOTA = 140')
@@ -590,13 +588,13 @@ object DM: TDM
     Top = 308
   end
   object MasterTable: TTable
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     TableName = 'VENTA'
     Left = 400
     Top = 308
   end
   object DetailTable: TTable
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     IndexFieldNames = 'ID_NOTA'
     MasterFields = 'IDNOTA'
     MasterSource = MasterDS
@@ -605,47 +603,47 @@ object DM: TDM
     Top = 356
   end
   object TCustomerList: TTable
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     TableName = 'CLIENTE'
     Left = 400
     Top = 400
   end
   object QRepaymentList: TQuery
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     SQL.Strings = (
       'select * from devolucion')
     Left = 400
     Top = 440
   end
   object TEmployeeList: TTable
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     TableName = 'EMPLEADO'
     Left = 400
     Top = 488
   end
   object QDaySales1: TQuery
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     SQL.Strings = (
       'select * from venta')
     Left = 536
     Top = 8
   end
   object QDaySales2: TQuery
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     SQL.Strings = (
       'select sum(total_bs) from venta')
     Left = 536
     Top = 56
   end
   object QProductList: TQuery
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     SQL.Strings = (
       'select * from producto order by codigo')
     Left = 536
     Top = 104
   end
   object TProformas: TTable
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     IndexFieldNames = 'ID_NOTA'
     MasterFields = 'IDNOTA'
     MasterSource = DSQProformas
@@ -659,14 +657,14 @@ object DM: TDM
     Top = 156
   end
   object QProformas: TQuery
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     SQL.Strings = (
       'select * from venta')
     Left = 536
     Top = 152
   end
   object TSalesByEmployee: TTable
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     TableName = 'AUX'
     Left = 536
     Top = 256
@@ -677,12 +675,12 @@ object DM: TDM
     Top = 256
   end
   object QSalesByEmployee2: TQuery
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     Left = 536
     Top = 304
   end
   object QSalesByEmployee1: TQuery
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     SQL.Strings = (
       'select *'
       'from v_e'
@@ -696,7 +694,7 @@ object DM: TDM
     Top = 352
   end
   object TSales1: TTable
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     TableName = 'VENTA'
     Left = 536
     Top = 400
@@ -748,7 +746,7 @@ object DM: TDM
     Top = 403
   end
   object TSales2: TTable
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     IndexFieldNames = 'ID_NOTA'
     MasterFields = 'IDNOTA'
     MasterSource = DSSales1
@@ -762,14 +760,14 @@ object DM: TDM
     Top = 448
   end
   object QSales1: TQuery
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     SQL.Strings = (
       'select maX(IDNOTA)+1 AS MAY FROM VENTA')
     Left = 728
     Top = 8
   end
   object TSales3: TTable
-    DatabaseName = 'CuMiCaBdD'
+    DatabaseName = 'CuMiCaQGBdD'
     TableName = 'VENTA'
     Left = 536
     Top = 496

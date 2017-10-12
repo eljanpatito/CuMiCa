@@ -25,12 +25,6 @@ __published:	// IDE-managed Components
     TQRExpr *QRExpr2;
     TQRLabel *QRLabel2;
     TQRExpr *QRExpr3;
-    TQRLabel *QRLabel3;
-    TQRExpr *QRExpr4;
-    TQRLabel *QRLabel4;
-    TQRExpr *QRExpr5;
-    TQRLabel *QRLabel5;
-    TQRExpr *QRExpr6;
     TQRLabel *QRLabel6;
     TQRExpr *QRExpr7;
         TQRBand *QRBand2;

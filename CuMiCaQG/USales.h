@@ -58,6 +58,7 @@ __published:
         TEdit *txtnombre;
    TDBEdit *DBEdit5;
         TButton *btnQuitar;
+   TLabel *Label6;
         void __fastcall btnbuscarClick(TObject *Sender);
         void __fastcall btnnuevaventaClick(TObject *Sender);
         void __fastcall btncancelarClick(TObject *Sender);

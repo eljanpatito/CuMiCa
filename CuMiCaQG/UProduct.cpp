@@ -33,6 +33,12 @@ void __fastcall Tfrmdatosproducto::btnguardarClick(TObject *Sender)
             return;
          }
       }
+      // Colocando valores por defecto
+      EditCANTIDAS_POR_CAJA->Text = 0;
+      EditPRECIO_DE_COMPRA = 0;
+      EditPRECIO_UNIDAD = 0;
+
+      // Guardando el producto
       DM->TProduct->Post();
       Application->MessageBox("DATOS DE PRODUCTO CORRECTAMENTE GUARDADOS","OK",MB_OK | MB_ICONINFORMATION);
       frmgestionproductos->actualizar_consulta();
