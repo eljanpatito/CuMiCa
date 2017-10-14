@@ -165,7 +165,7 @@ void __fastcall Tfrmventas::btnvenderClick(TObject *Sender)
 // SELECT DETALLE_VENTA.* FROM DETALLE_VENTA WHERE (((DETALLE_VENTA.ID_NOTA)="+DBEdit1->Text+"))");
    DM->QProforma1->Open();
    frmproforma->QRLabel6->Caption=EditTOTAL->Text;
-   frmproforma->QRLabel7->Caption=EditTOTAL_BS->Text;
+   frmproforma->QRLabel7->Caption=FormatFloat("#,##0.00", StrToFloat(EditTOTAL_BS->Text));
    DM->QProforma2->SQL->Clear();
    DM->QProforma2->SQL->Add("SELECT * FROM VENTA");
    DM->QProforma2->SQL->Add("WHERE IDNOTA ="+DBEdit5->Text+"");

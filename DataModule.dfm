@@ -714,8 +714,8 @@ object DM: TDM
     end
     object TSales1TOTAL_BS: TFloatField
       FieldName = 'TOTAL_BS'
+      DisplayFormat = '0.00'
       EditFormat = '###,###,###.00'
-      currency = True
     end
     object TSales1TOTAL: TStringField
       FieldName = 'TOTAL'
