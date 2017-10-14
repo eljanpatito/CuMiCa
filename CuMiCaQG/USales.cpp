@@ -166,7 +166,7 @@ void __fastcall Tfrmventas::btnvenderClick(TObject *Sender)
    DM->QProforma1->Open();
    frmproforma->QRLabel6->Caption=EditTOTAL->Text;
 //   TVarRec aux[] = {};
-   frmproforma->QRLabel7->Caption=EditTOTAL_BS->Text;
+   frmproforma->QRLabel7->Caption=FormatFloat("#,##0.00", StrToFloat(EditTOTAL_BS->Text));
    //FormatFloat("#,##0.00", StrToFloat(EditTOTAL_BS->Text));
    //EditTOTAL_BS->Text;
    DM->QProforma2->SQL->Clear();
