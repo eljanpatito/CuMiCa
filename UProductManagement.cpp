@@ -95,6 +95,9 @@ void __fastcall Tfrmgestionproductos::btneliminarprodClick(TObject *Sender) {
 
 
 void __fastcall Tfrmgestionproductos::btnaumentarClick(TObject *Sender) {
+   if (!DM->TProduct->Active) {
+      DM->TProduct->Active = true;
+   }
    frmgestionproductos->locateTableByField(DM->TProduct, "ID", DBEdit1->Text);
    AnsiString amountStr = InputBox("Actualizar cajas","CODIGO: "+frmdatosproducto->EditCODIGO->Text+"\nDESCRIPCION: "+frmdatosproducto->EditDESCRIPCION->Text+"\n\nCantidad de Cajas:","");
    int amount = 0;
