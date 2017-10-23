@@ -146,6 +146,7 @@ __published:	// IDE-managed Components
    TQuery *QSales1;
    TTable *TSales3;
    TDataSource *DSSales3;
+   TQuery *QCustomerFind;
 private:	// User declarations
 public:		// User declarations
    __fastcall TDM(TComponent* Owner);

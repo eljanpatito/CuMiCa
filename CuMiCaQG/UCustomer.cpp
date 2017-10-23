@@ -109,6 +109,9 @@ void __fastcall Tfrmgestioncliente::btnmodificarclienteClick(
    iniciar_ingreso_de_datos();
    TLocateOptions op;
    op<<loPartialKey;
+   if (!DM->TCustomer->Active) {
+      DM->TCustomer->Active = true;
+   }
    DM->TCustomer->Locate("NIT",nit,op);
    DM->TCustomer->Edit();
 }

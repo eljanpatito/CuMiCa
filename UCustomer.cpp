@@ -14,15 +14,12 @@
 Tfrmgestioncliente *frmgestioncliente;
 int _fClientHeightEdit=585;
 int _fClientHeightSearch=535;
+AnsiString _oldCustomerNIT;
+AnsiString _newCustomerNIT;
 //----------------------------------------------------------------------------
 __fastcall Tfrmgestioncliente::Tfrmgestioncliente(TComponent *Owner)
 	: TForm(Owner)
 {
-}
-//----------------------------------------------------------------------------
-void __fastcall Tfrmgestioncliente::FormCreate(TObject *Sender)
-{
-	DM->QCustomer->Open();
 }
 //----------------------------------------------------------------------------
 void __fastcall Tfrmgestioncliente::btncerrarClick(TObject *Sender)
@@ -46,6 +43,7 @@ void __fastcall Tfrmgestioncliente::btnnuevoclienteClick(TObject *Sender)
       DM->TCustomer->Active = true;
    }
    DM->TCustomer->Insert();
+   _oldCustomerNIT = DBEdit1->Text;
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrmgestioncliente::DBEdit1Enter(TObject *Sender)
@@ -68,31 +66,45 @@ void __fastcall Tfrmgestioncliente::btncancelarClick(TObject *Sender)
    DM->DSCustomer1->DataSet=DM->QCustomer;
 }
 //---------------------------------------------------------------------------
+bool Tfrmgestioncliente::customerIsNew(AnsiString nit) {
+   _newCustomerNIT = nit;
+   if (_oldCustomerNIT != _newCustomerNIT) {
+      DM->QCustomerFind->Close();
+      DM->QCustomerFind->ParamByName("nit")->AsString = nit;
+      DM->QCustomerFind->Open();
+      if (DM->QCustomerFind->RecordCount > 0) {
+          Application->MessageBox("El CI/NIT ingresado ya existe. Ingrese un CI/NIT diferente o cancele la operacion.", "Error",MB_OK | MB_ICONERROR);
+          DBEdit1->SetFocus();
+          return false;
+      }
+   }
+   return true;
+}
+//---------------------------------------------------------------------------
 void __fastcall Tfrmgestioncliente::btnguardarClick(TObject *Sender)
 {
-try{
-DM->TCustomer->Post();
-Panel2->Enabled=False;
-Panel1->Enabled=True;
-frmgestioncliente->Height=_fClientHeightSearch;
-DBGrid1->Enabled=True;
-DM->DSCustomer1->DataSet=DM->QCustomer;
-/*Query1->SQL->Clear();
-Query1->SQL->Add("Select  `CLIENTE`.`NIT`,  `CLIENTE`.`NOMBRE`,  `CLIENTE`.`APELLIDO`From `CLIENTE`");
-Query1->Open();*/
-DM->QCustomer->Close();
-DM->QCustomer->Open();
-}
-catch(...)
-{
-Application->MessageBox("Debe ingresar todos los campos correctamente","Error",MB_OK | MB_ICONERROR);
-}
+   try {
+      if (customerIsNew(DBEdit1->Text)) {
+         DM->TCustomer->Post();
+         Panel2->Enabled=False;
+         Panel1->Enabled=True;
+         frmgestioncliente->Height=_fClientHeightSearch;
+         DBGrid1->Enabled=True;
+         DM->DSCustomer1->DataSet=DM->QCustomer;
+         DM->QCustomer->Close();
+         DM->QCustomer->Open();
+      }
+   } catch(...) {
+      Application->MessageBox("Debe ingresar todos los campos correctamente","Error",MB_OK | MB_ICONERROR);
+   }
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrmgestioncliente::txtbuscarChange(TObject *Sender)
 {
-DM->QCustomer->SQL->Clear();
-DM->QCustomer->SQL->Add("Select  * From `CLIENTE` WHERE NIT LIKE '%"+txtbuscar->Text+"%' OR APELLIDO LIKE '%"+txtbuscar->Text+"%'");
+DM->QCustomer->Close();
+//DM->QCustomer->SQL->Add("Select  * From `CLIENTE` WHERE NIT LIKE '%"+txtbuscar->Text+"%' OR APELLIDO LIKE '%"+txtbuscar->Text+"%'");
+DM->QCustomer->ParamByName("nit")->AsString = "%" + txtbuscar->Text + "%";
+DM->QCustomer->ParamByName("lastName")->AsString = "%" + txtbuscar->Text + "%";
 DM->QCustomer->Open();
 }
 //---------------------------------------------------------------------------
@@ -109,6 +121,9 @@ void __fastcall Tfrmgestioncliente::btnmodificarclienteClick(
    iniciar_ingreso_de_datos();
    TLocateOptions op;
    op<<loPartialKey;
+   if (!DM->TCustomer->Active) {
+      DM->TCustomer->Active = true;
+   }
    DM->TCustomer->Locate("NIT",nit,op);
    DM->TCustomer->Edit();
 }
@@ -116,7 +131,9 @@ void __fastcall Tfrmgestioncliente::btnmodificarclienteClick(
 void __fastcall Tfrmgestioncliente::btneliminarclienteClick(
       TObject *Sender)
 {
-if (Application->MessageBox("¿Seguro que desea Borrar los datos de este CLIENTE?","Eliminar Datos de CLIENTE",MB_YESNO | MB_ICONQUESTION) == ID_YES)
+if (Application->MessageBox(("¿Seguro que desea Borrar los datos de este CLIENTE?\n\
+\nCI/NIT: " + DBEdit1->Text
++ "\nNombre: " + DBEdit3->Text + " " + DBEdit2->Text).c_str(),"Eliminar Datos de CLIENTE",MB_YESNO | MB_ICONQUESTION) == ID_YES)
 {
 AnsiString nit;
 nit=DBEdit1->Text;
@@ -126,8 +143,8 @@ op<<loPartialKey;
 DM->TCustomer->Locate("NIT",nit,op);
 DM->TCustomer->Delete();
 DM->DSCustomer1->DataSet=DM->QCustomer;
-DM->QCustomer->SQL->Clear();
-DM->QCustomer->SQL->Add("Select * From `CLIENTE`");
+DM->QCustomer->Close();
+//DM->QCustomer->SQL->Add("Select * From `CLIENTE`");
 DM->QCustomer->Open();
 }
 }
@@ -149,6 +166,11 @@ void __fastcall Tfrmgestioncliente::FormActivate(TObject *Sender)
 {
    txtbuscar->Text="";
    Height = _fClientHeightSearch;
+   if (!DM->QCustomer->Active) {
+      DM->QCustomer->ParamByName("nit")->AsString = "%" + txtbuscar->Text + "%";
+      DM->QCustomer->ParamByName("lastName")->AsString = "%" + txtbuscar->Text + "%";
+      DM->QCustomer->Open();
+   }
 }
 //---------------------------------------------------------------------------
 

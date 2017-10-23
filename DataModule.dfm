@@ -412,9 +412,23 @@ object DM: TDM
   object QCustomer: TQuery
     DatabaseName = 'CuMiCaBdD'
     SQL.Strings = (
-      'SELECT * FROM Cliente')
+      'SELECT * FROM `CLIENTE`'
+      'WHERE NIT LIKE :nit'
+      'OR APELLIDO LIKE :lastname'
+      'ORDER BY NIT')
     Left = 401
     Top = 107
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'nit'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftString
+        Name = 'lastname'
+        ParamType = ptUnknown
+      end>
     object Query1NIT: TStringField
       FieldName = 'NIT'
       Size = 30
@@ -781,5 +795,19 @@ object DM: TDM
     DataSet = TSales3
     Left = 616
     Top = 496
+  end
+  object QCustomerFind: TQuery
+    DatabaseName = 'CuMiCaBdD'
+    SQL.Strings = (
+      'SELECT * FROM `CLIENTE`'
+      'WHERE NIT = :nit')
+    Left = 728
+    Top = 56
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'nit'
+        ParamType = ptUnknown
+      end>
   end
 end

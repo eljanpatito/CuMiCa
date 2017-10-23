@@ -48,7 +48,6 @@ __published:
    TDBEdit *dbeCliCiudad;
    TLabel *Label9;
    TDBEdit *DBEdit5;
-	void __fastcall FormCreate(TObject *Sender);
         void __fastcall btncerrarClick(TObject *Sender);
         void __fastcall btnnuevoclienteClick(TObject *Sender);
         void __fastcall DBEdit1Enter(TObject *Sender);
@@ -67,6 +66,7 @@ public:
 	// public declarations
 	__fastcall Tfrmgestioncliente(TComponent *Owner);
         void iniciar_ingreso_de_datos();
+        bool customerIsNew(AnsiString nit);
 };
 //----------------------------------------------------------------------------
 extern Tfrmgestioncliente *frmgestioncliente;
