@@ -18,6 +18,7 @@
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmventas *frmventas;
+bool isReopen;
 //----------------------------------------------------------------------------
 __fastcall Tfrmventas::Tfrmventas(TComponent *Owner)
 	: TForm(Owner)
@@ -63,6 +64,12 @@ void __fastcall Tfrmventas::btncancelarClick(TObject *Sender)
    Panel2->Enabled=False;
    Panel2->Color=clRed;
 
+   if (isReopen) {
+      DM->TSales1->Post();
+      DM->TSales1->Close();
+      DM->TSales2->Close();
+      return;
+   }
    DM->TSales2->First();
    while (!DM->TSales2->Eof){
      TLocateOptions op;
@@ -152,10 +159,10 @@ void __fastcall Tfrmventas::btnvenderClick(TObject *Sender)
    Panel2->Enabled=False;
    Panel2->Color=clRed;
    DM->TSales1->Post();
-   DM->TSales1->Refresh();
    DM->TSales3->Active = false;
    DM->TSales3->Active = true;
-   DM->TSales3->Last();
+   DM->TSales3->Locate("IDNOTA", DM->TSales1->FieldByName("IDNOTA")->AsString, TLocateOptions()<<loPartialKey);
+   DM->TSales1->Refresh();
    Application->MessageBox("VENTA REGISTRADA CORRECTAMENTE","OK",MB_OK | MB_ICONINFORMATION);
    DM->QProforma1->Close();
    DM->QProforma1->SQL->Clear();
@@ -178,14 +185,16 @@ void __fastcall Tfrmventas::btnvenderClick(TObject *Sender)
    txtnombre->Text="";
    DM->TSales1->Close();
    DM->TSales2->Close();
+   isReopen = false;
 }
 //---------------------------------------------------------------------------
 
 
 void __fastcall Tfrmventas::FormCreate(TObject *Sender)
 {
- this->Color=(TColor)frmmenuprincipal->cargar_color_ventana(this->Name);
-  DateTimePicker1->Date=Date().CurrentDate();
+   this->Color=(TColor)frmmenuprincipal->cargar_color_ventana(this->Name);
+   DateTimePicker1->Date=Date().CurrentDate();
+   Height = StrToInt(frmConfiguration->getValueFromProperty("formHeight"));
 }
 //---------------------------------------------------------------------------
 
@@ -241,10 +250,6 @@ if(Panel2->Enabled)
 }
 }
 //---------------------------------------------------------------------------
-
-
-
-
 void __fastcall Tfrmventas::btnQuitarClick(TObject *Sender)
 {
    AnsiString code = DM->TSales2->FieldByName("CODIGO")->AsString;
@@ -266,6 +271,41 @@ void __fastcall Tfrmventas::btnQuitarClick(TObject *Sender)
       }
    } else {
       ShowMessage("No existen productos para quitar del carrito.");
+   }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall Tfrmventas::Button1Click(TObject *Sender)
+{
+   // Initial Data form
+   DM->TSales1->Close();
+   TLocateOptions opt;
+   opt<<loPartialKey;
+   if (!DM->TSales1->Active) {
+      DM->TSales1->Active = true;
+   }
+   if (!DM->TSales1->Locate("IDNOTA", eIdNota->Text, opt)) {
+      DM->TSales1->Close();
+      Application->MessageBox("Nro de Nota no válido","Error",MB_OK | MB_ICONERROR);
+      return;
+   } else if (DM->TSales1->FieldByName("IDNOTA")->AsString != eIdNota->Text) {
+      DM->TSales1->Close();
+      Application->MessageBox("Nro de Nota no encontrado","Error",MB_OK | MB_ICONERROR);
+      return;
+   }
+   if (Application->MessageBox(("¿Seguro que desea reabrir la nota nro: "+eIdNota->Text+"?").c_str(),"Actualizar nota",MB_YESNO | MB_ICONQUESTION) == ID_YES) {
+      Panel1->Enabled=False;
+      DM->TSales1->Edit();
+      DateTimePicker1->Date = EditFECHA->Text;
+      //=DM->TSales1->FieldByName("FECHA")->AsString;
+      txtnombre->Text = DM->TSales1->FieldByName("COD_EMP")->AsString;
+      DM->TSales2->Open();
+      Panel2->Enabled = true;
+      Panel2->Color=(TColor)0x0000D900;
+      isReopen = true;
+   } else {
+      isReopen = false;
+      DM->TSales1->Close();
    }
 }
 //---------------------------------------------------------------------------

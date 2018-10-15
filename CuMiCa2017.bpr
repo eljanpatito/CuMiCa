@@ -44,13 +44,14 @@
     <USERDEFINES value="_DEBUG"/>
     <SYSDEFINES value="NO_STRICT"/>
     <MAINSOURCE value="CuMiCa2017.cpp"/>
-    <INCLUDEPATH value="&quot;D:\Program Files\Borland\CBuilder6\Projects&quot;;&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;&quot;C:\Program Files\Borland\CBuilder6\Bin&quot;;D:\PROGRAMAS\TRABAJOS\RAULINVENTARIO\App;$(BCB)\include;$(BCB)\include\vcl"/>
-    <LIBPATH value="&quot;D:\Program Files\Borland\CBuilder6\Projects&quot;;&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;&quot;C:\Program Files\Borland\CBuilder6\Bin&quot;;D:\PROGRAMAS\TRABAJOS\RAULINVENTARIO\App;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <INCLUDEPATH value="&quot;D:\Program Files\Borland\CBuilder6\Bin&quot;;&quot;D:\Program Files\Borland\CBuilder6\Projects&quot;;&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;&quot;C:\Program Files\Borland\CBuilder6\Bin&quot;;D:\PROGRAMAS\TRABAJOS\RAULINVENTARIO\App;$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="&quot;D:\Program Files\Borland\CBuilder6\Bin&quot;;&quot;D:\Program Files\Borland\CBuilder6\Projects&quot;;&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;&quot;C:\Program Files\Borland\CBuilder6\Bin&quot;;D:\PROGRAMAS\TRABAJOS\RAULINVENTARIO\App;$(BCB)\lib\obj;$(BCB)\lib"/>
     <WARNINGS value="-w-par"/>
     <OTHERFILES value=""/>
   </MACROS>
   <OPTIONS>
-    <IDLCFLAGS value="-I&quot;D:\Program Files\Borland\CBuilder6\Projects&quot; 
+    <IDLCFLAGS value="-I&quot;D:\Program Files\Borland\CBuilder6\Bin&quot; 
+      -I&quot;D:\Program Files\Borland\CBuilder6\Projects&quot; 
       -I&quot;C:\Program Files\Borland\CBuilder6\Projects&quot; 
       -I&quot;C:\Program Files\Borland\CBuilder6\Bin&quot; 
       -ID:\PROGRAMAS\TRABAJOS\RAULINVENTARIO\App -I$(BCB)\include 

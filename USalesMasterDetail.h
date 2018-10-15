@@ -60,6 +60,9 @@ __published:
    TQRBand *QRBand3;
    TQRExpr *QRExpr1;
    TQRLabel *QRLabel9;
+   TButton *btnMoreOpts;
+   TGroupBox *GroupBox1;
+   TButton *Button1;
 	void __fastcall FormCreate(TObject *Sender);
         void __fastcall Edit1Change(TObject *Sender);
         void __fastcall btnimprimirClick(TObject *Sender);
@@ -67,11 +70,14 @@ __published:
    void __fastcall FormActivate(TObject *Sender);
    void __fastcall BitBtn1Click(TObject *Sender);
    void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+   void __fastcall btnMoreOptsClick(TObject *Sender);
+   void __fastcall Button1Click(TObject *Sender);
 private:
 	// private declarations
 public:
 	// public declarations
 	__fastcall Tfrmmaestrodetalleventa(TComponent *Owner);
+   AnsiString idNota;
 };
 //----------------------------------------------------------------------------
 extern Tfrmmaestrodetalleventa *frmmaestrodetalleventa;

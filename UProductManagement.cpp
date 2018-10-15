@@ -219,5 +219,8 @@ void Tfrmgestionproductos::addAmountByID(int amount, AnsiString id) {
 void Tfrmgestionproductos::locateTableByField(TTable *table, AnsiString field, AnsiString value) {
    TLocateOptions op;
    op<<loPartialKey;
+   if (!table->Active) {
+      table->Active = true;
+   }
    table->Locate(field, value, op);
 }

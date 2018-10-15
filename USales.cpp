@@ -18,6 +18,7 @@
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmventas *frmventas;
+bool isReopen = false;
 //----------------------------------------------------------------------------
 __fastcall Tfrmventas::Tfrmventas(TComponent *Owner)
 	: TForm(Owner)
@@ -55,6 +56,7 @@ Panel2->Color=(TColor)0x0000D900;
 
 EditFECHA->Text=AnsiString(DateTimePicker1->Date);
 btnempleado->Click();
+   isReopen = false;
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrmventas::btncancelarClick(TObject *Sender)
@@ -63,8 +65,14 @@ void __fastcall Tfrmventas::btncancelarClick(TObject *Sender)
    Panel2->Enabled=False;
    Panel2->Color=clRed;
 
+   if (isReopen) {
+      DM->TSales1->Post();
+      DM->TSales1->Close();
+      DM->TSales2->Close();
+      return;
+   }
    DM->TSales2->First();
-   while (!DM->TSales2->Eof){
+   while (!DM->TSales2->Eof) {
      TLocateOptions op;
      op<<loPartialKey;
      DM->TProduct->Locate("CODIGO",DBEdit2->Text,op);
@@ -152,10 +160,10 @@ void __fastcall Tfrmventas::btnvenderClick(TObject *Sender)
    Panel2->Enabled=False;
    Panel2->Color=clRed;
    DM->TSales1->Post();
-   DM->TSales1->Refresh();
    DM->TSales3->Active = false;
    DM->TSales3->Active = true;
-   DM->TSales3->Last();
+   DM->TSales3->Locate("IDNOTA", DM->TSales1->FieldByName("IDNOTA")->AsString, TLocateOptions()<<loPartialKey);
+   DM->TSales1->Refresh();
    Application->MessageBox("VENTA REGISTRADA CORRECTAMENTE","OK",MB_OK | MB_ICONINFORMATION);
    DM->QProforma1->Close();
    DM->QProforma1->SQL->Clear();
@@ -175,14 +183,16 @@ void __fastcall Tfrmventas::btnvenderClick(TObject *Sender)
    txtnombre->Text="";
    DM->TSales1->Close();
    DM->TSales2->Close();
+   isReopen=false;
 }
 //---------------------------------------------------------------------------
 
 
 void __fastcall Tfrmventas::FormCreate(TObject *Sender)
 {
- this->Color=(TColor)frmmenuprincipal->cargar_color_ventana(this->Name);
-  DateTimePicker1->Date=Date().CurrentDate();
+   this->Color=(TColor)frmmenuprincipal->cargar_color_ventana(this->Name);
+   DateTimePicker1->Date=Date().CurrentDate();
+   Height = StrToInt(frmConfiguration->getValueFromProperty("formHeight"));
 }
 //---------------------------------------------------------------------------
 
@@ -252,7 +262,7 @@ void __fastcall Tfrmventas::btnQuitarClick(TObject *Sender)
             MB_YESNO | MB_ICONQUESTION) == ID_YES) {
          frmgestionproductos->locateTableByField(DM->TProduct, "CODIGO", code);
          AnsiString id = DM->TProduct->FieldByName("ID")->AsString;
-         double price = DM->TProduct->FieldByName("PRECIO_CAJA")->AsString.ToDouble();
+         double price = DM->TSales2->FieldByName("PRECIO")->AsFloat;
          int amount = DBEdit3->Text.ToInt();
          frmgestionproductos->addAmountByID(amount, id);
          frmgestionproductos->actualizar_consulta();
@@ -263,6 +273,126 @@ void __fastcall Tfrmventas::btnQuitarClick(TObject *Sender)
       }
    } else {
       ShowMessage("No existen productos para quitar del carrito.");
+   }
+}
+//---------------------------------------------------------------------------
+void __fastcall Tfrmventas::newSale(AnsiString idNota) {
+   //frmmaestrodetalleventa->Close();
+
+   // Initial Data form
+   DM->TSales1->Open();
+   DM->TSales2->Open();
+   btnbuscar->Enabled=True;
+   DM->QSales1->SQL->Clear();
+   DM->QSales1->SQL->Add("select MAX(IDNOTA)+1 AS MAY FROM VENTA;");
+   DM->QSales1->Open();
+   AnsiString idnota= DM->QSales1->FieldByName("MAY")->Text;
+   if (idnota == "") {
+      idnota="1";
+   }
+   DM->QSales1->Close();
+   Panel1->Enabled=False;
+   DM->TSales1->Insert();
+
+   // Assign customer data
+   DBEdit1->Text = DM->QSalesMasterDetail1->FieldByName("NOMBRE_CLIENTE")->AsString;
+   // Asign values from actual client to ventas table
+   DM->TSales1CLI_TEL->Value = DM->QSalesMasterDetail1->FieldByName("CLI_TEL")->AsString;
+   DM->TSales1CLI_CEL->Value = DM->QSalesMasterDetail1->FieldByName("CLI_CEL")->AsString;
+   DM->TSales1CLI_CIUDAD->Value = DM->QSalesMasterDetail1->FieldByName("CLI_CIUDAD")->AsString;
+   DM->TSales1CLI_NIT->Value = DM->QSalesMasterDetail1->FieldByName("CLI_NIT")->AsString;
+
+   // initial values
+   EditIDNOTA->Text=idnota;
+
+   EditTOTAL_BS->Text="0";
+   EditTOTAL_CAJAS->Text="0";
+   EditTOTAL->Text="cero";
+   Panel2->Enabled=True;
+   Panel2->Color=(TColor)0x0000D900;
+
+   EditFECHA->Text=AnsiString(DateTimePicker1->Date);
+
+   // Assign employee data
+   txtnombre->Text = DM->QSalesMasterDetail1->FieldByName("COD_EMP")->AsString;
+   DBEdit4->Text = txtnombre->Text;
+   btnbuscar->Enabled = false;
+   btnempleado->Enabled = false;
+
+   // Adding produts to car
+   DM->QSalesMasterDetail2->First();
+   while (!DM->QSalesMasterDetail2->Eof) {
+      int amount = DM->QSalesMasterDetail2->FieldByName("CANTIDAD")->AsInteger;
+      if (!DM->TProduct->Active) {
+         DM->TProduct->Active = true;
+      }
+      DM->TSales2->Active = false;
+      ShowMessage("Codigo: " + DM->QSalesMasterDetail2->FieldByName("CODIGO")->AsString);
+      DM->TSales2->Filter = "CODIGO='"+DM->QSalesMasterDetail2->FieldByName("CODIGO")->AsString+"'";
+         DM->TSales2->Filtered = true;
+         DM->TSales2->Active = true;
+         if (DM->TSales2->RecordCount > 0) {
+            int oldBoxQuantity = DM->TSales2->FieldByName("CANTIDAD")->AsInteger;
+            int boxQuantity = oldBoxQuantity + amount;
+            DM->TSales2->Edit();
+            DM->TSales2->FieldByName("CANTIDAD")->Text = boxQuantity;
+            DM->TSales2->FieldByName("PARCIAL")->Text=AnsiString(boxQuantity*DM->QSalesMasterDetail2->FieldByName("PRECIO")->AsFloat);
+         } else {
+         ShowMessage("Inserting: " + DM->QSalesMasterDetail2->FieldByName("CODIGO")->AsString);
+            DM->TSales2->Insert();
+            DM->TSales2->FieldByName("CODIGO")->Text=DM->QSalesMasterDetail2->FieldByName("CODIGO")->AsString;
+            DM->TSales2->FieldByName("DESCRIPCION")->Text=DM->QSalesMasterDetail2->FieldByName("DESCRIPCION")->AsString;
+            DM->TSales2->FieldByName("CANTIDAD")->Text=DM->QSalesMasterDetail2->FieldByName("CANTIDAD")->AsString;
+            DM->TSales2->FieldByName("CANTIDAD_POR_CAJA")->Text = DM->QSalesMasterDetail2->FieldByName("CANTIDAD_POR_CAJA")->AsString;
+            DM->TSales2->FieldByName("PRECIO")->Text=DM->QSalesMasterDetail2->FieldByName("PRECIO")->AsString;
+            DM->TSales2->FieldByName("PARCIAL")->Text=DM->QSalesMasterDetail2->FieldByName("PARCIAL")->AsString;
+            DM->TSales2->FieldByName("ID_NOTA")->Text=EditIDNOTA->Text;
+         }
+         EditTOTAL_CAJAS->Text=EditTOTAL_CAJAS->Text.ToInt() + amount;
+         EditTOTAL_BS->Text=EditTOTAL_BS->Text.ToDouble()+(amount*DM->QSalesMasterDetail2->FieldByName("PRECIO")->AsFloat);
+         DM->TSales2->Post();
+         DM->TSales2->Refresh();
+         DM->TSales2->Filtered = false;
+         DM->QSalesMasterDetail2->Next();
+   }
+
+         /*frmgestionproductos->locateTableByField(DM->TProduct, "ID", DBEdit1->Text);
+         frmgestionproductos->addAmountByID(-amount, DBEdit1->Text);
+         actualizar_consulta();
+         Panel1->Visible=True;
+         Panel2->Visible=False;*/
+}
+void __fastcall Tfrmventas::Button1Click(TObject *Sender)
+{
+   // Initial Data form
+   DM->TSales1->Close();
+   TLocateOptions opt;
+   opt<<loPartialKey;
+   if (!DM->TSales1->Active) {
+      DM->TSales1->Active = true;
+   }
+   if (!DM->TSales1->Locate("IDNOTA", eIdNota->Text, opt)) {
+      DM->TSales1->Close();
+      Application->MessageBox("Nro de Nota no válido","Error",MB_OK | MB_ICONERROR);
+      return;
+   } else if (DM->TSales1->FieldByName("IDNOTA")->AsString != eIdNota->Text) {
+      DM->TSales1->Close();
+      Application->MessageBox("Nro de Nota no encontrado","Error",MB_OK | MB_ICONERROR);
+      return;
+   }
+   if (Application->MessageBox(("¿Seguro que desea reabrir la nota nro: "+eIdNota->Text+"?").c_str(),"Actualizar nota",MB_YESNO | MB_ICONQUESTION) == ID_YES) {
+      Panel1->Enabled=False;
+      DM->TSales1->Edit();
+      DateTimePicker1->Date = EditFECHA->Text;
+      //=DM->TSales1->FieldByName("FECHA")->AsString;
+      txtnombre->Text = DM->TSales1->FieldByName("COD_EMP")->AsString;
+      DM->TSales2->Open();
+      Panel2->Enabled = true;
+      Panel2->Color=(TColor)0x0000D900;
+      isReopen = true;
+   } else {
+      isReopen = false;
+      DM->TSales1->Close();
    }
 }
 //---------------------------------------------------------------------------

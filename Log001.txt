@@ -1,0 +1,12 @@
+[CuMiCa2017.exe] - 2017-10-25 00:39:19 - App was closed
+[CuMiCa2017.exe] - 2017-10-25 00:34:13 - App was open
+[CuMiCa2017.exe] - 2017-10-25 00:33:43 - App was open
+[CuMiCa2017.exe] - 2017-10-25 00:32:44 - App was open
+[CuMiCa2017.exe] - 2017-10-25 00:19:40 - App was closed
+[CuMiCa2017.exe] - 2017-10-25 00:17:44 - App was open
+[CuMiCa2017.exe] - 2017-10-24 17:27:42 - App was closed
+[CuMiCa2017.exe] - 2017-10-24 17:21:23 - App was open
+[CuMiCa2017.exe] - 2017-10-24 14:49:07 - App was closed
+[CuMiCa2017.exe] - 2017-10-24 14:44:26 - App was open
+[CuMiCa2017.exe] - 2017-10-24 01:03:56 - ERROR, Username [], pwd []
+[CuMiCa2017.exe] - 2017-10-24 01:03:45 - App was open

@@ -58,6 +58,8 @@ __published:
         TEdit *txtnombre;
    TDBEdit *DBEdit5;
         TButton *btnQuitar;
+   TButton *Button1;
+   TEdit *eIdNota;
         void __fastcall btnbuscarClick(TObject *Sender);
         void __fastcall btnnuevaventaClick(TObject *Sender);
         void __fastcall btncancelarClick(TObject *Sender);
@@ -73,11 +75,13 @@ __published:
         void __fastcall btnempleadoClick(TObject *Sender);
         void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
    void __fastcall btnQuitarClick(TObject *Sender);
+   void __fastcall Button1Click(TObject *Sender);
 private:
 	// private declarations
 public:
 	// public declarations
 	__fastcall Tfrmventas(TComponent *Owner);
+   void __fastcall newSale(AnsiString idNota);
 };
 //----------------------------------------------------------------------------
 extern Tfrmventas *frmventas;

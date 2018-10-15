@@ -11,6 +11,8 @@
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmmaestrodetalleventa *frmmaestrodetalleventa;
+int normalClientWidth = 560;
+int expandedClientWidth = 760;
 //----------------------------------------------------------------------------
 __fastcall Tfrmmaestrodetalleventa::Tfrmmaestrodetalleventa(TComponent *Owner)
 	: TForm(Owner)
@@ -61,8 +63,12 @@ void __fastcall Tfrmmaestrodetalleventa::btnimprimirClick(TObject *Sender)
 void __fastcall Tfrmmaestrodetalleventa::btncolorClick(TObject *Sender)
 {
    ColorDialog1->Execute();
-      this->Color=ColorDialog1->Color;
-      frmmenuprincipal->color_ventana(this->Name,ColorDialog1->Color);
+   int colorIntValue = ColorDialog1->Color;
+   if (colorIntValue == frmmenuprincipal->neutroColor) {
+      colorIntValue = frmmenuprincipal->defaultColor;
+   }
+   this->Color = TColor(colorIntValue);
+   frmmenuprincipal->color_ventana(this->Name, colorIntValue);
 }
 //---------------------------------------------------------------------------
 
@@ -94,6 +100,88 @@ void __fastcall Tfrmmaestrodetalleventa::FormClose(TObject *Sender,
    DM->QSalesMasterDetail1->Close();
    DM->QSalesMasterDetail2->Close();
    DM->TSalesMasterDetail->Active = false;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall Tfrmmaestrodetalleventa::btnMoreOptsClick(TObject *Sender)
+{
+   if (ClientWidth == 560) {
+      btnMoreOpts->Caption = "<<";
+      ClientWidth = expandedClientWidth;
+   } else {
+      btnMoreOpts->Caption = ">>";
+      ClientWidth = normalClientWidth;
+   }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall Tfrmmaestrodetalleventa::Button1Click(TObject *Sender)
+{
+   if (DM->QSalesMasterDetail1->RecordCount == 0) {
+      ShowMessage("Debe seleccionar una nota");
+      return;
+   }
+   idNota = DM->QSalesMasterDetail1->FieldByName("IDNOTA")->AsString;
+   AnsiString nameCustomer = DM->QSalesMasterDetail1->FieldByName("NOMBRE_CLIENTE")->AsString;
+   if (Application->MessageBox(("¿Seguro que desea Anular (Borrar) esta venta?\
+   \n\nEsta acción no podrá deshacerse\
+   \n\nNOTA: " + idNota +
+   "\nNombre Cliente: " + nameCustomer).c_str(),"Anular Venta",MB_YESNO | MB_ICONQUESTION) == ID_YES) {
+      ShowMessage("Nota sera anulada");
+      DM->QSalesMasterDetail2->First();
+      DM->TOrderLine->Active = true;
+      while (!DM->QSalesMasterDetail2->Eof) {
+         DM->TOrderLine->Insert();
+         DM->TOrderLine->FieldByName("CODIGO")->AsString =
+            DM->QSalesMasterDetail2->FieldByName("CODIGO")->AsString;
+         DM->TOrderLine->FieldByName("DESCRIPCION")->AsString =
+            DM->QSalesMasterDetail2->FieldByName("DESCRIPCION")->AsString;
+         DM->TOrderLine->FieldByName("CANTIDAD")->AsString =
+            DM->QSalesMasterDetail2->FieldByName("CANTIDAD")->AsString;
+         DM->TOrderLine->FieldByName("PRECIO")->AsString =
+            DM->QSalesMasterDetail2->FieldByName("PRECIO")->AsString;
+         DM->TOrderLine->FieldByName("PARCIAL")->AsString =
+            DM->QSalesMasterDetail2->FieldByName("PARCIAL")->AsString;
+         DM->TOrderLine->FieldByName("ID_NOTA")->AsString =
+            DM->QSalesMasterDetail2->FieldByName("ID_NOTA")->AsString;
+         DM->TOrderLine->FieldByName("CANTIDAD_POR_CAJA")->AsString =
+            DM->QSalesMasterDetail2->FieldByName("CANTIDAD_POR_CAJA")->AsString;
+         DM->TOrderLine->Post();
+         DM->QSalesMasterDetail2->Next();
+      }
+      DM->TOrderLine->Active = false;
+
+      DM->TOrder->Active = true;
+      DM->TOrder->Insert();
+      DM->TOrder->FieldByName("IDNOTA")->AsString =
+         DM->QSalesMasterDetail1->FieldByName("IDNOTA")->AsString;
+      DM->TOrder->FieldByName("NOMBRE_CLIENTE")->AsString =
+         DM->QSalesMasterDetail1->FieldByName("NOMBRE_CLIENTE")->AsString;
+      DM->TOrder->FieldByName("TOTAL_CAJAS")->AsString =
+         DM->QSalesMasterDetail1->FieldByName("TOTAL_CAJAS")->AsString;
+      DM->TOrder->FieldByName("TOTAL_BS")->AsString =
+         DM->QSalesMasterDetail1->FieldByName("TOTAL_BS")->AsString;
+      DM->TOrder->FieldByName("TOTAL")->AsString =
+         DM->QSalesMasterDetail1->FieldByName("TOTAL")->AsString;
+      DM->TOrder->FieldByName("FECHA")->AsString =
+         DM->QSalesMasterDetail1->FieldByName("FECHA")->AsString;
+      DM->TOrder->FieldByName("COD_EMP")->AsString =
+         DM->QSalesMasterDetail1->FieldByName("COD_EMP")->AsString;
+      DM->TOrder->FieldByName("CLI_TEL")->AsString =
+         DM->QSalesMasterDetail1->FieldByName("CLI_TEL")->AsString;
+      DM->TOrder->FieldByName("CLI_CEL")->AsString =
+         DM->QSalesMasterDetail1->FieldByName("CLI_CEL")->AsString;
+      DM->TOrder->FieldByName("CLI_CIUDAD")->AsString =
+         DM->QSalesMasterDetail1->FieldByName("CLI_CIUDAD")->AsString;
+      DM->TOrder->FieldByName("CLI_NIT")->AsString =
+         DM->QSalesMasterDetail1->FieldByName("CLI_NIT")->AsString;
+      DM->TOrder->Post();
+      DM->TOrder->Active = false;
+
+      btnMoreOpts->Click();
+      frmventas->newSale(idNota);
+      Close();
+   }
 }
 //---------------------------------------------------------------------------
 

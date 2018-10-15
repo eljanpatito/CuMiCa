@@ -11,6 +11,7 @@
 #include "UCustomer.h"
 #include "USales.h"
 #include "UReportsList.h"
+//#include "ULogs.h"
 
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -25,7 +26,8 @@ __fastcall Tfrmmenuprincipal::Tfrmmenuprincipal(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall Tfrmmenuprincipal::btncerrarClick(TObject *Sender)
 {
-Application->Terminate();
+//   FRMLogs->logMessage("App was closed");
+   Application->Terminate();
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrmmenuprincipal::FormClose(TObject *Sender,

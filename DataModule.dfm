@@ -172,8 +172,7 @@ object DM: TDM
   object QSalesMasterDetail1: TQuery
     DatabaseName = 'CuMiCaBdD'
     SQL.Strings = (
-      'SELECT VENTA.IDNOTA, VENTA.NOMBRE_CLIENTE,'
-      'VENTA.TOTAL_CAJAS, VENTA.TOTAL_BS, VENTA.FECHA, VENTA.TOTAL'
+      'SELECT *'
       'FROM VENTA'
       'ORDER BY VENTA.IDNOTA DESC')
     Left = 185
@@ -200,17 +199,37 @@ object DM: TDM
     object Query1FECHA: TDateTimeField
       FieldName = 'FECHA'
     end
+    object QSalesMasterDetail1COD_EMP: TStringField
+      FieldName = 'COD_EMP'
+      Origin = 'CUMICABDD.VENTA.COD_EMP'
+      Size = 30
+    end
+    object QSalesMasterDetail1CLI_TEL: TStringField
+      FieldName = 'CLI_TEL'
+      Origin = 'CUMICABDD.VENTA.CLI_TEL'
+      Size = 12
+    end
+    object QSalesMasterDetail1CLI_CEL: TStringField
+      FieldName = 'CLI_CEL'
+      Origin = 'CUMICABDD.VENTA.CLI_CEL'
+      Size = 12
+    end
+    object QSalesMasterDetail1CLI_CIUDAD: TStringField
+      FieldName = 'CLI_CIUDAD'
+      Origin = 'CUMICABDD.VENTA.CLI_CIUDAD'
+      Size = 12
+    end
+    object QSalesMasterDetail1CLI_NIT: TStringField
+      FieldName = 'CLI_NIT'
+      Origin = 'CUMICABDD.VENTA.CLI_NIT'
+      Size = 30
+    end
   end
   object QSalesMasterDetail2: TQuery
     DatabaseName = 'CuMiCaBdD'
     DataSource = DSSalesMasterDetail1
     SQL.Strings = (
-      'Select'
-      '  `DETALLE_VENTA`.`CODIGO`,'
-      '  `DETALLE_VENTA`.`DESCRIPCION`,'
-      '  `DETALLE_VENTA`.`CANTIDAD`,'
-      '  `DETALLE_VENTA`.`PRECIO`,'
-      '  `DETALLE_VENTA`.`PARCIAL`'
+      'Select *'
       'From `DETALLE_VENTA`'
       'Where'
       '  `DETALLE_VENTA`.`ID_NOTA` =:"IDNOTA"')
@@ -240,6 +259,15 @@ object DM: TDM
     object Query2PARCIAL: TFloatField
       FieldName = 'PARCIAL'
     end
+    object QSalesMasterDetail2Id: TIntegerField
+      FieldName = 'Id'
+    end
+    object QSalesMasterDetail2ID_NOTA: TIntegerField
+      FieldName = 'ID_NOTA'
+    end
+    object QSalesMasterDetail2CANTIDAD_POR_CAJA: TIntegerField
+      FieldName = 'CANTIDAD_POR_CAJA'
+    end
   end
   object DSSalesMasterDetail1: TDataSource
     DataSet = QSalesMasterDetail1
@@ -264,6 +292,23 @@ object DM: TDM
     TableName = 'DEVOLUCION'
     Left = 184
     Top = 201
+    object TSalesMasterDetailId: TAutoIncField
+      FieldName = 'Id'
+    end
+    object TSalesMasterDetailCODIGO_EMPLEADO: TStringField
+      FieldName = 'CODIGO_EMPLEADO'
+      Size = 100
+    end
+    object TSalesMasterDetailCODIGO_PRODUCTO: TStringField
+      FieldName = 'CODIGO_PRODUCTO'
+      Size = 100
+    end
+    object TSalesMasterDetailCANTIDAD: TIntegerField
+      FieldName = 'CANTIDAD'
+    end
+    object TSalesMasterDetailID_NOTA: TIntegerField
+      FieldName = 'ID_NOTA'
+    end
   end
   object TProduct: TTable
     DatabaseName = 'CuMiCaBdD'
@@ -790,6 +835,46 @@ object DM: TDM
     TableName = 'VENTA'
     Left = 536
     Top = 496
+    object TSales3IDNOTA: TIntegerField
+      FieldName = 'IDNOTA'
+    end
+    object TSales3NOMBRE_CLIENTE: TStringField
+      FieldName = 'NOMBRE_CLIENTE'
+      Size = 100
+    end
+    object TSales3TOTAL_CAJAS: TIntegerField
+      FieldName = 'TOTAL_CAJAS'
+    end
+    object TSales3TOTAL_BS: TFloatField
+      FieldName = 'TOTAL_BS'
+    end
+    object TSales3TOTAL: TStringField
+      FieldName = 'TOTAL'
+      Size = 255
+    end
+    object TSales3FECHA: TDateTimeField
+      FieldName = 'FECHA'
+    end
+    object TSales3COD_EMP: TStringField
+      FieldName = 'COD_EMP'
+      Size = 30
+    end
+    object TSales3CLI_TEL: TStringField
+      FieldName = 'CLI_TEL'
+      Size = 12
+    end
+    object TSales3CLI_CEL: TStringField
+      FieldName = 'CLI_CEL'
+      Size = 12
+    end
+    object TSales3CLI_CIUDAD: TStringField
+      FieldName = 'CLI_CIUDAD'
+      Size = 12
+    end
+    object TSales3CLI_NIT: TStringField
+      FieldName = 'CLI_NIT'
+      Size = 30
+    end
   end
   object DSSales3: TDataSource
     DataSet = TSales3
@@ -809,5 +894,83 @@ object DM: TDM
         Name = 'nit'
         ParamType = ptUnknown
       end>
+  end
+  object TOrderLine: TTable
+    DatabaseName = 'CuMiCaBdD'
+    TableName = 'ORDER_LINE'
+    Left = 728
+    Top = 112
+    object TOrderLineId: TAutoIncField
+      FieldName = 'Id'
+    end
+    object TOrderLineCODIGO: TStringField
+      FieldName = 'CODIGO'
+      Size = 30
+    end
+    object TOrderLineDESCRIPCION: TStringField
+      FieldName = 'DESCRIPCION'
+      Size = 255
+    end
+    object TOrderLineCANTIDAD: TIntegerField
+      FieldName = 'CANTIDAD'
+    end
+    object TOrderLinePRECIO: TFloatField
+      FieldName = 'PRECIO'
+    end
+    object TOrderLinePARCIAL: TFloatField
+      FieldName = 'PARCIAL'
+    end
+    object TOrderLineID_NOTA: TIntegerField
+      FieldName = 'ID_NOTA'
+    end
+    object TOrderLineCANTIDAD_POR_CAJA: TIntegerField
+      FieldName = 'CANTIDAD_POR_CAJA'
+    end
+  end
+  object TOrder: TTable
+    DatabaseName = 'CuMiCaBdD'
+    TableName = 'ORDER'
+    Left = 728
+    Top = 160
+    object TOrderIDNOTA: TIntegerField
+      FieldName = 'IDNOTA'
+    end
+    object TOrderNOMBRE_CLIENTE: TStringField
+      FieldName = 'NOMBRE_CLIENTE'
+      Size = 100
+    end
+    object TOrderTOTAL_CAJAS: TIntegerField
+      FieldName = 'TOTAL_CAJAS'
+    end
+    object TOrderTOTAL_BS: TFloatField
+      FieldName = 'TOTAL_BS'
+    end
+    object TOrderTOTAL: TStringField
+      FieldName = 'TOTAL'
+      Size = 255
+    end
+    object TOrderFECHA: TDateTimeField
+      FieldName = 'FECHA'
+    end
+    object TOrderCOD_EMP: TStringField
+      FieldName = 'COD_EMP'
+      Size = 30
+    end
+    object TOrderCLI_TEL: TStringField
+      FieldName = 'CLI_TEL'
+      Size = 12
+    end
+    object TOrderCLI_CEL: TStringField
+      FieldName = 'CLI_CEL'
+      Size = 12
+    end
+    object TOrderCLI_CIUDAD: TStringField
+      FieldName = 'CLI_CIUDAD'
+      Size = 12
+    end
+    object TOrderCLI_NIT: TStringField
+      FieldName = 'CLI_NIT'
+      Size = 30
+    end
   end
 end

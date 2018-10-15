@@ -4,21 +4,16 @@
 #include<ctype.h>
 #define MAX 100
 
-int longitud;//LONGITUD DE LA CADENA ENTRADA
-char salida[MAX];//SALIDA YA CONVERTIDA A LETRAS
-char actual[MAX];//VALOR DEL NUMERO ACTUAL
-char actualposterior[MAX];//VALOR DEL NUMERO POSTERIOR
-char revisada[MAX]; //LA ENTRADA UNA VEZ REVISADA PARA Q EL USUARIO NO ENTRE LETRAS
-char opcio[MAX]; //OPCION SELECCIONADA 1 CASTELLANO 2 CATALAN
-void traduce_a_letras(char revisada[]); //FUNCION Q "TRADUCE" AL CASTELLANO
+
+extern char revisada[MAX]; //LA ENTRADA UNA VEZ REVISADA PARA Q EL USUARIO NO ENTRE LETRAS
+extern char opcio[MAX]; //OPCION SELECCIONADA 1 CASTELLANO 2 CATALAN
+char * traduce_a_letras(char revisada[]); //FUNCION Q "TRADUCE" AL CASTELLANO
 /*********************************MAIN DEL PROGRAMA**************************************/
 
 char * convertir(char entrada[]){
-         strcpy(salida,"");
-         traduce_a_letras(entrada);
-         return salida;
+         return traduce_a_letras(entrada);
 }
-void traduce_a_letras(char revisada[]){
+char * traduce_a_letras(char revisada[]){
 
 	char unidades[MAX][MAX]={"uno ","dos ","tres ","cuatro ","cinco ","seis ","siete ","ocho ","nueve "};
 	char decenas[MAX][MAX]={"diez ","veinte ","treinta ","cuarenta ","cincuenta ","sesenta ","setenta ","ochenta ","noventa "};
@@ -30,6 +25,11 @@ void traduce_a_letras(char revisada[]){
 	int i;
 	int bandera;
 	int posicionactual;
+   int longitud;//LONGITUD DE LA CADENA ENTRADA
+   char actualposterior[MAX];//VALOR DEL NUMERO POSTERIOR
+   char salida[MAX];//SALIDA YA CONVERTIDA A LETRAS
+   char actual[MAX];//VALOR DEL NUMERO ACTUAL
+   strcpy(salida,"");
 
 	longitud = strlen(revisada);
 
@@ -103,7 +103,5 @@ void traduce_a_letras(char revisada[]){
 		}//fin del switch
 
 	}//fin del for
-
+   return salida;
 } //fin de funcion
-
- 

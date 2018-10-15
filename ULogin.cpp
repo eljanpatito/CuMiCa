@@ -15,11 +15,6 @@ __fastcall Tfrmlogin::Tfrmlogin(TComponent *Owner)
 {
 }
 //----------------------------------------------------------------------------
-void __fastcall Tfrmlogin::FormCreate(TObject *Sender)
-{
-//	DM->Query1->Open();
-}
-//----------------------------------------------------------------------------
 void __fastcall Tfrmlogin::btncancelarClick(TObject *Sender)
 {
 Close();
@@ -28,6 +23,7 @@ Close();
 void __fastcall Tfrmlogin::btningresarClick(TObject *Sender)
 {
    if ((txtusuario->Text.Trim() == "") || (txtpassword->Text.Trim() == "")) {
+//      FRMLogs->logMessage("ERROR, Username [" + txtusuario->Text + "], pwd [" + txtpassword->Text + "]");
       Application->MessageBoxA("Debe ingresar usuario y contraseña", "Error", MB_OK | MB_ICONERROR);
       txtusuario->Text="";
     txtpassword->Text="";
@@ -54,6 +50,7 @@ void __fastcall Tfrmlogin::btningresarClick(TObject *Sender)
    else
    {
       Application->MessageBoxA("Error de usuario o contraseña", "Error", MB_OK | MB_ICONERROR);
+//      FRMLogs->logMessage("ERROR, Username [" + txtusuario->Text + "], pwd [" + txtpassword->Text + "]");
     txtusuario->Text="";
     txtpassword->Text="";
     txtusuario->SetFocus();
@@ -96,6 +93,12 @@ void __fastcall Tfrmlogin::txtpasswordKeyDown(TObject *Sender, WORD &Key,
 {
 if(Key==13)
 btningresar->Click();        
+}
+//---------------------------------------------------------------------------
+
+void __fastcall Tfrmlogin::Image1Click(TObject *Sender)
+{
+//   FRMLogs->ShowModal();
 }
 //---------------------------------------------------------------------------
 

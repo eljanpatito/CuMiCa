@@ -31,8 +31,8 @@ void __fastcall TfrmConfiguration::Copiaralvalor1Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 void TfrmConfiguration::loadDefaultConfiguration() {
-   AnsiString values[11][10];
-   int maxRow = 11;
+   AnsiString values[12][10];
+   int maxRow = 12;
    values[0][0] = "fontName"; values[0][1]="Tahoma";
    values[1][0] = "fontSize"; values[1][1]="10";
    values[2][0] = "fontColor"; values[2][1]="clBlack";
@@ -44,6 +44,7 @@ void TfrmConfiguration::loadDefaultConfiguration() {
    values[8][0] = "defaultColor"; values[8][1]="-2147483646";
    values[9][0] = "neutroColor"; values[9][1]="16777215";
    values[10][0] = "store"; values[10][1]="Comercial QUISPGIL";
+   values[11][0] = "formHeight"; values[11][1]="580";
    for (int row = 0; row < maxRow; row++) {
       DM->tConfiguration->Active = false;
       DM->tConfiguration->Filtered = false;

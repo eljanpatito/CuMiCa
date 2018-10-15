@@ -61,8 +61,12 @@ void __fastcall Tfrmmaestrodetalleventa::btnimprimirClick(TObject *Sender)
 void __fastcall Tfrmmaestrodetalleventa::btncolorClick(TObject *Sender)
 {
    ColorDialog1->Execute();
-      this->Color=ColorDialog1->Color;
-      frmmenuprincipal->color_ventana(this->Name,ColorDialog1->Color);
+   int colorIntValue = ColorDialog1->Color;
+   if (colorIntValue == frmmenuprincipal->neutroColor) {
+      colorIntValue = frmmenuprincipal->defaultColor;
+   }
+   this->Color = TColor(colorIntValue);
+   frmmenuprincipal->color_ventana(this->Name, colorIntValue);
 }
 //---------------------------------------------------------------------------
 

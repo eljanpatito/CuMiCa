@@ -7,6 +7,7 @@
 #include "UMainMenu.h"
 #include "UProductManagement.h"
 #include "ULogin.h"
+//#include "ULogs.h"
 //----------------------------------------------------------------------------
 #pragma resource "*.dfm"
 Tfrmdatosproducto *frmdatosproducto;
@@ -28,12 +29,14 @@ void __fastcall Tfrmdatosproducto::btnguardarClick(TObject *Sender)
          DM->qFindProduct->ParamByName("codigo")->AsString = EditCODIGO->Text;
          DM->qFindProduct->Open();
          if (DM->qFindProduct->RecordCount > 0) {
+//            FRMLogs->logMessage("ERROR, Code already exists [" + EditCODIGO->Text + "]");
             Application->MessageBox("El codigo ingresado ya existe. Ingrese un codigo diferente o cancele la operacion.","Error",MB_OK | MB_ICONERROR);
             EditCODIGO->SetFocus();
             return;
          }
       }
       DM->TProduct->Post();
+//      FRMLogs->logMessage(Label8->Caption + " Codigo [" + EditCODIGO->Text + "]");
       Application->MessageBox("DATOS DE PRODUCTO CORRECTAMENTE GUARDADOS","OK",MB_OK | MB_ICONINFORMATION);
       frmgestionproductos->actualizar_consulta();
       Close();

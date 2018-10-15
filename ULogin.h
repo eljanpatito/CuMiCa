@@ -33,7 +33,6 @@ __published:
         TButton *btningresar;
         TButton *btncancelar;
         TDBEdit *DBEdit1;
-	void __fastcall FormCreate(TObject *Sender);
         void __fastcall btncancelarClick(TObject *Sender);
         void __fastcall btningresarClick(TObject *Sender);
         void __fastcall txtusuarioEnter(TObject *Sender);
@@ -43,6 +42,7 @@ __published:
         void __fastcall txtusuarioKeyPress(TObject *Sender, char &Key);
         void __fastcall txtpasswordKeyDown(TObject *Sender, WORD &Key,
           TShiftState Shift);
+   void __fastcall Image1Click(TObject *Sender);
 private:
 	// private declarations
 public:
