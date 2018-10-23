@@ -1,6 +1,6 @@
 object DM: TDM
   OldCreateOrder = False
-  Left = 196
+  Left = 208
   Top = 124
   Height = 591
   Width = 1072
